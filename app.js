@@ -28,7 +28,7 @@ app.use('/', routes);
 app.use('/users', users);
 
 var connection =  null;
-r.connect( {host: 'localhost', port: 3000}, function(err, conn) {
+r.connect( {host: 'localhost', port: 28015}, function(err, conn) {
 	if (err) throw err;
 	connection = conn;
 })
