@@ -41,4 +41,3 @@ jspm_packages
 
 ### RethinkDB ###
 rethinkdb_data/
-bin/
