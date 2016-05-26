@@ -6,9 +6,6 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
-
-var r = require('rethinkdb');
 
 var app = express();
 
@@ -24,14 +21,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
-app.use('/users', users);
+// load database config
+require('./config/db');
 
-var connection =  null;
-r.connect( {host: 'localhost', port: 28015}, function(err, conn) {
-	if (err) throw err;
-	connection = conn;
-})
+app.use('/', routes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
