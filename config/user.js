@@ -7,7 +7,7 @@ var userSchema = new Schema({
 		type: Date,
 		default: Date.now
 	},
-	googleID: {
+	userId: {
 		type: String,
 		required: true
 	},
