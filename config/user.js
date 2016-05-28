@@ -10,15 +10,6 @@ var userSchema = new Schema({
 	userId: {
 		type: String,
 		required: true
-	},
-	name: {
-		familyName: {
-			type: String,
-		},
-		givenName: {
-			type: String,
-			default: "user"
-		}
 	}
 });
 

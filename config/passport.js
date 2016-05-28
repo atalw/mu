@@ -4,29 +4,33 @@ var passport = require('passport');
 var YoutubeV3Strategy = require('passport-youtube-v3').Strategy;
 
 var User = require('./user');
+var secrets = require('./secrets.json');
 
+// store user info in session instead of database
 passport.serializeUser(function(user, done) {
-  done(null, user);
+	var sessionUser = {
+		_id: user._id,
+		userId: user.userId
+	};
+  done(null, sessionUser);
 });
 
-passport.deserializeUser(function(user, done) {
-  done(null, user);
+passport.deserializeUser(function(sessionUser, done) {
+  done(null, sessionUser);
 });
 
 passport.use(new YoutubeV3Strategy ({
-	clientID: "85957565874-ol40114mec08bm3lf3q9q3s9prv3pn0p.apps.googleusercontent.com",
-	clientSecret: "OSWbRQNeBGsyPShpsFSWaYln",
-	callbackURL: "http://localhost:3000/auth/youtube/callback"
+	clientID: secrets.web.client_id,
+	clientSecret: secrets.web.client_secret,
+	callbackURL: secrets.web.callback_uri
 	},
 		function(accessToken, refreshToken, profile, done) {
-			console.log(profile.username);
 			User.findOne({userId: profile.id}, function(err, user) {
 				if (user)
 					done(null, user);
 				else {
 					var user = new User({
 						userId: profile.id,
-						name: profile.name.givenName,
 					});
 					user.save(function(err) {
 						if(err) console.log(err);
