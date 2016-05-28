@@ -10,7 +10,8 @@ var secrets = require('./secrets.json');
 passport.serializeUser(function(user, done) {
 	var sessionUser = {
 		_id: user._id,
-		userId: user.userId
+		userId: user.userId,
+		displayName: user.displayName
 	};
   done(null, sessionUser);
 });
@@ -31,6 +32,7 @@ passport.use(new YoutubeV3Strategy ({
 				else {
 					var user = new User({
 						userId: profile.id,
+						displayName: profile.displayName
 					});
 					user.save(function(err) {
 						if(err) console.log(err);

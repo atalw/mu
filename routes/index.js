@@ -7,18 +7,22 @@ require('./../config/passport.js');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-	// req.session.id = res;
-	res.render('login', { title: 'Playlister' });
+	if (req.session.userId) {
+		res.render('index', {displayName: req.session.displayName});
+	}
+	else {
+		res.render('login', { title: 'mu' });
+	}
 });
 
 router.get('/home', isAuthenticated, function(req, res, next) {
-	console.log(req.session.userId);
-	res.render('index', {title: req.session.userId});
+	res.render('index', {displayName: req.session.displayName});
 });
 
 function isAuthenticated(req, res, next) {
 	if(req.isAuthenticated()) {
 		req.session.userId = req.user.userId;
+		req.session.displayName = req.user.displayName;
 		return next();
 	}
 	else {

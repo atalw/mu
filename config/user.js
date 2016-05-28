@@ -10,6 +10,10 @@ var userSchema = new Schema({
 	userId: {
 		type: String,
 		required: true
+	},
+	displayName: {
+		type: String,
+		required: true
 	}
 });
 
