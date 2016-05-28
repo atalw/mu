@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 var passport = require('passport');
 var YoutubeV3Strategy = require('passport-youtube-v3-playlists').Strategy;
