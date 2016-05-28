@@ -20,7 +20,18 @@ var userSchema = new Schema({
 	picture: {
 		type: String,
 		required: true
-	}
+	},
+	playlists: [{
+		id: {
+			type: String
+		},
+		title: {
+			type: String
+		},
+		date: {
+			type: Date
+		}
+	}]
 });
 
 module.exports = mongoose.model('User', userSchema);

@@ -27,6 +27,11 @@ passport.use(new YoutubeV3Strategy ({
 	callbackURL: secrets.web.callback_uri
 	},
 		function(accessToken, refreshToken, profile, done) {
+			var data = [];
+			var p = profile.playlists;
+			p.forEach(function(value) {
+				data.push({id: value.id, title: value.snippet.title, date: value.snippet.publishedAt});
+			});
 			User.findOne({userId: profile.id}, function(err, user) {
 				if (user)
 					done(null, user);
@@ -34,7 +39,8 @@ passport.use(new YoutubeV3Strategy ({
 					var user = new User({
 						userId: profile.id,
 						displayName: profile.displayName,
-						picture: profile.picture
+						picture: profile.picture,
+						playlists: data
 					});
 					user.save(function(err) {
 						if(err) console.log(err);
