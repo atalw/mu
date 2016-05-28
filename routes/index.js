@@ -19,6 +19,15 @@ router.get('/home', isAuthenticated, function(req, res, next) {
 	res.render('index', {displayName: req.session.displayName});
 });
 
+router.get('/profile', function(req, res, next) {
+	res.redirect("http://www.youtube.com/channel/"+req.session.userId);
+});
+
+router.get('/logout', function(req, res, next) {
+	req.session.destroy();
+	req.logout();
+	res.redirect('/');
+});
 function isAuthenticated(req, res, next) {
 	if(req.isAuthenticated()) {
 		req.session.userId = req.user.userId;
