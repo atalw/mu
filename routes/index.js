@@ -4,7 +4,6 @@ var router = express.Router();
 var passport = require('passport');
 require('./../config/passport.js');
 
-
 /* GET home page. */
 router.get('/', function(req, res, next) {
 	if (req.session.userId) {
@@ -28,10 +27,12 @@ router.get('/logout', function(req, res, next) {
 	req.logout();
 	res.redirect('/');
 });
+
 function isAuthenticated(req, res, next) {
 	if(req.isAuthenticated()) {
 		req.session.userId = req.user.userId;
 		req.session.displayName = req.user.displayName;
+		req.session.picture = req.user.picture;
 		return next();
 	}
 	else {

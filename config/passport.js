@@ -1,7 +1,7 @@
 'use strict'
 
 var passport = require('passport');
-var YoutubeV3Strategy = require('passport-youtube-v3').Strategy;
+var YoutubeV3Strategy = require('passport-youtube-v3-playlists').Strategy;
 
 var User = require('./user');
 var secrets = require('./secrets.json');
@@ -11,7 +11,8 @@ passport.serializeUser(function(user, done) {
 	var sessionUser = {
 		_id: user._id,
 		userId: user.userId,
-		displayName: user.displayName
+		displayName: user.displayName,
+		picture: user.picture
 	};
   done(null, sessionUser);
 });
@@ -32,7 +33,8 @@ passport.use(new YoutubeV3Strategy ({
 				else {
 					var user = new User({
 						userId: profile.id,
-						displayName: profile.displayName
+						displayName: profile.displayName,
+						picture: profile.picture
 					});
 					user.save(function(err) {
 						if(err) console.log(err);

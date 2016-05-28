@@ -14,6 +14,10 @@ var userSchema = new Schema({
 	displayName: {
 		type: String,
 		required: true
+	},
+	picture: {
+		type: String,
+		required: true
 	}
 });
 
