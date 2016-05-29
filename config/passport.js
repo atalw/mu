@@ -28,9 +28,9 @@ passport.use(new YoutubeV3Strategy ({
 	},
 		function(accessToken, refreshToken, profile, done) {
 			var data = [];
-			var p = profile.playlists;
-			p.forEach(function(value) {
-				data.push({id: value.id, title: value.snippet.title, date: value.snippet.publishedAt});
+			var playlistIds = profile.playlists;
+			playlistIds.forEach(function(playlist) {
+				data.push({id: playlist.id, title: playlist.snippet.title, date: playlist.snippet.publishedAt});
 			});
 			User.findOne({userId: profile.id}, function(err, user) {
 				if (user)
