@@ -3,7 +3,7 @@
 var passport = require('passport');
 var YoutubeV3Strategy = require('passport-youtube-v3-playlists').Strategy;
 
-var User = require('./user');
+var User = require('./../models/user');
 var secrets = require('./secrets.json');
 
 // store user info in session instead of database
