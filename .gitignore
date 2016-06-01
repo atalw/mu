@@ -41,3 +41,10 @@ jspm_packages
 
 ### MongoDB ###
 data/
+
+.DS_Store
+
+### TypeScript ###
+*.js_
+*.js.map
+public/*.js
