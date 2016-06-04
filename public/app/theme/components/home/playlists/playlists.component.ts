@@ -2,7 +2,14 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'mu-playlists',
-  template: '<h1>playlists</h1>',
+  templateUrl: 'app/theme/components/home/playlists/playlists.component.html',
 })
 
-export class PlaylistsComponent {}
+export class PlaylistsComponent {
+	item = {
+		song: "This",
+		artist: "is",
+		album: "asdf",
+		duration: "12"
+	};
+}
