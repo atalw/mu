@@ -2,10 +2,9 @@
 <style type="text/css">
 	.playlist{
 		color: white;
-		width: 50%;
 		float: left;
-		height: 50%;
-		border: 1px solid black;
+		height: 47.5%;
+		border: 1px solid white;
 	}
 	.col-time:before{
 		font-style: normal;
@@ -26,9 +25,13 @@
 		border-bottom: 1px solid #222326;
 		padding-bottom: 10px;
 	}
+	.pagination {
+		background-color: white;
+		width: 100%;
+	}
 </style>
 <!-- replace with ngfor -->
-<div class="playlist" *ngFor="let s of size">
+<div class="playlist col-sm-6" *ngFor="let s of size | paginate: { itemsPerPage: 4, currentPage: p }">
 	<div class="row playlist-head">
 		<div class="col-sm-4 col-sm-offset-1">SONG {{s}}</div>
 		<div class="col-sm-3">ARTIST</div>
@@ -43,3 +46,5 @@
 		<div class="col-sm-1">{{item.duration}}</div>
 	</div>
 </div>
+
+    <pagination-controls class="pagination" (pageChange)="p = $event"></pagination-controls>
