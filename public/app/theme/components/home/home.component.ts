@@ -8,10 +8,4 @@ import { PlaylistsComponent } from './playlists/playlists.component';
   directives: [PlaylistsComponent]
 })
 
-export class HomeComponent {
-		name: string;
-
-	constructor() {
-		this.name = "Akshit";
-	}
-}
+export class HomeComponent {}
