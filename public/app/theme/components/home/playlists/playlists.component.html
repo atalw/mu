@@ -28,53 +28,9 @@
 	}
 </style>
 <!-- replace with ngfor -->
-<div class="playlist">
+<div class="playlist" *ngFor="let s of size">
 	<div class="row playlist-head">
-		<div class="col-sm-4 col-sm-offset-1">SONG</div>
-		<div class="col-sm-3">ARTIST</div>
-		<div class="col-sm-3">ALBUM</div>
-		<div class="col-sm-1 col-time">a</div>
-	</div>
-	<div class="row playlist-field">
-		<div class="col-sm-1">+</div>
-		<div class="col-sm-4">{{item.song}}</div>
-		<div class="col-sm-3">{{item.artist}}</div>
-		<div class="col-sm-3">{{item.album}}</div>
-		<div class="col-sm-1">{{item.duration}}</div>
-	</div>
-</div>
-<div class="playlist">
-	<div class="row playlist-head">
-		<div class="col-sm-4 col-sm-offset-1">SONG</div>
-		<div class="col-sm-3">ARTIST</div>
-		<div class="col-sm-3">ALBUM</div>
-		<div class="col-sm-1 col-time">a</div>
-	</div>
-	<div class="row playlist-field">
-		<div class="col-sm-1">+</div>
-		<div class="col-sm-4">{{item.song}}</div>
-		<div class="col-sm-3">{{item.artist}}</div>
-		<div class="col-sm-3">{{item.album}}</div>
-		<div class="col-sm-1">{{item.duration}}</div>
-	</div>
-</div>
-<div class="playlist">
-	<div class="row playlist-head">
-		<div class="col-sm-4 col-sm-offset-1">SONG</div>
-		<div class="col-sm-3">ARTIST</div>
-		<div class="col-sm-3">ALBUM</div>
-		<div class="col-sm-1 col-time">a</div>
-	</div>
-	<div class="row playlist-field">
-		<div class="col-sm-1">+</div>
-		<div class="col-sm-4">{{item.song}}</div>
-		<div class="col-sm-3">{{item.artist}}</div>
-		<div class="col-sm-3">{{item.album}}</div>
-		<div class="col-sm-1">{{item.duration}}</div>
-	</div>
-</div><div class="playlist">
-	<div class="row playlist-head">
-		<div class="col-sm-4 col-sm-offset-1">SONG</div>
+		<div class="col-sm-4 col-sm-offset-1">SONG {{s}}</div>
 		<div class="col-sm-3">ARTIST</div>
 		<div class="col-sm-3">ALBUM</div>
 		<div class="col-sm-1 col-time">a</div>

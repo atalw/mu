@@ -6,6 +6,8 @@ import { Component } from '@angular/core';
 })
 
 export class PlaylistsComponent {
+	size = ['1', '2', '3', '4'];
+
 	item = {
 		song: "This",
 		artist: "is",
