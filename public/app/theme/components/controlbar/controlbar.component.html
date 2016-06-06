@@ -5,10 +5,22 @@
 		z-index: 2000;
 		width: 100%;
 		position: absolute;
-		background-color: crimson;
+		background-color: #FD7014;
+	}
+	#buttons {
+		z-index: 2000;
+	}
+
+	.but {
+		padding-left: 10px;
+		top: 0;
 	}
 </style>
 
 <div id="main-control">
-	<h3>Controlbar</h3>
+	<div id="buttons">
+		<i id="backward-button" class="fa fa-backward fa-2x but small-but" aria-hidden="true"></i>
+		<i id="play-button" class="fa fa-play-circle fa-3x but" aria-hidden="true"></i>
+		<i id="forward-button" class="fa fa-forward fa-2x but small-but" aria-hidden="true"></i>
+	</div>
 </div>

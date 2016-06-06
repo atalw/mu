@@ -1,10 +1,15 @@
 
 <style type="text/css">
+	.d {
+		padding: 10px;
+	}
 	.playlist{
 		color: white;
-		float: left;
+		/*float: left;*/
 		height: 47.5%;
 		border: 1px solid white;
+		border-radius: 10px;
+		padding: 20px;
 	}
 	.col-time:before{
 		font-style: normal;
@@ -30,21 +35,26 @@
 		width: 100%;
 	}
 </style>
-<!-- replace with ngfor -->
-<div class="playlist col-sm-6" *ngFor="let s of size | paginate: { itemsPerPage: 4, currentPage: p }">
-	<div class="row playlist-head">
-		<div class="col-sm-4 col-sm-offset-1">SONG {{s}}</div>
-		<div class="col-sm-3">ARTIST</div>
-		<div class="col-sm-3">ALBUM</div>
-		<div class="col-sm-1 col-time">a</div>
+<div class="playlists row">
+	<div class="col-sm-6 d" *ngFor="let s of size | paginate: { itemsPerPage: 4, currentPage: p }">
+		<div class="playlist">
+			<div class="row playlist-head">
+				<div class="col-sm-4 col-sm-offset-1">SONG {{s}}</div>
+				<div class="col-sm-3">ARTIST</div>
+				<div class="col-sm-3">ALBUM</div>
+				<div class="col-sm-1 col-time">a</div>
+			</div>
+			<div class="row playlist-field">
+				<div class="col-sm-1">+</div>
+				<div class="col-sm-4">{{item.song}}</div>
+				<div class="col-sm-3">{{item.artist}}</div>
+				<div class="col-sm-3">{{item.album}}</div>
+				<div class="col-sm-1">{{item.duration}}</div>
+			</div>
+		</div>
 	</div>
-	<div class="row playlist-field">
-		<div class="col-sm-1">+</div>
-		<div class="col-sm-4">{{item.song}}</div>
-		<div class="col-sm-3">{{item.artist}}</div>
-		<div class="col-sm-3">{{item.album}}</div>
-		<div class="col-sm-1">{{item.duration}}</div>
-	</div>
-</div>
 
-    <pagination-controls class="pagination" (pageChange)="p = $event"></pagination-controls>
+	<pagination-controls class="pagination" (pageChange)="p = $event"></pagination-controls>
+
+</div>
+<!-- replace with ngfor -->
