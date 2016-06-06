@@ -46,7 +46,7 @@ router.get('/auth/youtube', passport.authenticate('youtube', {scope: ['https://w
 
 router.get('/auth/youtube/callback', passport.authenticate('youtube', {failureRedirect: '/'}),
 	function(req, res) {
-		res.redirect('/home');
+		res.redirect('/');
 	}
 );
 
