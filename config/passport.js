@@ -12,8 +12,10 @@ passport.serializeUser(function(user, done) {
 		_id: user._id,
 		userId: user.userId,
 		displayName: user.displayName,
-		picture: user.picture
+		picture: user.picture,
+		playlists: user.playlists
 	};
+	console.log(sessionUser);
   done(null, sessionUser);
 });
 

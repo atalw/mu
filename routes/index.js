@@ -24,6 +24,10 @@ router.get('/profile', function(req, res, next) {
 	res.redirect("http://www.youtube.com/channel/"+req.session.userId);
 });
 
+router.get('/app/profile', function(req, res, next) {
+	res.send(req.session.passport.user);
+});
+
 router.get('/logout', function(req, res, next) {
 	req.session.destroy();
 	req.logout();

@@ -36,8 +36,9 @@
 	}
 </style>
 <div class="playlists row">
-	<div class="col-sm-6 d" *ngFor="let s of size | paginate: { itemsPerPage: 4, currentPage: p }">
+	<div class="col-sm-6 d" *ngFor="let playlist of playlists.__zone_symbol__value | paginate: { itemsPerPage: 4, currentPage: p }">
 		<div class="playlist">
+			<div class="playlistTitle">{{playlist.title}}</div>
 			<div class="row playlist-head">
 				<div class="col-sm-4 col-sm-offset-1">SONG {{s}}</div>
 				<div class="col-sm-3">ARTIST</div>
