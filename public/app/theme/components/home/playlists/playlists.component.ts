@@ -1,14 +1,11 @@
 import { Component } from '@angular/core';
-import {PaginatePipe, PaginationControlsCmp, PaginationService} from 'ng2-pagination';
 import { PlaylistsService } from './playlists.service';
 
 
 @Component({
   selector: 'mu-playlists',
   templateUrl: 'app/theme/components/home/playlists/playlists.component.html',
-  directives: [PaginationControlsCmp],
-  pipes: [PaginatePipe],
-  providers: [PaginationService, PlaylistsService]
+  providers: [PlaylistsService]
 })
 
 export class PlaylistsComponent {
