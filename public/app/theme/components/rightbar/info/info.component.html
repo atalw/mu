@@ -1,2 +1,11 @@
-<mu-related-videos></mu-related-videos>
-<mu-lyrics></mu-lyrics>
+<style type="text/css">
+	.info {
+		margin: 20px;
+	}
+</style>
+
+<button class="btn btn-primary" (click)="toggle()">Toggle</button>
+<div class="info" [ngSwitch]="tab">
+	<mu-related-videos *ngSwitchWhen="'related-videos'"></mu-related-videos>
+	<mu-lyrics *ngSwitchWhen="'lyrics'"></mu-lyrics>
+</div>
