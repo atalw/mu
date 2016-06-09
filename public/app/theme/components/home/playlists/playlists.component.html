@@ -1,9 +1,5 @@
 
 <style type="text/css">
-	.d {
-		/*padding: 10px;*/
-		padding-top: 10px;
-	}
 	.playlists {
 		position: absolute;
 		padding: 10px;
@@ -13,9 +9,9 @@
 	.playlist{
 		color: #e2e2e2;
 		/*float: left;*/
+		margin-top: 10px;
 		height: 47.5%;
 		border: 0;
-		border-radius: 7px;
 		padding: 20px;
 		background-color: rgba(255,255,255,0.1);
 		box-shadow: 1px 1px 4px rgba(0,0,0,0.15);
@@ -25,33 +21,32 @@
 	
 	.playlist-head{
 		border-bottom: 1px solid rgba(0,0,0,0.1);
-		padding-bottom: 5px;
-
+		padding: 5px;
+		margin: auto;
 	}
 	.playlist-field{
-		padding-top: 10px;
+		padding: 10px;
 		border-bottom: 1px solid rgba(0,0,0,0.1);
-		padding-bottom: 10px;
+		margin: auto;
 	}
 </style>
 <div class="playlists row">
-	<div class="col-sm-6 d" *ngFor="let playlist of playlists.__zone_symbol__value">
+	<div class="col-sm-6" *ngFor="let playlist of playlists.__zone_symbol__value">
 		<div class="playlist">
 			<div class="playlistTitle"><h3>{{playlist.title}}</h3></div>
 			<div class="row playlist-head">
 				<div class="col-sm-5 col-sm-offset-1">Title</div>
-				<div class="col-sm-2">Loop</div>
+				<div class="col-sm-2">Duration</div>
 				<div class="col-sm-2">Queue</div>
 				<div class="col-sm-2">Link</div>
 
 			</div>
 			<div class="row playlist-field">
 				<div class="col-sm-6">{{item.song}}</div>
+				<div class="col-sm-2">{{item.duration}}</div>
 				<div class="col-sm-2"><i class="fa fa-rotate-left" aria-hidden="true"></i></div>
-				<div class="col-sm-2"><i class="fa fa-rotate-left" aria-hidden="true"></i></div>
-				<div class="col-sm-2"><i class="fa fa-rotate-left" aria-hidden="true"></i></div>
+				<div class="col-sm-2"><i class="fa fa-youtube-play" aria-hidden="true"></i></div>
 			</div>
 		</div>
 	</div>
 </div>
-<!-- replace with ngfor -->
