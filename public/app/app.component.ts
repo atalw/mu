@@ -9,7 +9,7 @@ import { RightbarComponent } from './theme/components/rightbar/rightbar.componen
 @Component({
   selector: 'app',
   templateUrl: 'app/app.component.html',
-  directives: [NavbarComponent, RightbarComponent, ControlbarComponent, HomeComponent]
+  directives: [RightbarComponent, HomeComponent]
 })
 
 // @RouteConfig([

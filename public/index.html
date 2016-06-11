@@ -1,26 +1,108 @@
 <html>
-  <head>
-    <title>Angular 2 QuickStart</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- 1. Load libraries -->
-     <!-- Polyfill(s) for older browsers -->
-    <script src="node_modules/core-js/client/shim.min.js"></script>
-    <script src="node_modules/zone.js/dist/zone.js"></script>
-    <script src="node_modules/reflect-metadata/Reflect.js"></script>
-    <script src="node_modules/systemjs/dist/system.src.js"></script>
-    <!-- 2. Configure SystemJS -->
-    <script src="systemjs.config.js"></script>
-    <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="app/assets/stylesheets/font-awesome.css">
+<head>
+  <title>Angular 2 QuickStart</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- 1. Load libraries -->
+  <!-- Polyfill(s) for older browsers -->
+  <script src="node_modules/core-js/client/shim.min.js"></script>
+  <script src="node_modules/zone.js/dist/zone.js"></script>
+  <script src="node_modules/reflect-metadata/Reflect.js"></script>
+  <script src="node_modules/systemjs/dist/system.src.js"></script>
+  <script src="https://apis.google.com/js/client.js?onload=OnLoadCallback"></script>
 
-    <script>
-      System.import('app').catch(function(err){ console.error(err); });
-    </script>
-    <base href="/">
-  </head>
-  <!-- 3. Display the application -->
-  <body>    
+  <!-- 2. Configure SystemJS -->
+  <script src="systemjs.config.js"></script>
+  <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="app/assets/stylesheets/font-awesome.css">
+
+  <script>
+    System.import('app').catch(function(err){ console.error(err); });
+  </script>
+  <base href="/">
+  <style type="text/css">
+   .container-fluid {
+    height: 100%;
+    background: black;
+  }
+  #main-nav {
+    min-height: 595px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 90px;
+    z-index: 2000;
+    background-color: rgb(50,50,50);
+  }
+  #logo{
+    display: block;
+    height: 95px;
+    background: url('/assets/images/Spotyngular.png') no-repeat center;
+    background-size: 60px;
+    cursor: auto;
+  }
+  #nav-items{
+    list-style: none;
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+    -webkit-margin-start: 0;
+    -webkit-margin-end: 0;
+    -webkit-padding-start: 0;
+    padding-left: 0;
+  }
+  #nav-items li{
+    position: relative;
+  }
+  #nav-items li a{
+    padding: 50px 10px 0 10px;
+    height: 75px;
+    width: 90px;
+    display: block;
+    color: #e2e2e2;
+    text-decoration: none;
+    position: relative;
+    font-weight: 400;
+  }
+  #nav-items li a:before{
+    position: absolute;
+    top: 18px;
+    left: 0;
+    text-align: center;
+    width: 100%;
+    font-size: 32px;
+  }
+  #nav-items li a span{
+    text-align: center;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-top: 5px;
+  }
+</style>
+
+</head>
+<!-- 3. Display the application -->
+<body>
+  <div class="container-fluid">
+
+    <div id="main-nav">
+      <a href="/" id="logo" class="logo"></a>
+      <ul id="nav-items">
+        <li>
+          <a href="/auth/youtube"><span><i class="fa fa-pied-piper fa-3x" aria-hidden="true"></i><br>Profile</span></a>
+        </li>
+        <li>
+          <a><span><i class="fa fa-search fa-3x" aria-hidden="true"></i><br>Browse</span></a>
+        </li>
+        <li>
+          <a><span><i class="fa fa-cog fa-3x" aria-hidden="true"></i><br>Settings</span></a>
+        </li>
+      </ul>
+    </div>
     <app>Loading...</app>
-  </body>
+    <mu-control-bar></mu-control-bar>
+  </div>    
+</body>
 </html>
