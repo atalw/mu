@@ -12,5 +12,5 @@ import { RightbarComponent } from './theme/components/rightbar/rightbar.componen
 })
 
 export class AppComponent {
-	dataLoaded = false;
+	dataLoaded = true;
 }

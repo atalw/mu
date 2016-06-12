@@ -9,12 +9,13 @@
 	.playlist{
 		color: #e2e2e2;
 		/*float: left;*/
-		margin-top: 10px;
+		margin-top: 20px;
 		height: 47.5%;
-		border: 0;
-		padding: 20px;
+		border: 10px solid rgba(0,0,0,0);
+		padding: 10px;
 		background-color: rgba(255,255,255,0.1);
 		box-shadow: 1px 1px 4px rgba(0,0,0,0.15);
+		overflow: auto;
 	}
 	.playlistTitle {
 	}
@@ -27,7 +28,7 @@
 	.playlist-field{
 		padding: 10px;
 		border-bottom: 1px solid rgba(0,0,0,0.1);
-		margin: auto;
+		/*margin: auto;*/
 	}
 </style>
 <div class="playlists row">
@@ -35,15 +36,13 @@
 		<div class="playlist">
 			<div class="playlistTitle"><h3>{{playlist.title}}</h3></div>
 			<div class="row playlist-head">
-				<div class="col-sm-5 col-sm-offset-1">Title</div>
-				<div class="col-sm-2">Duration</div>
+				<div class="col-sm-7 col-sm-offset-1">Title</div>
 				<div class="col-sm-2">Queue</div>
 				<div class="col-sm-2">Link</div>
 
 			</div>
-			<div class="row playlist-field">
-				<div class="col-sm-6">{{item.song}}</div>
-				<div class="col-sm-2">{{item.duration}}</div>
+			<div class="row playlist-field" *ngFor="let item of items.items">
+				<div class="col-sm-8">{{item.snippet.title}}</div>
 				<div class="col-sm-2"><i class="fa fa-rotate-left" aria-hidden="true"></i></div>
 				<div class="col-sm-2"><i class="fa fa-youtube-play" aria-hidden="true"></i></div>
 			</div>

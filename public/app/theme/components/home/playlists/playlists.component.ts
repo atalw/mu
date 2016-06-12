@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { PlaylistsService } from './playlists.service';
-
+import { PlaylistService } from '../../../services/playlist.service';
 
 @Component({
   selector: 'mu-playlists',
   templateUrl: 'app/theme/components/home/playlists/playlists.component.html',
-  providers: [PlaylistsService]
+  providers: [PlaylistService, PlaylistsService]
 })
 
 export class PlaylistsComponent {
@@ -16,10 +16,10 @@ export class PlaylistsComponent {
 	// 	album: "asdf",
 	// 	duration: "12"
 	// };
-	item = {};
+	items = {};
 	playlists = {};
 
-	constructor(private playlistsService: PlaylistsService) {	}
+	constructor(private playlistsService: PlaylistsService, private playlistService: PlaylistService) {	}
 
 	getProfile() {
 		this.playlistsService.getProfile();
@@ -29,8 +29,8 @@ export class PlaylistsComponent {
 	}
 
 	ngOnInit() {
-		this.item = this.playlistsService.printPlaylist();
+		this.items = this.playlistService.getPlaylistItems();
 		this.playlists = this.playlistsService.getProfile();
-		console.log(this.playlists);
+		console.log(this.items);
 	}
 }
