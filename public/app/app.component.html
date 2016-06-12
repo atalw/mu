@@ -4,14 +4,114 @@
         background-color: rgb(70, 135, 199);
         position: absolute;
         left: 90px;
-        right: 500px;
+        right: 30em;
         top: 0;
         bottom: 40px;
         color: #e2e2e2;
     }
-</style>
+    #main-nav {
+      min-height: 595px;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 90px;
+      z-index: 2000;
+      background-color: rgb(50,50,50);
+    }
+    .loader {
+      left: 50%;
+      top: 50%;
+      position: fixed;
+      -webkit-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%); 
+    }
+    .loader #spinner {
+      box-sizing: border-box;
+      stroke: #673AB7;
+      stroke-width: 3px;
+      -webkit-transform-origin: 50%;
+      transform-origin: 50%;
+      -webkit-animation: line 1.6s cubic-bezier(0.4, 0, 0.2, 1) infinite, rotate 1.6s linear infinite;
+      animation: line 1.6s cubic-bezier(0.4, 0, 0.2, 1) infinite, rotate 1.6s linear infinite; 
+    }
 
-	<div id="main">
-		<mu-home></mu-home>
-	</div>
+    @-webkit-keyframes rotate {
+      from {
+        -webkit-transform: rotate(0);
+        transform: rotate(0); 
+      }
+      to {
+        -webkit-transform: rotate(450deg);
+        transform: rotate(450deg); 
+      }
+    }
+
+    @keyframes rotate {
+      from {
+        -webkit-transform: rotate(0);
+        transform: rotate(0); 
+      }
+      to {
+        -webkit-transform: rotate(450deg);
+        transform: rotate(450deg); 
+      }
+    }
+
+    @-webkit-keyframes line {
+      0% {
+        stroke-dasharray: 2, 85.964;
+        -webkit-transform: rotate(0);
+        transform: rotate(0); 
+      }
+      50% {
+        stroke-dasharray: 65.973, 21.9911;
+        stroke-dashoffset: 0; 
+      }
+      100% {
+        stroke-dasharray: 2, 85.964;
+        stroke-dashoffset: -65.973;
+        -webkit-transform: rotate(90deg);
+        transform: rotate(90deg); 
+      }
+    }
+
+    @keyframes line {
+      0% {
+        stroke-dasharray: 2, 85.964;
+        -webkit-transform: rotate(0);
+        transform: rotate(0); 
+      }
+      50% {
+        stroke-dasharray: 65.973, 21.9911;
+        stroke-dashoffset: 0; 
+      }
+      100% {
+        stroke-dasharray: 2, 85.964;
+        stroke-dashoffset: -65.973;
+        -webkit-transform: rotate(90deg);
+        transform: rotate(90deg); 
+    }
+}
+</style>
+<div class="container-fluid">
+
+    <div id="main-nav">
+        <mu-navbar></mu-navbar>
+    </div>
+
+    <div id="main">
+        <div class="loader">
+            <svg viewBox="0 0 32 32" width="32" height="32">
+                <circle id="spinner" cx="16" cy="16" r="14" fill="none"></circle>
+            </svg>
+        </div>
+        <router-outlet></router-outlet>
+    </div>
+
     <mu-right-bar></mu-right-bar>
+    <mu-control-bar></mu-control-bar>
+
+</div>
+
+

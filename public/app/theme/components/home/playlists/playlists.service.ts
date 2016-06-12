@@ -18,13 +18,22 @@ export class PlaylistsService {
 			.then(response => response.json().playlists)
 			.catch(this.handleError);
 	}
-
 	printPlaylist() : Object {
+		var pageToken;
+		var playlistId = "PLb41C1zNxKPo_1rskumIntw5reep2lWmz";
+		var requestOptions = {
+			playlistId: playlistId,
+			part: 'snippet',
+			maxResults: 50,
+			
+		};
+		if (pageToken){
+			// requestOptions.pageToken = pageToken;
+		}
+		// var request = gapi.client.youtube.playlistItems.list(requestOptions);
 		return this.item = {
-			song: "this",
-			artist: "is",
-			album: "asdf",
-			duration: "13"
+			song: "this is the title of the song",
+			duration: "13:23"
 		};
 	}	
 

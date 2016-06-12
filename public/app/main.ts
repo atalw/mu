@@ -1,8 +1,6 @@
 import { bootstrap }    from '@angular/platform-browser-dynamic';
-import { AppComponent } from './app.component';
 import { HTTP_PROVIDERS } from '@angular/http';
-import { ControlbarComponent } from './theme/components/controlbar/controlbar.component';
+import { APP_ROUTER_PROVIDERS } from './app.routes';
+import { AppComponent } from './app.component';
 
-
-bootstrap(AppComponent, [HTTP_PROVIDERS]);
-bootstrap(ControlbarComponent);
+bootstrap(AppComponent, [HTTP_PROVIDERS, APP_ROUTER_PROVIDERS]);
