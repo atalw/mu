@@ -11,4 +11,6 @@ import { RightbarComponent } from './theme/components/rightbar/rightbar.componen
   directives: [ROUTER_DIRECTIVES, NavbarComponent, ControlbarComponent, RightbarComponent],
 })
 
-export class AppComponent {}
+export class AppComponent {
+	dataLoaded = false;
+}

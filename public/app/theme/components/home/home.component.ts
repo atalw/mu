@@ -11,6 +11,7 @@ import { Router, ActivatedRoute }  from '@angular/router';
 })
 
 export class HomeComponent {
+	dataLoaded = true;
 	constructor(
 		private router: Router,
 		private route: ActivatedRoute) { }
