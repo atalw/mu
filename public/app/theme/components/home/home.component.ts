@@ -4,13 +4,20 @@ import { TabsComponent } from './tabs/tabs.component';
 import { ROUTER_DIRECTIVES } from '@angular/router';
 import { Router, ActivatedRoute }  from '@angular/router';
 
+import { PlaylistService } from '../../../theme/services/playlist.service';
+import { RightbarComponent } from '../rightbar/rightbar.component';
+
 @Component({
   templateUrl: 'app/theme/components/home/home.component.html',
-  directives: [PlaylistsComponent]
+  directives: [PlaylistsComponent],
+  providers: [PlaylistService]
 })
 
 export class HomeComponent {
+	dataLoaded: boolean = true;
+
 	constructor(
 		private router: Router,
-		private route: ActivatedRoute) { }
+		private route: ActivatedRoute,
+		private playlistService: PlaylistService) {}
 }
