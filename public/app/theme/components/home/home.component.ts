@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 import { PlaylistsComponent } from './playlists/playlists.component';
 import { TabsComponent } from './tabs/tabs.component';
 import { ROUTER_DIRECTIVES } from '@angular/router';
@@ -13,11 +13,22 @@ import { RightbarComponent } from '../rightbar/rightbar.component';
   providers: [PlaylistService]
 })
 
-export class HomeComponent {
-	dataLoaded: boolean = true;
+export class HomeComponent implements AfterViewInit{
+	dataLoaded: boolean = false;
 
 	constructor(
 		private router: Router,
 		private route: ActivatedRoute,
 		private playlistService: PlaylistService) {}
+
+	ngOnInit() {
+		document.getElementById('playlists-data').style.visibility = 'hidden';
+	}
+
+	ngAfterViewInit() {
+		console.log('here');
+		document.getElementById('loader').remove();
+		document.getElementById('playlists-data').style.visibility = 'visible';
+
+	}
 }

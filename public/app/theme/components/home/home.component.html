@@ -7,7 +7,7 @@
 	font-weight: 300;
 	color: white;
 }
- .loader {
+ #loader {
       left: 50%;
       top: 50%;
       /*margin-left: -30px;*/
@@ -16,7 +16,7 @@
       -webkit-transform: translate(-50%, -50%);
       transform: translate(-50%, -50%); 
     }
-    .loader #spinner {
+    #loader #spinner {
       box-sizing: border-box;
       stroke: #673AB7;
       stroke-width: 3px;
@@ -87,13 +87,13 @@
 
 <!-- <mu-tabs></mu-tabs>--> 
 
-<div *ngIf="!dataLoaded" class="loader">
+<div id="loader">
     <svg viewBox="0 0 32 32" width="32" height="32">
         <circle id="spinner" cx="16" cy="16" r="14" fill="none"></circle>
     </svg>
 </div>
 
-<div *ngIf="dataLoaded" id="playlists-data">
+<div id="playlists-data">
 	<mu-playlists></mu-playlists>	
 </div>
 

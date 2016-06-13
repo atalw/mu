@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PlaylistsService } from './playlists.service';
 import { PlaylistService } from '../../../services/playlist.service';
 
@@ -8,13 +8,15 @@ import { PlaylistService } from '../../../services/playlist.service';
   providers: [PlaylistsService]
 })
 
-export class PlaylistsComponent {
+export class PlaylistsComponent implements onInit {
 
 	items = {};
 	playlists = {};
 
-	constructor(private playlistsService: PlaylistsService, private playlistService: PlaylistService) {	
-		this.items = this.playlistService.getPlaylistItems();
+	constructor(private playlistsService: PlaylistsService, private playlistService: PlaylistService) {}
+
+	ngOnInit() {
+		this.playlistService.getPlaylistItemsSlowly().then(items => this.items = items);
 		this.playlists = this.playlistsService.getProfile();
 	}
 }

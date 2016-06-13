@@ -1,6 +1,7 @@
 import { Injectable, EventEmitter } from '@angular/core';
 
 import { PlaylistItems } from './mock-playlists';
+import { Playlist } from './playlist';
 
 @Injectable()
 export class PlaylistService {
@@ -9,7 +10,12 @@ export class PlaylistService {
 	getPlaylistItems() {
 		this.updateDataLoaded();
 		// this.onLoaded.emit(true);
-		return PlaylistItems;
+		return Promise.resolve(PlaylistItems);
+	}
+
+	getPlaylistItemsSlowly() {
+		return new Promise<Playlist>(resolve =>
+			setTimeout(() => resolve(PlaylistItems), 2000);
 	}
 
 	updateDataLoaded() {
