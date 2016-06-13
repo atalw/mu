@@ -5,8 +5,9 @@ import { LyricsComponent } from './lyrics/lyrics.component';
 
 
 @Component({
+	moduleId: module.id,
 	selector: 'mu-info',
-	templateUrl: 'app/theme/components/rightbar/info/info.component.html',
+	templateUrl: 'info.component.html',
 	directives: [RelatedVideosComponent, LyricsComponent, NgSwitch, NgSwitchWhen]
 })
 

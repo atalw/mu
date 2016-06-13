@@ -3,8 +3,9 @@ import { PlaylistsService } from './playlists.service';
 import { PlaylistService } from '../../../services/playlist.service';
 
 @Component({
+  moduleId: module.id,
   selector: 'mu-playlists',
-  templateUrl: 'app/theme/components/home/playlists/playlists.component.html',
+  templateUrl: 'playlists.component.html',
 })
 
 export class PlaylistsComponent {

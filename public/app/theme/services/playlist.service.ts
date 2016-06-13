@@ -6,14 +6,35 @@ import { Playlist } from './playlist';
 
 @Injectable()
 export class PlaylistService {
-	private dataLoaded : boolean = false;
-	// onLoaded = new EventEmitter(false);
 	private playlists = {};
 	private playlistWithData: Playlist[] = [];
 
 	private profileUrl = '/app/profile';
 
 	constructor(private http: Http) {}
+	
+
+	// getPlaylists() {
+	// 	return this.http.get(this.profileUrl).toPromise()
+	// 		.then(response => response.json().playlists)
+	// 		.catch(this.handleError);		
+	// }
+
+	// getData() {
+	// 	return this.http.get(this.profileUrl).toPromise()
+	// 	.then(function(response) {
+	// 		// console.log(response.json().playlists);
+	// 		return response.json().playlists.reduce(function(sequence, playlistPromise) {
+	// 			console.log(sequence);
+	// 			return sequence.then(function() {
+	// 				// console.log(playlistPromise.id);
+	// 				return this.getPlaylistItems(playlistPromise.id);
+	// 			}).then(function(playlistItems) {
+	// 				console.log(playlistItems);
+	// 			});
+	// 		}, Promise.resolve());
+	// 	}).catch(this.handleError);
+	// }
 
 	getPlaylists() {
 		return this.http.get(this.profileUrl).toPromise()
@@ -21,34 +42,30 @@ export class PlaylistService {
 			.catch(this.handleError);		
 	}
 
-	getPlaylistData(playlists) : Promise<Playlist[]> {
-		for (var playlist in playlists) {
-			this.getPlaylistItemsSlowly(playlists[playlist].id)
+	getPlaylistData(playlists) {
+		Promise.all(playlists.map(function(playlist) {
+			console.log(playlist);
+			this.getPlaylistItems()
 				.then(response => {
+					console.log(response);
+					response["playlistDetails"] = playlist;
 					this.playlistWithData.push(response);
 				})
-				.catch(this.handleError);
-		}
-		return Promise.resolve(this.playlistWithData);
+		})).then(function() {
+			return Promise.resolve(this.playlistWithData)
+			})
+			.catch(this.handleError);
 	}
 
-	getPlaylistItems(playlistId: string): Promise<Playlist> {
-		// this.onLoaded.emit(true);
+	// replace with http api call after auth service complete
+	getPlaylistItems(): Promise<Playlist> {
 		return Promise.resolve(PlaylistItems);
 	}
 
+	// testing only
 	getPlaylistItemsSlowly(playlistId: string) {
-		return new Promise<Playlist>(resolve =>
-			setTimeout(() => resolve(PlaylistItems), 2000));
+		return new Promise<Playlist>(resolve => setTimeout(()=> resolve(PlaylistItems), 2000));
 
-	}
-
-	updateDataLoaded() {
-		this.dataLoaded = !this.dataLoaded;
-	}
-
-	getDataLoaded() {
-		return this.dataLoaded;
 	}
 
 	private handleError(error: any) {

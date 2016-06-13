@@ -8,7 +8,8 @@ import { PlaylistService } from '../../../theme/services/playlist.service';
 import { RightbarComponent } from '../rightbar/rightbar.component';
 
 @Component({
-  templateUrl: 'app/theme/components/home/home.component.html',
+  moduleId: module.id,
+  templateUrl: 'home.component.html',
   directives: [PlaylistsComponent],
   providers: [PlaylistService]
 })

@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 
 @Component({
+	moduleId: module.id,
 	selector: 'mu-video-player',
-	templateUrl: 'app/theme/components/rightbar/videoPlayer/videoPlayer.component.html',
+	templateUrl: 'videoPlayer.component.html',
 })
 
 export class VideoPlayerComponent { }

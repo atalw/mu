@@ -7,8 +7,9 @@ import { RightbarComponent } from './theme/components/rightbar/rightbar.componen
 
 
 @Component({
+  moduleId: module.id,
   selector: 'app',
-  templateUrl: 'app/app.component.html',
+  templateUrl: 'app.component.html',
   directives: [ROUTER_DIRECTIVES, NavbarComponent, ControlbarComponent, RightbarComponent],
 })
 

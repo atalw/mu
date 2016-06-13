@@ -2,8 +2,9 @@ import { Component } from '@angular/core';
 
 
 @Component({
+	moduleId: module.id,
 	selector: 'mu-related-videos',
-	templateUrl: 'app/theme/components/rightbar/info/related-videos/related-videos.component.html',
+	templateUrl: 'related-videos.component.html',
 })
 
 export class RelatedVideosComponent {}
