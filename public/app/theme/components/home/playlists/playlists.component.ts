@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { PlaylistsService } from './playlists.service';
 import { PlaylistService } from '../../../services/playlist.service';
 
@@ -8,7 +8,7 @@ import { PlaylistService } from '../../../services/playlist.service';
   providers: [PlaylistsService]
 })
 
-export class PlaylistsComponent implements onInit {
+export class PlaylistsComponent {
 
 	items = {};
 	playlists = {};

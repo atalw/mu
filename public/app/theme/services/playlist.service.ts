@@ -15,7 +15,8 @@ export class PlaylistService {
 
 	getPlaylistItemsSlowly() {
 		return new Promise<Playlist>(resolve =>
-			setTimeout(() => resolve(PlaylistItems), 2000);
+			setTimeout(() => resolve(PlaylistItems), 2000));
+
 	}
 
 	updateDataLoaded() {

@@ -14,7 +14,7 @@ import { RightbarComponent } from '../rightbar/rightbar.component';
 })
 
 export class HomeComponent implements AfterViewInit{
-	dataLoaded: boolean = false;
+	dataLoaded: boolean = true;
 
 	constructor(
 		private router: Router,
@@ -22,13 +22,12 @@ export class HomeComponent implements AfterViewInit{
 		private playlistService: PlaylistService) {}
 
 	ngOnInit() {
-		document.getElementById('playlists-data').style.visibility = 'hidden';
+		// document.getElementById('playlists-data').style.visibility = 'hidden';
 	}
 
 	ngAfterViewInit() {
-		console.log('here');
-		document.getElementById('loader').remove();
-		document.getElementById('playlists-data').style.visibility = 'visible';
+		// document.getElementById('loader').remove();
+		// document.getElementById('playlists-data').style.visibility = 'visible';
 
 	}
 }
