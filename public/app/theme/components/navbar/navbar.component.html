@@ -44,17 +44,20 @@
     white-space: nowrap;
     margin-top: 5px;
   }
+  i {
+    padding: 4px;
+  }
 </style>
 
 <a [routerLink]="['/']" id="logo" class="logo"></a>
 <ul id="nav-items">
   <li>
-    <a [routerLink]="['/auth/youtube']"><span><i class="fa fa-pied-piper fa-3x" aria-hidden="true"></i><br>Profile</span></a>
+    <a [routerLink]="['/auth/youtube']"><span><i class="fa fa-pied-piper fa-1x" aria-hidden="true"></i>Profile</span></a>
   </li>
   <li>
-    <a [routerLink]="['/browse']"><span><i class="fa fa-search fa-3x" aria-hidden="true"></i><br>Browse</span></a>
+    <a [routerLink]="['/browse']"><span><i class="fa fa-search fa-1x" aria-hidden="true"></i>Browse</span></a>
   </li>
   <li>
-    <a [routerLink]="['/settings']"><span><i class="fa fa-cog fa-3x" aria-hidden="true"></i><br>Settings</span></a>
+    <a [routerLink]="['/settings']"><span><i class="fa fa-cog fa-1x" aria-hidden="true"></i>Settings</span></a>
   </li>
 </ul>

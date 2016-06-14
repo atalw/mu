@@ -1,9 +1,10 @@
 <style>
 	#main {
-        
+
     }
     #router-outlet {
-      background-color: rgb(70, 135, 199);
+      background-color: rgb(43, 62, 80);
+      /*background-color: white;*/
       position: absolute;
       left: 90px;
       right: 30em;
@@ -19,9 +20,9 @@
       left: 0;
       width: 90px;
       z-index: 2000;
-      background-color: rgb(50,50,50);
+      background-color: rgb(0,0,0);
     }
-   
+
 </style>
 <div class="container-fluid">
     <div id="main-nav">
@@ -31,9 +32,9 @@
         <div id="router-outlet">
             <router-outlet></router-outlet>
         </div>
-        
+
     </div>
-    <mu-right-bar></mu-right-bar>  
+    <mu-right-bar></mu-right-bar>
     <mu-control-bar></mu-control-bar>
 
 </div>
