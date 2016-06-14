@@ -2,62 +2,22 @@
   #logo{
     display: block;
     height: 95px;
-    /*background: url('/assets/images/Spotyngular.png') no-repeat center;*/
-    background-size: 60px;
-    cursor: auto;
+    /*background: url('') no-repeat center;*/
   }
-  #nav-items{
-    list-style: none;
-    -webkit-margin-before: 0;
-    -webkit-margin-after: 0;
-    -webkit-margin-start: 0;
-    -webkit-margin-end: 0;
-    -webkit-padding-start: 0;
-    padding-left: 0;
-  }
-  #nav-items li{
-    position: relative;
-  }
-  #nav-items li a{
-    padding: 50px 10px 0 10px;
-    height: 75px;
-    width: 90px;
-    display: block;
-    color: #e2e2e2;
-    text-decoration: none;
-    position: relative;
-    font-weight: 400;
-  }
-  #nav-items li a:before{
-    position: absolute;
-    top: 18px;
-    left: 0;
+  .nav-item {
     text-align: center;
-    width: 100%;
-    font-size: 32px;
-  }
-  #nav-items li a span{
-    text-align: center;
-    display: block;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    margin-top: 5px;
-  }
-  i {
-    padding: 4px;
   }
 </style>
 
-<a [routerLink]="['/']" id="logo" class="logo"></a>
-<ul id="nav-items">
-  <li>
-    <a [routerLink]="['/auth/youtube']"><span><i class="fa fa-pied-piper fa-1x" aria-hidden="true"></i>Profile</span></a>
+<a [routerLink]="['/']" id="logo" class="logo"><h2>Logo</h2></a>
+<ul class="nav nav-pills nav-stacked">
+  <li class="nav-item">
+    <a class="nav-link" [routerLink]="['/auth/youtube']"><i class="fa fa-pied-piper fa-2x" aria-hidden="true"></i>Profile</a>
   </li>
-  <li>
-    <a [routerLink]="['/browse']"><span><i class="fa fa-search fa-1x" aria-hidden="true"></i>Browse</span></a>
+  <li class="nav-item">
+    <a class="nav-link" [routerLink]="['/browse']"><span><i class="fa fa-search fa-2x" aria-hidden="true"></i>Browse</span></a>
   </li>
-  <li>
-    <a [routerLink]="['/settings']"><span><i class="fa fa-cog fa-1x" aria-hidden="true"></i>Settings</span></a>
+  <li class="nav-item">
+    <a class="nav-link" [routerLink]="['/settings']"><span><i class="fa fa-cog fa-2x" aria-hidden="true"></i>Settings</span></a>
   </li>
 </ul>
