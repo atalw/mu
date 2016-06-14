@@ -12,12 +12,12 @@ export class PlaylistService {
 	private profileUrl = '/app/profile';
 
 	constructor(private http: Http) {}
-	
+
 
 	// getPlaylists() {
 	// 	return this.http.get(this.profileUrl).toPromise()
 	// 		.then(response => response.json().playlists)
-	// 		.catch(this.handleError);		
+	// 		.catch(this.handleError);
 	// }
 
 	// getData() {
@@ -39,27 +39,40 @@ export class PlaylistService {
 	getPlaylists() {
 		return this.http.get(this.profileUrl).toPromise()
 			.then(response => this.getPlaylistData(response.json().playlists))
-			.catch(this.handleError);		
-	}
-
-	getPlaylistData(playlists) {
-		Promise.all(playlists.map(function(playlist) {
-			console.log(playlist);
-			this.getPlaylistItems()
-				.then(response => {
-					console.log(response);
-					response["playlistDetails"] = playlist;
-					this.playlistWithData.push(response);
-				})
-		})).then(function() {
-			return Promise.resolve(this.playlistWithData)
-			})
 			.catch(this.handleError);
 	}
 
+	getPlaylistData(playlists) {
+		playlists.reduce((sequence, playlist) => {
+			// console.log(playlist);
+			// console.log(this.getPlaylistItems());
+			let obj = playlist;
+			this.getPlaylistItems().then(response => {
+				// console.log(playlist, response);
+				response.playlistDetails = obj;
+				this.playlistWithData.push(response);
+			});
+		}, Promise.resolve());
+
+					return this.playlistWithData;
+
+		// 	this.getPlaylistItems()
+		// 		.then(response => {
+		// 			console.log(response);
+		// 			response["playlistDetails"] = playlist;
+		// 			this.playlistWithData.push(response);
+		// 		})
+		// })).then(function() {
+		// 	return Promise.resolve(this.playlistWithData)
+		// 	})
+		// 	.catch(this.handleError);
+	}
+
 	// replace with http api call after auth service complete
-	getPlaylistItems(): Promise<Playlist> {
+	getPlaylistItems() : Promise<Playlist> {
+		console.log('here');
 		return Promise.resolve(PlaylistItems);
+		// return PlaylistItems;
 	}
 
 	// testing only

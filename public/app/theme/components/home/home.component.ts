@@ -4,7 +4,7 @@ import { TabsComponent } from './tabs/tabs.component';
 import { ROUTER_DIRECTIVES } from '@angular/router';
 import { Router, ActivatedRoute }  from '@angular/router';
 
-import { PlaylistService } from '../../../theme/services/playlist.service';
+import { PlaylistService } from '../../services/playlist.service';
 import { RightbarComponent } from '../rightbar/rightbar.component';
 
 @Component({
