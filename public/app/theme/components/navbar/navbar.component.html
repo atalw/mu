@@ -1,5 +1,5 @@
 <style type="text/css">
-  #logo{
+  .logo{
     display: block;
     height: 95px;
     /*background: url('') no-repeat center;*/
@@ -7,9 +7,15 @@
   .nav-item {
     text-align: center;
   }
+  a:hover {
+    color: red;
+  }
+  nav a.router-link-active {
+    color: red;
+  }
 </style>
 
-<a [routerLink]="['/']" id="logo" class="logo"><h2>Logo</h2></a>
+<a class="logo" [routerLink]="['/']"><i class="fa fa-pied-piper fa-4x" aria-hidden="true"></i></a>
 <ul class="nav nav-pills nav-stacked">
   <li class="nav-item">
     <a class="nav-link" [routerLink]="['/auth/youtube']"><i class="fa fa-pied-piper fa-2x" aria-hidden="true"></i>Profile</a>

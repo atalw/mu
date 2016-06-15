@@ -3,32 +3,32 @@
     font-family: 'Open Sans', sans-serif;
   }
 
-    #router-outlet {
-      background-color: rgb(43, 62, 80);
-      height: 100%;
-      color: #e2e2e2;
-    }
-    #main-nav {
-      min-height: 595px;
-      height: 100%;
-      z-index: 2000;
-      background-color: rgb(0,0,0);
-    }
+  #router-outlet {
+    background-color: rgb(43, 62, 80);
+    height: 100%;
+    color: #e2e2e2;
+  }
+  #main-nav {
+    min-height: 595px;
+    height: 100%;
+    z-index: 2000;
+    background-color: rgb(0,0,0);
+  }
 
 </style>
 <div class="container-fluid">
-<div class="row">
- <div id="main-nav" class="col-sm-1">
-        <mu-navbar class="navbar"></mu-navbar>
-    </div>
+  <div class="row">
+    <nav id="main-nav" class="col-sm-1">
+      <mu-navbar class="navbar"></mu-navbar>
+    </nav>
     <div id="main" class="col-sm-8 padding-0">
-        <div id="router-outlet">
-            <router-outlet></router-outlet>
-        </div>
+      <div id="router-outlet">
+        <router-outlet></router-outlet>
+      </div>
 
     </div>
     <mu-right-bar class="col-sm-3 padding-0"></mu-right-bar>
-</div>
+  </div>
   <div class="row">
     <mu-control-bar class="col-sm-12 padding-0"></mu-control-bar>
   </div>
