@@ -40,7 +40,6 @@ export class PlaylistsComponent {
 		});
 	}
 	customTrackBy(index: number, obj: any): any {
-		console.log(index);
 		return index;
 	}
 }
