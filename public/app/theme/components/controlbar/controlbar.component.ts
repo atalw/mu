@@ -6,4 +6,9 @@ import { Component } from '@angular/core';
   templateUrl: 'controlbar.component.html',
 })
 
-export class ControlbarComponent {}
+export class ControlbarComponent {
+
+	pause() {
+		console.log('here');
+	}
+}

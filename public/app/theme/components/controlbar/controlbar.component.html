@@ -1,29 +1,26 @@
 <style type="text/css">
 	#main-control {
-		bottom: 0;
-		left: 0;
-		height: 40px;
-		z-index: 2000;
-		width: 100%;
-		position: absolute;
-		/*background-color: rgb(50,50,50);*/
-		background-color: rgba(78,93,108,0.9);
-		color: #e2e2e2;
+
 	}
 	#buttons {
-		z-index: 2000;
+
 	}
 
 	.but {
 		padding-left: 10px;
 		top: 0;
+		/*color: #e2e2e2;*/
+	}
+	.btn {
+		padding: 0;
+
 	}
 </style>
 
 <div id="main-control">
 	<div id="buttons">
-		<i id="backward-button" class="fa fa-backward fa-2x but small-but" aria-hidden="true"></i>
-		<i id="play-button" class="fa fa-play-circle fa-3x but" aria-hidden="true"></i>
-		<i id="forward-button" class="fa fa-forward fa-2x but small-but" aria-hidden="true"></i>
+		<a class="but" (click)="prev()"><i id="backward-button" class="fa fa-backward fa-2x" aria-hidden="true"></i></a>
+		<a class="but" (click)="pause()"><i id="play-button" class="fa fa-play-circle fa-3x" aria-hidden="true"></i></a>
+		<a class="but" (click)="next()"><i id="forward-button" class="fa fa-forward fa-2x" aria-hidden="true"></i></a>
 	</div>
 </div>

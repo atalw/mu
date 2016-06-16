@@ -13,65 +13,35 @@ export class PlaylistService {
 
 	constructor(private http: Http) {}
 
-
-	// getPlaylists() {
-	// 	return this.http.get(this.profileUrl).toPromise()
-	// 		.then(response => response.json().playlists)
-	// 		.catch(this.handleError);
-	// }
-
-	// getData() {
-	// 	return this.http.get(this.profileUrl).toPromise()
-	// 	.then(function(response) {
-	// 		// console.log(response.json().playlists);
-	// 		return response.json().playlists.reduce(function(sequence, playlistPromise) {
-	// 			console.log(sequence);
-	// 			return sequence.then(function() {
-	// 				// console.log(playlistPromise.id);
-	// 				return this.getPlaylistItems(playlistPromise.id);
-	// 			}).then(function(playlistItems) {
-	// 				console.log(playlistItems);
-	// 			});
-	// 		}, Promise.resolve());
-	// 	}).catch(this.handleError);
-	// }
-
 	getPlaylists() {
 		return this.http.get(this.profileUrl).toPromise()
-			.then(response => this.getPlaylistData(response.json().playlists))
+			.then(response => {
+				return this.getPlaylistData(response.json().playlists).then(response => {
+					return response;
+				});
+			})
 			.catch(this.handleError);
 	}
 
+	queue = Promise.resolve();
 	getPlaylistData(playlists) {
 		playlists.reduce((sequence, playlist) => {
-			// console.log(playlist);
-			// console.log(this.getPlaylistItems());
-			let obj = playlist;
-			this.getPlaylistItems().then(response => {
-				// console.log(playlist, response);
-				response.playlistDetails = obj;
-				this.playlistWithData.push(response);
-			});
-		}, Promise.resolve());
+			this.queue = this.queue.then(() => {
+				this.getPlaylistItems(playlist).then(response => {
+					this.playlistWithData.push(response);
+				});
+			})
+		});
 
-					return this.playlistWithData;
-
-		// 	this.getPlaylistItems()
-		// 		.then(response => {
-		// 			console.log(response);
-		// 			response["playlistDetails"] = playlist;
-		// 			this.playlistWithData.push(response);
-		// 		})
-		// })).then(function() {
-		// 	return Promise.resolve(this.playlistWithData)
-		// 	})
-		// 	.catch(this.handleError);
+		return this.queue.then(() => {
+			return Promise.resolve(this.playlistWithData);
+		})
 	}
 
 	// replace with http api call after auth service complete
-	getPlaylistItems() : Promise<Playlist> {
-		console.log('here');
-		return Promise.resolve(PlaylistItems);
+	getPlaylistItems(playlist) : Promise<Playlist> {
+		playlist.data = PlaylistItems;
+		return Promise.resolve(playlist);
 		// return PlaylistItems;
 	}
 
