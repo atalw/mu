@@ -1,17 +1,24 @@
 <style type="text/css">
 	.info {
 		/*margin: 20px;*/
+		border-top: 1px solid rgb(220,220,220);
+		margin: 0;
 	}
 	.vid-lyrics-toggle-btn {
-		margin-bottom: 2em;
+		/*margin-bottom: 2em;*/
+		position: absolute;
+		right: 0;
+		z-index: 9999;
+	}
+	.toggle {
+		margin: 0;
 	}
 </style>
 
-<div class="row">
-	<button class="vid-lyrics-toggle-btn btn btn-primary col-sm-12" (click)="toggle()">Toggle</button>
-</div>
-<div class="row">
-	<div class="info col-sm-12" [ngSwitch]="tab">
+
+<div class="row info">
+	<a class="vid-lyrics-toggle-btn" (click)="toggle()">Toggle</a>
+	<div class="col-sm-12 padding-0" [ngSwitch]="tab">
 		<mu-related-videos *ngSwitchWhen="'related-videos'"></mu-related-videos>
 		<mu-lyrics *ngSwitchWhen="'lyrics'"></mu-lyrics>
 	</div>
