@@ -8,8 +8,10 @@
     'app':                        'app', // 'dist',
     '@angular':                   'node_modules/@angular',
     'angular2-in-memory-web-api': 'node_modules/angular2-in-memory-web-api',
-    'rxjs':                       'node_modules/rxjs'
+    'rxjs':                       'node_modules/rxjs',
+    '@angular2-material':         'node_modules/@angular2-material'
   };
+
   // packages tells the System loader how to load when no filename and/or no extension
   var packages = {
     'app':                        { main: 'main.js',  defaultExtension: 'js' },
@@ -24,8 +26,15 @@
     'platform-browser',
     'platform-browser-dynamic',
     'router',
-    'upgrade',
+    'upgrade'
   ];
+
+  // Angular Material 2 Packages to load.
+  var _materialPackages = [
+    'core', 'toolbar', 'button', 'card', 'checkbox', 'icon', 'input', 'list', 'progress-bar',
+    'progress-circle', 'radio', 'sidenav', 'grid-list', 'tabs', 'slide-toggle'
+  ];
+
   // Individual files (~300 requests):
   function packIndex(pkgName) {
     packages['@angular/'+pkgName] = { main: 'index.js', defaultExtension: 'js' };
@@ -34,12 +43,17 @@
   function packUmd(pkgName) {
     packages['@angular/'+pkgName] = { main: '/bundles/' + pkgName + '.umd.js', defaultExtension: 'js' };
   }
+  function materialPackIndex(item) {
+    packages['@angular2-material/' + item] = { main: item, defaultExtension: 'js' };
+  }
+
   // Most environments should use UMD; some (Karma) need the individual index files
   var setPackageConfig = System.packageWithIndex ? packIndex : packUmd;
   // REMOVE - TEMPORARY FIX FOR ROUTER ALPHA VERSION
   var setPackageConfig = packIndex;
   // Add package entries for angular packages
   ngPackageNames.forEach(setPackageConfig);
+  _materialPackages.forEach(materialPackIndex);
   var config = {
     map: map,
     packages: packages

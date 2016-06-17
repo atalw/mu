@@ -13,7 +13,7 @@
 </style>
 
 <div id="main-rightbar" [class.active]="open" @active="open ? 'open' : 'closed'">
-	<div class="minimise"(click)="onToggleRight()">Minimise</div>
+	<button md-button class="minimise"(click)="onToggleRight()">Minimise</button>
 	<mu-video-player></mu-video-player>
 	<mu-info></mu-info>
 </div>

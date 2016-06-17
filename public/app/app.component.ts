@@ -15,12 +15,12 @@ import { RightbarComponent } from './theme/components/rightbar/rightbar.componen
 	  trigger('routerEnlarge', [
 		  state('void', style({ transform: 'translateX(0)' })),
 		  state('closed', style({
-			  transform: 'translate(15%)',
+			  transform: 'translate(11%)',
 		  })),
 		  state('open', style({ transform: 'translateX(0)' })),
 		  transition('void => closed', [animate(0)]),
-		  transition('closed => open', [animate('500ms ease-out')]),
-		  transition('open => closed', [animate('500ms ease-out')])
+		  transition('closed => open', [animate('350ms ease-out')]),
+		  transition('open => closed', [animate('350ms ease-out')])
 	  ])
   ]
 })
