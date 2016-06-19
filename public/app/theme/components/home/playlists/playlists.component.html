@@ -6,130 +6,136 @@
 		overflow-y: scroll;
 		height: 100%;
     padding-bottom: 50px;
-	}
-	.playlist{
-		/*color: #e2e2e2;*/
-		/*float: left;*/
-		margin-top: 20px;
-		height: 47.5%;
-		border: 10px solid rgba(0,0,0,0);
-		padding: 10px;
-		background-color: rgba(0,0,0,0.0);
-		/*box-shadow: 1px 1px 4px rgba(0,0,0,0.15);*/
-		overflow: auto;
-	}
-	.playlistTitle {
-	}
+  }
+  .playlist{
 
-	.playlist-head{
-		border-bottom: 1px solid rgba(0,0,0,0.1);
-		padding: 5px;
-		margin: auto;
-	}
-	.playlist-field{
-		padding: 10px;
-		border-bottom: 1px solid rgba(0,0,0,0.1);
-		/*margin: auto;*/
-	}
-	.loader1 {
-      /*margin-left: -30px;*/
-      top: 60%;
-      left: 50%;
-      margin-right: 30em;
-      position: absolute;
-      -webkit-transform: translate(-50%, -50%);
-      transform: translate(-50%, -50%);
-    }
-    .loader1 #spinner {
-      box-sizing: border-box;
-      stroke: #673AB7;
-      stroke-width: 3px;
-      -webkit-transform-origin: 50%;
-      transform-origin: 50%;
-      -webkit-animation: line 1.6s cubic-bezier(0.4, 0, 0.2, 1) infinite, rotate 1.6s linear infinite;
-      animation: line 1.6s cubic-bezier(0.4, 0, 0.2, 1) infinite, rotate 1.6s linear infinite;
-    }
+    margin-top: 20px;
+    border: 10px solid rgba(0,0,0,0);
+    padding: 10px;
+    background-color: rgba(0,0,0,0.0);
+  }
+  .playlistTitle {
 
-    @-webkit-keyframes rotate {
-      from {
-        -webkit-transform: rotate(0);
-        transform: rotate(0);
-      }
-      to {
-        -webkit-transform: rotate(450deg);
-        transform: rotate(450deg);
-      }
-    }
+  }
+  .playlist-data {
+    overflow: auto;
+    height: 40%;
+  }
+  .playlist-head{
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    padding: 5px;
+    margin: auto;
+  }
+  .playlist-field{
+    padding: 10px;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+  }
+  .loader1 {
+    top: 60%;
+    left: 50%;
+    margin-right: 30em;
+    position: absolute;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+  .loader1 #spinner {
+    box-sizing: border-box;
+    stroke: #673AB7;
+    stroke-width: 3px;
+    -webkit-transform-origin: 50%;
+    transform-origin: 50%;
+    -webkit-animation: line 1.6s cubic-bezier(0.4, 0, 0.2, 1) infinite, rotate 1.6s linear infinite;
+    animation: line 1.6s cubic-bezier(0.4, 0, 0.2, 1) infinite, rotate 1.6s linear infinite;
+  }
 
-    @keyframes rotate {
-      from {
-        -webkit-transform: rotate(0);
-        transform: rotate(0);
-      }
-      to {
-        -webkit-transform: rotate(450deg);
-        transform: rotate(450deg);
-      }
+  @-webkit-keyframes rotate {
+    from {
+      -webkit-transform: rotate(0);
+      transform: rotate(0);
     }
+    to {
+      -webkit-transform: rotate(450deg);
+      transform: rotate(450deg);
+    }
+  }
 
-    @-webkit-keyframes line {
-      0% {
-        stroke-dasharray: 2, 85.964;
-        -webkit-transform: rotate(0);
-        transform: rotate(0);
-      }
-      50% {
-        stroke-dasharray: 65.973, 21.9911;
-        stroke-dashoffset: 0;
-      }
-      100% {
-        stroke-dasharray: 2, 85.964;
-        stroke-dashoffset: -65.973;
-        -webkit-transform: rotate(90deg);
-        transform: rotate(90deg);
-      }
+  @keyframes rotate {
+    from {
+      -webkit-transform: rotate(0);
+      transform: rotate(0);
     }
+    to {
+      -webkit-transform: rotate(450deg);
+      transform: rotate(450deg);
+    }
+  }
 
-    @keyframes line {
-      0% {
-        stroke-dasharray: 2, 85.964;
-        -webkit-transform: rotate(0);
-        transform: rotate(0);
-      }
-      50% {
-        stroke-dasharray: 65.973, 21.9911;
-        stroke-dashoffset: 0;
-      }
-      100% {
-        stroke-dasharray: 2, 85.964;
-        stroke-dashoffset: -65.973;
-        -webkit-transform: rotate(90deg);
-        transform: rotate(90deg);
+  @-webkit-keyframes line {
+    0% {
+      stroke-dasharray: 2, 85.964;
+      -webkit-transform: rotate(0);
+      transform: rotate(0);
     }
-}
+    50% {
+      stroke-dasharray: 65.973, 21.9911;
+      stroke-dashoffset: 0;
+    }
+    100% {
+      stroke-dasharray: 2, 85.964;
+      stroke-dashoffset: -65.973;
+      -webkit-transform: rotate(90deg);
+      transform: rotate(90deg);
+    }
+  }
+
+  @keyframes line {
+    0% {
+      stroke-dasharray: 2, 85.964;
+      -webkit-transform: rotate(0);
+      transform: rotate(0);
+    }
+    50% {
+      stroke-dasharray: 65.973, 21.9911;
+      stroke-dashoffset: 0;
+    }
+    100% {
+      stroke-dasharray: 2, 85.964;
+      stroke-dashoffset: -65.973;
+      -webkit-transform: rotate(90deg);
+      transform: rotate(90deg);
+    }
+  }
 </style>
+
 <div class="playlists row">
 	<div class="col-sm-6" *ngFor="let playlist of playlists; let parentIndex = index">
-		<div class="playlist">
-			<div class="playlistTitle"><h3>{{playlist.title}}</h3></div>
-			<div class="row playlist-head">
-				<div class="col-sm-7 col-sm-offset-1">Title</div>
-				<div class="col-sm-2">Queue</div>
-				<div class="col-sm-2">Link</div>
+    <div class="playlist">
 
-			</div>
-			<div *ngIf="playlist?.items" class="loader1">
-				<svg viewBox="0 0 32 32" width="32" height="32">
-					<circle id="spinner" cx="16" cy="16" r="14" fill="none"></circle>
-				</svg>
-			</div>
+      <div class="playlistTitle">
+        <h3>{{playlist.title}}</h3>
+      </div>
 
-			<div class="row playlist-field" *ngFor="let item of playlist.data.items trackBy:customTrackBy" [class.active]="item === selectedItem" (click)="selectedItem = item"
-      @state="item === selectedItem ? 'active' : 'inactive'" >
-				<div class="col-sm-8">{{item.snippet.title}}</div>
-				<div class="col-sm-2"><i class="fa fa-rotate-left" aria-hidden="true"></i></div>
-				<div class="col-sm-2"><i class="fa fa-youtube-play" aria-hidden="true"></i></div>
-			</div>
-		</div>
-	</div>
+      <div class="playlist-data">
+
+        <div class="row playlist-head">
+          <div class="col-sm-7 col-sm-offset-1">Title</div>
+          <div class="col-sm-2">Queue</div>
+          <div class="col-sm-2">Link</div>
+        </div>
+
+        <div *ngIf="playlist?.items" class="loader1">
+          <svg viewBox="0 0 32 32" width="32" height="32">
+           <circle id="spinner" cx="16" cy="16" r="14" fill="none"></circle>
+         </svg>
+        </div>
+
+        <div class="row playlist-field" *ngFor="let item of playlist.data.items trackBy:customTrackBy" [class.active]="item === selectedItem" (click)="selectedItem = item"
+        @state="item === selectedItem ? 'active' : 'inactive'" >
+          <div class="col-sm-8">{{item.snippet.title}}</div>
+          <div class="col-sm-2"><i class="fa fa-rotate-left" aria-hidden="true"></i></div>
+          <div class="col-sm-2"><i class="fa fa-youtube-play" aria-hidden="true"></i></div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
