@@ -6,6 +6,8 @@ import { Component,
   		 animate } from '@angular/core';
 
 import { PlaylistService } from '../../../services/playlist.service';
+import {MD_LIST_DIRECTIVES} from '@angular2-material/list';
+import {MD_BUTTON_DIRECTIVES} from '@angular2-material/button';
 
 @Component({
   moduleId: module.id,
@@ -24,7 +26,8 @@ import { PlaylistService } from '../../../services/playlist.service';
 		  transition('inactive => active', animate('100ms ease-in')),
 		  transition('active => inactive', animate('100ms ease-out'))
 	  ])
-  ]
+  ],
+  directives: [MD_LIST_DIRECTIVES, MD_BUTTON_DIRECTIVES]
 })
 
 export class PlaylistsComponent {

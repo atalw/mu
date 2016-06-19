@@ -2,6 +2,9 @@
   * {
     font-family: 'Open Sans', sans-serif;
   }
+  .material-icons {
+    font-family: 'Material Icons';
+  }
   .container-fluid {
     overflow: hidden;
   }
@@ -54,27 +57,18 @@
 <md-sidenav-layout class="demo-sidenav-layout">
 
   <md-sidenav #start mode="side" opened="true">
-    <a class="logo" [routerLink]="['/']"><i class="fa fa-pied-piper fa-4x" aria-hidden="true"></i></a>
+    <a class="logo" [routerLink]="['/']"><md-icon md-48>home</md-icon></a>
     <ul class="nav nav-pills nav-stacked">
       <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/auth/youtube']"><i class="fa fa-pied-piper fa-2x" aria-hidden="true"></i>Profile</a>
+        <a class="nav-link" [routerLink]="['/auth/youtube']"><md-icon md-48>account_box</md-icon></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/browse']"><span><i class="fa fa-search fa-2x" aria-hidden="true"></i>Browse</span></a>
+        <a class="nav-link" [routerLink]="['/browse']"><md-icon md-48>search</md-icon></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/settings']"><span><i class="fa fa-cog fa-2x" aria-hidden="true"></i>Settings</span></a>
+        <a class="nav-link" [routerLink]="['/settings']"><md-icon md-48>build</md-icon></a>
       </li>
     </ul>
-    <br>
-    <button md-button (click)="start.close()">Close</button>
-    <br>
-    <button md-button (click)="end.open()">Open End Side</button>
-    <br>
-    <button md-button
-    (click)="start.mode = (start.mode == 'push' ? 'over' : (start.mode == 'over' ? 'side' : 'push'))">Toggle Mode</button>
-    <div>Mode: {{start.mode}}</div>
-    <br>
   </md-sidenav>
 
   <md-sidenav #end id="right-bar" align="end" opened="true" mode="side">
@@ -87,8 +81,8 @@
     <div class="row">
 
       <div id="nav-toggle">
-        <button md-button class="start-toggle" (click)="start.toggle()">Toggle Start Side Drawer</button>
-        <button md-button class="end-toggle" (click)="end.toggle()">Toggle End Side Drawer</button>
+        <button md-button class="start-toggle" (click)="start.toggle()"><md-icon md-48>menu</md-icon></button>
+        <button md-button class="end-toggle" (click)="end.toggle()"><md-icon md-48>menu</md-icon></button>
       </div>
 
       <div id="main" class="col-sm-12 padding-0">
