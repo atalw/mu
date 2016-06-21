@@ -16,17 +16,17 @@ router.get('/', function(req, res, next) {
 	}
 });
 
-router.get('/home', isAuthenticated, function(req, res, next) {
-	res.render('index', {displayName: req.session.displayName});
-});
+// router.get('/home', isAuthenticated, function(req, res, next) {
+	// res.render('index', {displayName: req.session.displayName});
+// });
 
-router.get('/profile', function(req, res, next) {
-	res.redirect("http://www.youtube.com/channel/"+req.session.userId);
-});
+// router.get('/profile', function(req, res, next) {
+	// res.redirect("http://www.youtube.com/channel/"+req.session.userId);
+// });
 
-router.get('/app/profile', function(req, res, next) {
-	res.send(req.session.passport.user);
-});
+// router.get('/app/profile', function(req, res, next) {
+	// res.send(req.session.passport.user);
+// });
 
 router.get('/logout', function(req, res, next) {
 	req.session.destroy();
@@ -53,5 +53,9 @@ router.get('/auth/youtube/callback', passport.authenticate('youtube', {failureRe
 		res.redirect('/');
 	}
 );
+
+// router.get('/search', function(req, res, next) {
+
+// });
 
 module.exports = router;
