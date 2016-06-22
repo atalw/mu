@@ -11,6 +11,10 @@
   a {
     color: red;
   }
+  .logo img{
+    height: 120px;
+    width: 120px;
+  }
   #router-outlet {
     /*background-color: rgb(43, 62, 80);*/
     background-color: rgb(255,255,255);
@@ -59,7 +63,7 @@
   <md-sidenav-layout class="demo-sidenav-layout">
 
     <md-sidenav #start mode="side" opened="true">
-      <a class="logo" [routerLink]="['/']"><md-icon md-48>home</md-icon></a>
+      <a class="logo" [routerLink]="['/']"><img src="app/assets/images/mu-logo.png"></a>
       <ul class="nav nav-pills nav-stacked">
         <li class="nav-item">
           <a class="nav-link" [routerLink]="['/auth/youtube']"><md-icon md-48>account_box</md-icon></a>
