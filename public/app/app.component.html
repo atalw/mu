@@ -82,7 +82,7 @@
     <div class="container-fluid">
       <div class="row">
 
-        <div id="nav-toggle">
+        <div id="nav-toggle" @easeInTop="in">
           <button md-button class="start-toggle" (click)="start.toggle()"><md-icon md-48>menu</md-icon></button>
           <button md-button class="end-toggle" (click)="end.toggle()"><md-icon md-48>menu</md-icon></button>
         </div>
@@ -97,7 +97,7 @@
     </div>
   </md-sidenav-layout>
 
-  <div id="control-bar" class="row">
+  <div id="control-bar" class="row margin-0" @easeInBottom="in">
     <mu-control-bar class="col-sm-12 padding-0"></mu-control-bar>
   </div>
 </div>

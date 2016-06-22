@@ -17,13 +17,42 @@ import { VideoPlayerComponent } from './theme/components/rightbar/videoPlayer/vi
   templateUrl: 'app.component.html',
   directives: [ROUTER_DIRECTIVES, ControlbarComponent, MD_SIDENAV_DIRECTIVES, MD_BUTTON_DIRECTIVES, MD_ICON_DIRECTIVES, InfoComponent, VideoPlayerComponent, LoginComponent],
   providers: [MdIconRegistry],
-  animations: []
+  animations: [
+  	trigger('easeInLeft', [
+  		state('in', style({transform: 'translateX(0)'})),
+  		transition('void => *', [
+  			style({transform: 'translateX(-100%)'}),
+  			animate('200ms ease-in')
+  		]),
+  	]),
+  	trigger('easeInRight', [
+  		state('in', style({transform: 'translateX(0)'})),
+  		transition('void => *', [
+  			style({transform: 'translateX(100%)'}),
+			animate('200ms ease-in')
+  		]),
+  	]),
+	trigger('easeInBottom', [
+		state('in', style({ transform: 'translateY(0)' })),
+		transition('void => *', [
+			style({ transform: 'translateY(100%)' }),
+			animate('200ms ease-in')
+		]),
+	]),
+	trigger('easeInTop', [
+		state('in', style({ transform: 'translateY(0)' })),
+		transition('void => *', [
+			style({ transform: 'translateY(-100%)' }),
+			animate('200ms ease-in')
+		]),
+	]),
+  ]
 })
 
 export class AppComponent {
 	private loggedIn;
 
 	constructor() {
-		this.loggedIn = false;
+		this.loggedIn = true;
 	}
 }
