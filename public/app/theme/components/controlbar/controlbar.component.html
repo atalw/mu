@@ -1,11 +1,8 @@
 <style type="text/css">
 	#main-control {
-
 	}
 	#buttons {
-
 	}
-
 	.control {
 		padding-left: 10px;
 		top: 0;
@@ -15,12 +12,30 @@
 		padding: 0;
 
 	}
+	.video-functions {
+		float: left;
+	}
+	.scrub-bar {
+		height: 100%;
+		vertical-align: center;
+	}
 </style>
 
 <div id="main-control">
-	<div id="buttons">
-		<a class="control" (click)="prev()"><i id="backward-button" class="fa fa-backward fa-2x" aria-hidden="true"></i></a>
-		<a class="control" (click)="pause()"><i id="play-button" class="fa fa-play-circle fa-3x" aria-hidden="true"></i></a>
-		<a class="control" (click)="next()"><i id="forward-button" class="fa fa-forward fa-2x" aria-hidden="true"></i></a>
+	<div class="row">
+		<div class="col-sm-2" id="buttons">
+			<a class="control" (click)="prev()"><i id="backward-button" class="fa fa-backward fa-2x" aria-hidden="true"></i></a>
+			<a class="control" (click)="pause()"><i id="play-button" class="fa fa-play-circle fa-3x" aria-hidden="true"></i></a>
+			<a class="control" (click)="next()"><i id="forward-button" class="fa fa-forward fa-2x" aria-hidden="true"></i></a>
+		</div>
+		<div class="col-sm-7 scrub-bar">
+			<div class="bar">---------------------------</div>
+		</div>
+		<div class="col-sm-3 video-functions">
+			<div class="row">
+				<div class="col-sm-6 loop"><md-icon>loop</md-icon></div>
+				<div class="col-sm-6 video-link"><md-icon>youtube-link</md-icon></div>
+			</div>
+		</div>
 	</div>
 </div>
