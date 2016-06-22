@@ -54,48 +54,52 @@
     float: right;
   }
 </style>
-<md-sidenav-layout class="demo-sidenav-layout">
+<mu-login *ngIf="!loggedIn"></mu-login>
+<div *ngIf="loggedIn" id="page">
+  <md-sidenav-layout class="demo-sidenav-layout">
 
-  <md-sidenav #start mode="side" opened="true">
-    <a class="logo" [routerLink]="['/']"><md-icon md-48>home</md-icon></a>
-    <ul class="nav nav-pills nav-stacked">
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/auth/youtube']"><md-icon md-48>account_box</md-icon></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/browse']"><md-icon md-48>search</md-icon></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/settings']"><md-icon md-48>build</md-icon></a>
-      </li>
-    </ul>
-  </md-sidenav>
+    <md-sidenav #start mode="side" opened="true">
+      <a class="logo" [routerLink]="['/']"><md-icon md-48>home</md-icon></a>
+      <ul class="nav nav-pills nav-stacked">
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/auth/youtube']"><md-icon md-48>account_box</md-icon></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/browse']"><md-icon md-48>search</md-icon></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/settings']"><md-icon md-48>build</md-icon></a>
+        </li>
+      </ul>
+    </md-sidenav>
 
-  <md-sidenav #end id="right-bar" align="end" opened="true" mode="side">
-    <mu-video-player></mu-video-player>
-    <mu-info></mu-info>
-    <button md-button (click)="end.close()">Close</button>
-  </md-sidenav>
+    <md-sidenav #end id="right-bar" align="end" opened="true" mode="side">
+      <mu-video-player></mu-video-player>
+      <mu-info></mu-info>
+      <button md-button (click)="end.close()">Close</button>
+    </md-sidenav>
 
-  <div class="container-fluid">
-    <div class="row">
+    <div class="container-fluid">
+      <div class="row">
 
-      <div id="nav-toggle">
-        <button md-button class="start-toggle" (click)="start.toggle()"><md-icon md-48>menu</md-icon></button>
-        <button md-button class="end-toggle" (click)="end.toggle()"><md-icon md-48>menu</md-icon></button>
-      </div>
-
-      <div id="main" class="col-sm-12 padding-0">
-        <div id="router-outlet">
-          <router-outlet></router-outlet>
+        <div id="nav-toggle">
+          <button md-button class="start-toggle" (click)="start.toggle()"><md-icon md-48>menu</md-icon></button>
+          <button md-button class="end-toggle" (click)="end.toggle()"><md-icon md-48>menu</md-icon></button>
         </div>
+
+        <div id="main" class="col-sm-12 padding-0">
+          <div id="router-outlet">
+            <router-outlet></router-outlet>
+          </div>
+        </div>
+
       </div>
-
     </div>
-  </div>
-</md-sidenav-layout>
+  </md-sidenav-layout>
 
-<div id="control-bar" class="row">
-  <mu-control-bar class="col-sm-12 padding-0"></mu-control-bar>
+  <div id="control-bar" class="row">
+    <mu-control-bar class="col-sm-12 padding-0"></mu-control-bar>
+  </div>
 </div>
+
 

@@ -4,6 +4,7 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
 // import { NavbarComponent } from './theme/components/navbar/navbar.component';
 import { ControlbarComponent } from './theme/components/controlbar/controlbar.component';
 // import { RightbarComponent } from './theme/components/rightbar/rightbar.component';
+import { LoginComponent } from './pages/login/login.component';
 import {MD_SIDENAV_DIRECTIVES} from '@angular2-material/sidenav';
 import {MD_BUTTON_DIRECTIVES} from '@angular2-material/button';
 import {MD_ICON_DIRECTIVES, MdIconRegistry} from '@angular2-material/icon';
@@ -14,9 +15,15 @@ import { VideoPlayerComponent } from './theme/components/rightbar/videoPlayer/vi
   moduleId: module.id,
   selector: 'app',
   templateUrl: 'app.component.html',
-  directives: [ROUTER_DIRECTIVES, ControlbarComponent, MD_SIDENAV_DIRECTIVES, MD_BUTTON_DIRECTIVES, MD_ICON_DIRECTIVES, InfoComponent, VideoPlayerComponent],
+  directives: [ROUTER_DIRECTIVES, ControlbarComponent, MD_SIDENAV_DIRECTIVES, MD_BUTTON_DIRECTIVES, MD_ICON_DIRECTIVES, InfoComponent, VideoPlayerComponent, LoginComponent],
   providers: [MdIconRegistry],
   animations: []
 })
 
-export class AppComponent {}
+export class AppComponent {
+	private loggedIn;
+
+	constructor() {
+		this.loggedIn = false;
+	}
+}
