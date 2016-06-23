@@ -74,10 +74,13 @@
         <li class="nav-item">
           <a class="nav-link" [routerLink]="['/settings']"><md-icon md-48>build</md-icon></a>
         </li>
+        <li class="nav-item">
+          <a href="/auth/youtube">Log in</a>
+        </li>
       </ul>
     </md-sidenav>
 
-    <md-sidenav #end id="right-bar" align="end" opened="true" mode="side">
+    <md-sidenav #end id="right-bar" align="end" opened="false" mode="side">
       <mu-video-player></mu-video-player>
       <mu-info></mu-info>
       <button md-button (click)="end.close()">Close</button>

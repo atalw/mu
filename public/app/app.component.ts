@@ -55,4 +55,6 @@ export class AppComponent {
 	constructor() {
 		this.loggedIn = true;
 	}
+	ngOnInit() {
+	}
 }
