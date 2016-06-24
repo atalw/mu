@@ -5,9 +5,9 @@ import { LoginComponent } from './pages/login/login.component';
 import { BrowseComponent } from './pages/browse/browse.component';
 
 const routes: RouterConfig = [
-	{ path: '/', component: HomeComponent, index: true },
-	{ path: '/login', component: LoginComponent },
-	{ path: '/browse', component: BrowseComponent }
+	{ path: '', component: HomeComponent},
+	{ path: 'login', component: LoginComponent },
+	{ path: 'browse', component: BrowseComponent }
 ];
 
 export const APP_ROUTER_PROVIDERS = [
