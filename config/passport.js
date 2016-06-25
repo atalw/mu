@@ -15,7 +15,6 @@ passport.serializeUser(function(user, done) {
 		picture: user.picture,
 		playlists: user.playlists
 	};
-	console.log(sessionUser);
   done(null, sessionUser);
 });
 

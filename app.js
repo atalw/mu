@@ -11,7 +11,8 @@ var routes = require('./routes/index');
 
 var app = express();
 
-app.set('view engine', 'html');
+app.set('view engine', 'jade');
+app.engine('html', require('jade').renderFile);
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
