@@ -9,8 +9,5 @@
 	<div id="browse-header">
 		<h1>Browse</h1>
 	</div>
-	<mu-top-playlists></mu-top-playlists>
-	<mu-genres></mu-genres>
-	<mu-artists></mu-artists>
-	<mu-mood></mu-mood>
+	<div class="types" *ngFor="let type of content"><mu-type title="{{type.title}}" cards="{{type.cards}}"></mu-type></div>
 </div>
