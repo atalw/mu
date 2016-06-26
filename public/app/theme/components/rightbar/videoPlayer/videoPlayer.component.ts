@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PlayerService} from '../../../services/player'
+import { PlayerService} from '../../../../services/player'
 
 @Component({
 	moduleId: module.id,
@@ -18,7 +18,4 @@ export class VideoPlayerComponent {
 	ngAfterViewInit() {
 		// this.playerService.onYouTubeIframeAPIReady();
 	}
-
-
-
 }

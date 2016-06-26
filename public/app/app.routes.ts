@@ -1,5 +1,5 @@
 import { provideRouter, RouterConfig } from '@angular/router';
-import { HomeComponent } from './theme/components/home/home.component';
+import { HomeComponent } from './pages/home/home.component';
 import { RightbarComponent } from './theme/components/rightbar/rightbar.component';
 import { LoginComponent } from './pages/login/login.component';
 import { BrowseComponent } from './pages/browse/browse.component';
