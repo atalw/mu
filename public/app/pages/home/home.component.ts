@@ -1,6 +1,7 @@
 import { Component, AfterViewInit } from '@angular/core';
 import { PlaylistsComponent } from './playlists/playlists.component';
 import { TabsComponent } from './tabs/tabs.component';
+import { TabComponent } from './tabs/tab/tab.component';
 import { ROUTER_DIRECTIVES } from '@angular/router';
 import { Router, ActivatedRoute }  from '@angular/router';
 
@@ -10,7 +11,7 @@ import { RightbarComponent } from '../../theme/components/rightbar/rightbar.comp
 @Component({
   moduleId: module.id,
   templateUrl: 'home.component.html',
-  directives: [PlaylistsComponent],
+  directives: [PlaylistsComponent, TabsComponent, TabComponent],
   providers: [PlaylistService]
 })
 
