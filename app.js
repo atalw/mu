@@ -34,6 +34,7 @@ app.use(passport.session());
 
 // load database config
 require('./config/db');
+require('./config/subreddits');
 
 app.use('/', routes);
 

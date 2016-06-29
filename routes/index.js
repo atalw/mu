@@ -28,6 +28,10 @@ router.get('/app/profile', function(req, res, next) {
 	res.send(req.session.passport.user);
 });
 
+router.get('/app/subreddits', function(req, res, next) {
+	res.sendFile('subreddits.json', {root: __dirname});
+});
+
 router.get('/logout', function(req, res, next) {
 	req.session.destroy();
 	req.logout();

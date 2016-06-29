@@ -2,12 +2,13 @@
 	.subreddits {
 		height: 100%;
 		border-right: 1px solid rgb(220,220,220);
+		overflow-y: auto;
 	}
 	.threads {
 		height: 100%;
 	}
 </style>
 <div class="row">
-	<div class="col-sm-4 subreddits"><mu-subreddit *ngFor="let subreddit of subreddits"></mu-subreddit></div>
+	<div class="col-sm-4 subreddits"><mu-subreddit *ngFor="let subreddit of subreddits" [subreddit]="subreddit"></mu-subreddit></div>
 	<div class="col-sm-8 threads"><mu-thread></mu-thread></div>
 </div>

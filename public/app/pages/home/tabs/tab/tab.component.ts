@@ -7,11 +7,6 @@ import { TabsComponent } from '../tabs.component';
     'title: tabTitle',
     'active'
   ],
-  styles: [`
-    .pane{
-      padding: 1em;
-    }
-  `],
   template: `
     <div [hidden]="!active" class="pane">
       <ng-content></ng-content>
@@ -24,5 +19,6 @@ export class TabComponent {
 
   constructor(tabs: TabsComponent) {
     tabs.addTab(this);
+    console.log(this);
   }
 }
