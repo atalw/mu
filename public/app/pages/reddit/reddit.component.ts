@@ -17,7 +17,7 @@ export class RedditComponent {
 	ngOnInit() {
 		this.subredditsService.getSubreddits().then(response => {
 			this.data = response;
-		}).then(()=>console.log(this.data));
+		});
 
 	}
 
