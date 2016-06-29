@@ -11,13 +11,13 @@ import { SubredditsService } from './services/subreddits.service';
 	providers: [SubredditsService]
 })
 export class RedditComponent {
-	private subreddits;
+	private data;
 	constructor(private subredditsService: SubredditsService) {}
 
 	ngOnInit() {
 		this.subredditsService.getSubreddits().then(response => {
-			this.subreddits = response;
-		}).then(()=>console.log(this.subreddits));
+			this.data = response;
+		}).then(()=>console.log(this.data));
 
 	}
 

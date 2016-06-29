@@ -6,7 +6,7 @@ import { Component, Input } from '@angular/core';
 	templateUrl: 'subreddit.component.html',
 })
 export class SubredditComponent {
-	@Input() subreddit;
+	@Input() genre;
 
 	constructor() { }
 

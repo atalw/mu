@@ -1,8 +1,19 @@
 <style type="text/css">
+	.genre {
+
+	}
+
+	.genre-title {
+
+	}
+
 	.subreddit {
 		height: 40px;
 		border-bottom: 1px solid rgb(220,220,220);
 	}
 </style>
 
-<div class="subreddit">{{subreddit.genre}}</div>
+<div class="genre">
+	<div class="genre-title"><h3>{{genre.genre}}</h3></div>
+	<div class="subreddit" *ngFor="let subreddit of genre.subreddits">{{subreddit.title}}</div>
+</div>
