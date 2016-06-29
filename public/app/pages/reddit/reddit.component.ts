@@ -12,6 +12,7 @@ import { SubredditsService } from './services/subreddits.service';
 })
 export class RedditComponent {
 	private data;
+	private selectedSubreddit;
 	constructor(private subredditsService: SubredditsService) {}
 
 	ngOnInit() {
@@ -19,6 +20,9 @@ export class RedditComponent {
 			this.data = response;
 		});
 
+	}
+	subredditEvent(event) {
+		this.selectedSubreddit = event.title;
 	}
 
 }

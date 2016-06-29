@@ -9,6 +9,6 @@
 	}
 </style>
 <!-- <div class="row"> -->
-	<div class="col-sm-3 padding-0 subreddits"><mu-subreddit *ngFor="let genre of data" [genre]="genre"></mu-subreddit></div>
-	<div class="col-sm-9 padding-0 threads"><mu-thread></mu-thread></div>
+	<div class="col-sm-3 padding-0 subreddits"><mu-subreddit *ngFor="let genre of data" [genre]="genre" (subredditEvent)="subredditEvent($event)"></mu-subreddit></div>
+	<div class="col-sm-9 padding-0 threads"><mu-thread [selectedSubreddit]="selectedSubreddit"></mu-thread></div>
 <!-- </div> -->

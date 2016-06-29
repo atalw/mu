@@ -15,6 +15,6 @@
 
 <div class="genre">
 	<div class="genre-title"><h3>{{genre.genre}}</h3></div>
-	<div class="subreddit" *ngFor="let subreddit of genre.subreddits" [class.active]="subreddit === selectedSubreddit" (click)="selectedSubreddit = subreddit"
+	<div class="subreddit" *ngFor="let subreddit of genre.subreddits" [class.active]="subreddit === selectedSubreddit" (click)="select(subreddit)"
         @state="subreddit === selectedSubreddit ? 'active' : 'inactive'">{{subreddit.title}}</div>
 </div>

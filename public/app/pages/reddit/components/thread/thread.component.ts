@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { PostComponent } from '../post/post.component';
 
 @Component({
@@ -8,15 +8,25 @@ import { PostComponent } from '../post/post.component';
 	directives: [PostComponent]
 })
 export class ThreadComponent {
+	@Input() selectedSubreddit;
 
 	constructor() { }
 	private posts = [
 		{
-			title: 'post1'
+			title: 'Shine on you crazy diamond - Pink Floyd',
+			upvotes: '234',
+			time: '4 hours ago',
+			author: 'atalw',
+			comments: '213'
 		},
 		{
-			title: 'post2'
+			title: 'Can I kick it - artist',
+			upvotes: '34',
+			time: '5 hours ago',
+			author: 'atalw',
+			comments: '3'
 		}
 	];
+
 
 }

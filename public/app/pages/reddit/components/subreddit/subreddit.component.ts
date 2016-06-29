@@ -4,7 +4,9 @@ import { Component,
   		 style,
   	     transition,
   		 animate,
-  		 Input } from '@angular/core';
+  		 Input,
+  		 Output,
+  		 EventEmitter } from '@angular/core';
 
 @Component({
 	moduleId: module.id,
@@ -25,7 +27,16 @@ import { Component,
 })
 export class SubredditComponent {
 	@Input() genre;
+	@Output() subredditEvent = new EventEmitter();;
+	private selectedSubreddit;
 
 	constructor() { }
+
+	ngOnInit() {}
+
+	select(subreddit) {
+		this.selectedSubreddit = subreddit;
+		this.subredditEvent.emit(subreddit);
+	}
 
 }

@@ -1,16 +1,39 @@
 <style type="text/css">
+	.upvotes {
+		float: left;
+		width: 10%;
+	}
 	.post {
-		height: 40px;
 		border: 1px solid rgb(220,220,220);
+		margin: 10px;
+		height: 100px;
+	}
+	.title {
+		float: left;
+		width: 90%;
+	}
+	.details {
+		/*float: left;*/
+	}
+	.submission-time {
+		/*width: 20%;*/
+	}
+	.author {
+		/*width: 20%;*/
+	}
+	.comments {
+		/*width: 20%;*/
 	}
 </style>
 
 <div class="post">
-	<div class="upvotes">{{post.upvotes}}</div>
-	<div class="title"><h4>{{post.title}}</h4></div>
-	<div class="details">
-		<div class="submission-time">{{post.time}}</div>
-		<div class="author">{{post.author}}</div>
-		<div class="comments">{{post.comments}}</div>
+	<div class="row">
+		<div class="upvotes col-sm-3"><h6>{{post.upvotes}}</h6></div>
+		<div class="title col-sm-9"><h4>{{post.title}}</h4></div>
+	</div>
+	<div class="row details">
+		<div class="submission-time col-sm-2 col-sm-offset-2">{{post.time}}</div>
+		<div class="author col-sm-1">{{post.author}}</div>
+		<div class="comments col-sm-1">{{post.comments}}</div>
 	</div>
 </div>
