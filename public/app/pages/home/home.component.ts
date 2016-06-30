@@ -3,7 +3,8 @@ import { PlaylistsComponent } from './playlists/playlists.component';
 import { TabsComponent } from './tabs/tabs.component';
 import { TabComponent } from './tabs/tab/tab.component';
 import { ROUTER_DIRECTIVES } from '@angular/router';
-import { Router, ActivatedRoute }  from '@angular/router';
+import { Router }  from '@angular/router';
+import { MD_TABS_DIRECTIVES } from '@angular2-material/tabs';
 
 import { PlaylistService } from '../../services/playlist.service';
 import { RightbarComponent } from '../../theme/components/rightbar/rightbar.component';
@@ -11,7 +12,7 @@ import { RightbarComponent } from '../../theme/components/rightbar/rightbar.comp
 @Component({
   moduleId: module.id,
   templateUrl: 'home.component.html',
-  directives: [PlaylistsComponent, TabsComponent, TabComponent],
+  directives: [PlaylistsComponent, MD_TABS_DIRECTIVES],
   providers: [PlaylistService]
 })
 
@@ -20,7 +21,6 @@ export class HomeComponent implements AfterViewInit{
 
 	constructor(
 		private router: Router,
-		private route: ActivatedRoute,
 		private playlistService: PlaylistService) {}
 
 	ngOnInit() {

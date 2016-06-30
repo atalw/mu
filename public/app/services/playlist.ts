@@ -41,5 +41,5 @@ export class Playlist {
 				videoId: string;
 			}
 		}
-	} []		
+	} []
 }

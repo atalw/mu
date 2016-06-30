@@ -5,6 +5,9 @@
   .material-icons {
     font-family: 'Material Icons';
   }
+  #page {
+    overflow: hidden;
+  }
   .container-fluid {
     overflow: hidden;
   }
@@ -21,6 +24,9 @@
     height: 100%;
     /*color: #e2e2e2;*/
     color: rgb(33,33,33);
+  }
+  .sidenav-layout {
+    overflow: hidden;
   }
   #main-nav {
     min-height: 595px;
@@ -60,7 +66,7 @@
 </style>
 <mu-login *ngIf="!loggedIn"></mu-login>
 <div *ngIf="loggedIn" id="page">
-  <md-sidenav-layout class="demo-sidenav-layout">
+  <md-sidenav-layout class="sidenav-layout">
 
     <md-sidenav #start mode="side" opened="true">
       <a class="logo" [routerLink]="['/']"><img src="app/assets/images/mu-logo.png"></a>

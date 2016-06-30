@@ -3,7 +3,8 @@ import { Component,
   		 state,
   		 style,
   	     transition,
-  		 animate } from '@angular/core';
+  		 animate,
+  		 Input } from '@angular/core';
 
 import { PlaylistService } from '../../../services/playlist.service';
 import {MD_LIST_DIRECTIVES} from '@angular2-material/list';
@@ -33,14 +34,16 @@ import {MD_BUTTON_DIRECTIVES} from '@angular2-material/button';
 export class PlaylistsComponent {
 
 	playlists;
+	@Input() currentTab;
 
 	constructor(private playlistService: PlaylistService) {}
 
 	ngOnInit() {
-		this.playlistService.getPlaylists().then(response => {
+		this.playlistService.getPlaylists(this.currrentTab).then(response => {
 			console.log(response);
 			this.playlists = response;
 		});
+		console.log(this.currentTab);
 	}
 	customTrackBy(index: number, obj: any): any {
 		return index;

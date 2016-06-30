@@ -13,7 +13,7 @@ export class PlaylistService {
 
 	constructor(private http: Http) {}
 
-	getPlaylists() {
+	getPlaylists(tabIndex) {
 		return this.http.get(this.profileUrl).toPromise()
 			.then(response => {
 				return this.getPlaylistData(response.json().playlists).then(response => {
@@ -40,6 +40,7 @@ export class PlaylistService {
 
 	// replace with http api call after auth service complete
 	getPlaylistItems(playlist) : Promise<Playlist> {
+
 		playlist.data = PlaylistItems;
 		return Promise.resolve(playlist);
 		// return PlaylistItems;

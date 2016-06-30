@@ -27,9 +27,11 @@
 }
 
 #playlists-data {
-  margin-top: 2em;
+  /*margin-top: 2em;*/
 }
-
+md-tab-group {
+  height: 100%;
+}
 @-webkit-keyframes rotate {
   from {
     -webkit-transform: rotate(0);
@@ -96,10 +98,20 @@
 </div>
 
 <div id="playlists-data">
-  <mu-tabs>
-    <tab [tabTitle]="'Tab 1'"><mu-playlists></mu-playlists></tab>
-    <tab [tabTitle]="'Tab 2'">aasdfasdfsdf</tab>
-  </mu-tabs>
+  <md-tab-group>
+    <md-tab>
+      <template md-tab-label>Tab 0</template>
+      <template md-tab-content>
+        <mu-playlists [currentTab]="0"></mu-playlists>
+      </template>
+    </md-tab>
+    <md-tab>
+      <template md-tab-label>Tab 1</template>
+      <template md-tab-content>
+        <mu-playlists [currentTab]="1"></mu-playlists>
+      </template>
+     </md-tab>
+  </md-tab-group>
 </div>
 
 
