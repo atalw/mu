@@ -15,4 +15,17 @@ export class SubredditsService {
 			.then(response => response.json());
 	}
 
+	getSubredditThread(selectedSubreddit) {
+		var url = "https://www.reddit.com" + selectedSubreddit + ".json";
+		var posts = {};
+		return this.http.get(url).toPromise()
+			.then(response => {
+				var data = response.json().data;
+				return posts = {
+					after: data.after,
+					children: data.children
+				};
+			});
+	}
+
 }

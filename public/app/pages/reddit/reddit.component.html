@@ -4,11 +4,11 @@
 		border-right: 1px solid rgb(220,220,220);
 		overflow-y: auto;
 	}
-	.threads {
+	.thread {
 		height: 100%;
+		overflow-y: auto;
 	}
 </style>
-<!-- <div class="row"> -->
-	<div class="col-sm-3 padding-0 subreddits"><mu-subreddit *ngFor="let genre of data" [genre]="genre" (subredditEvent)="subredditEvent($event)"></mu-subreddit></div>
-	<div class="col-sm-9 padding-0 threads"><mu-thread [selectedSubreddit]="selectedSubreddit"></mu-thread></div>
-<!-- </div> -->
+
+<div class="col-sm-3 padding-0 subreddits"><mu-subreddit *ngFor="let genre of data" [genre]="genre" (subredditEvent)="subredditEvent($event)"></mu-subreddit></div>
+<div class="col-sm-9 padding-0 thread"><mu-thread [selectedSubreddit]="selectedSubreddit"></mu-thread></div>

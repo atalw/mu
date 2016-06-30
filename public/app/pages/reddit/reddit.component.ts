@@ -13,14 +13,15 @@ import { SubredditsService } from './services/subreddits.service';
 export class RedditComponent {
 	private data;
 	private selectedSubreddit;
-	constructor(private subredditsService: SubredditsService) {}
+
+	constructor(public subredditsService: SubredditsService) { }
 
 	ngOnInit() {
 		this.subredditsService.getSubreddits().then(response => {
 			this.data = response;
 		});
-
 	}
+
 	subredditEvent(event) {
 		this.selectedSubreddit = event.title;
 	}

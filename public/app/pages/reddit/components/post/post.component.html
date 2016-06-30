@@ -1,17 +1,16 @@
 <style type="text/css">
 	.upvotes {
-		float: left;
-		width: 10%;
+		text-align: center;
 	}
 	.post {
 		border: 1px solid rgb(220,220,220);
 		margin: 10px;
-		height: 100px;
+		/*height: 12%;*/
 	}
-	.title {
+	/*.title {
 		float: left;
 		width: 90%;
-	}
+	}*/
 	.details {
 		/*float: left;*/
 	}
@@ -26,14 +25,15 @@
 	}
 </style>
 
-<div class="post">
+<div class="post" *ngIf="post.domain == 'youtube.com'">
 	<div class="row">
-		<div class="upvotes col-sm-3"><h6>{{post.upvotes}}</h6></div>
+		<div class="upvotes col-sm-1"><h5>{{post.score}}</h5></div>
+		<div class="thumbnail col-sm-1"><img [src]="post.media.oembed.thumbnail_url"></div>
 		<div class="title col-sm-9"><h4>{{post.title}}</h4></div>
 	</div>
 	<div class="row details">
-		<div class="submission-time col-sm-2 col-sm-offset-2">{{post.time}}</div>
+		<div class="submission-time col-sm-2 col-sm-offset-2">{{post.created}}</div>
 		<div class="author col-sm-1">{{post.author}}</div>
-		<div class="comments col-sm-1">{{post.comments}}</div>
+		<div class="comments col-sm-1">{{post.num_comments}}</div>
 	</div>
 </div>

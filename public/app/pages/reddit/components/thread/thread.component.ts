@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { PostComponent } from '../post/post.component';
+import { SubredditsService } from '../../services/subreddits.service';
 
 @Component({
 	moduleId: module.id,
@@ -9,24 +10,24 @@ import { PostComponent } from '../post/post.component';
 })
 export class ThreadComponent {
 	@Input() selectedSubreddit;
+	private thread;
+	private posts;
 
-	constructor() { }
-	private posts = [
-		{
-			title: 'Shine on you crazy diamond - Pink Floyd',
-			upvotes: '234',
-			time: '4 hours ago',
-			author: 'atalw',
-			comments: '213'
-		},
-		{
-			title: 'Can I kick it - artist',
-			upvotes: '34',
-			time: '5 hours ago',
-			author: 'atalw',
-			comments: '3'
+	constructor(public subredditsService: SubredditsService) { }
+
+	ngOnInit() {
+
+	}
+
+	ngOnChanges(changes) {
+		if (this.selectedSubreddit) {
+			this.subredditsService.getSubredditThread(this.selectedSubreddit)
+				.then(response => {
+					this.thread = response;
+					this.posts = response.children;
+				}).then(() => {
+					console.log(this.posts);
+				});
 		}
-	];
-
-
+	}
 }
