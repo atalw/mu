@@ -44,7 +44,7 @@ export class RedditComponent {
 		this.subreddits = [];
 		for (var genre of this.data) {
 			for (var subreddit of genre.subreddits) {
-				if (subreddit.title.indexOf(term) > -1) {
+				if (subreddit.title.toLowerCase().indexOf(term.toLowerCase()) > -1) {
 					this.subreddits.push(subreddit);
 				}
 			}
