@@ -16,10 +16,19 @@
 
 	</div>
 	<div class="search">
-		<md-input placeholder="Rock" align="start">
+		<md-input #term placeholder="Rock" align="start" (keyup)="search(term.value)">
 		  <span md-prefix>/r/</span>
 		</md-input>
 	</div>
-	<mu-subreddit *ngFor="let genre of data" [genre]="genre" (subredditEvent)="subredditEvent($event)"></mu-subreddit>
+	<div class="data"*ngIf="!inSearch">
+		<div class="genre"  *ngFor="let genre of data">
+			<div class="genre-title"><h3>{{genre.genre}}</h3></div>
+			<mu-subreddit *ngFor="let subreddit of genre.subreddits" [subreddit]="subreddit" (subredditEvent)="subredditEvent($event)"></mu-subreddit>
+		</div>
+	</div>
+
+	<div class="here" *ngIf="inSearch">
+		<mu-subreddit *ngFor="let subreddit of subreddits" [subreddit]="subreddit" (subredditEvent)="subredditEvent($event)"></mu-subreddit>
+	</div>
 </div>
 <div class="col-sm-9 padding-0 thread"><mu-thread [selectedSubreddit]="selectedSubreddit"></mu-thread></div>

@@ -15,20 +15,40 @@ import { MD_INPUT_DIRECTIVES } from '@angular2-material/input';
 export class RedditComponent {
 	private data;
 	private selectedSubreddit;
+	private subreddits = [];
+	public inSearch;
 
 	constructor(public subredditsService: SubredditsService) {}
 
 	ngOnInit() {
+		this.inSearch = false;
 		this.subredditsService.getSubreddits().then(response => {
 			this.data = response;
-			console.log(this.data[0].subreddits[0].class);
-			this.data[0].subreddits[0];
+			// console.log(this.data[0].subreddits[0].class);
+			// this.data[0].subreddits[0];
 		});
 
 	}
 
 	subredditEvent(event) {
 		this.selectedSubreddit = event.title;
+	}
+
+	search(term: string) {
+		if (term == '') {
+			this.inSearch = false;
+		}
+		else {
+			this.inSearch = true;
+		}
+		this.subreddits = [];
+		for (var genre of this.data) {
+			for (var subreddit of genre.subreddits) {
+				if (subreddit.title.indexOf(term) > -1) {
+					this.subreddits.push(subreddit);
+				}
+			}
+		}
 	}
 
 }

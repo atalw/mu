@@ -26,7 +26,7 @@ import { Component,
 	],
 })
 export class SubredditComponent {
-	@Input() genre;
+	@Input() subreddit;
 	@Output() subredditEvent = new EventEmitter();;
 	private selectedSubreddit;
 
