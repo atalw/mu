@@ -3,7 +3,15 @@
 	}
 </style>
 
-<div class="inner-thread">
-	<div class="sort">hot new top rising {{selectedSubreddit}}</div>
-	<mu-reddit-post *ngFor="let post of posts" [post]="post.data"></mu-reddit-post>
+<div class="inner-thread" >
+	<md-tab-group class="sort">
+	  <md-tab *ngFor="let tab of tabs">
+	    <template md-tab-label>{{tab.label}}</template>
+	    <template md-tab-content>
+	      <!-- {{tab.content}} -->
+	      <mu-reddit-post *ngFor="let post of posts" [post]="post.data"></mu-reddit-post>
+	    </template>
+	  </md-tab>
+	</md-tab-group>
+
 </div>

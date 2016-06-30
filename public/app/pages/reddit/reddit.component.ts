@@ -14,12 +14,15 @@ export class RedditComponent {
 	private data;
 	private selectedSubreddit;
 
-	constructor(public subredditsService: SubredditsService) { }
+	constructor(public subredditsService: SubredditsService) {}
 
 	ngOnInit() {
 		this.subredditsService.getSubreddits().then(response => {
 			this.data = response;
+			console.log(this.data[0].subreddits[0].class);
+			this.data[0].subreddits[0].class = 'active';
 		});
+
 	}
 
 	subredditEvent(event) {

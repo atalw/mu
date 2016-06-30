@@ -15,8 +15,8 @@ export class SubredditsService {
 			.then(response => response.json());
 	}
 
-	getSubredditThread(selectedSubreddit) {
-		var url = "https://www.reddit.com" + selectedSubreddit + ".json";
+	getSubredditThread(selectedSubreddit, sort) {
+		var url = "https://www.reddit.com" + selectedSubreddit + "/" + sort + ".json";
 		var posts = {};
 		return this.http.get(url).toPromise()
 			.then(response => {
