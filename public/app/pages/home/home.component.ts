@@ -11,6 +11,7 @@ import { RightbarComponent } from '../../theme/components/rightbar/rightbar.comp
 
 @Component({
   moduleId: module.id,
+  selector: 'router-outlet',
   templateUrl: 'home.component.html',
   directives: [PlaylistsComponent, MD_TABS_DIRECTIVES],
   providers: [PlaylistService]

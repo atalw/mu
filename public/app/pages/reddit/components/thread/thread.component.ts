@@ -13,7 +13,7 @@ export class ThreadComponent {
 	@Input() selectedSubreddit;
 	private thread;
 	private posts;
-	private selectedTabIndex;
+	private selectedTabIndex = 0;
 
 	private tabs = [
 		{
@@ -34,7 +34,7 @@ export class ThreadComponent {
 
 	ngOnInit() {
 		// temporary fix since selectedIndex property not working
-		this.selectedTabIndex = 0;
+		// this.selectedTabIndex = 0;
 	}
 
 	ngOnChanges(changes) {
@@ -48,5 +48,8 @@ export class ThreadComponent {
 					console.log(this.posts);
 				});
 		}
+	}
+	show() {
+		console.log('here');
 	}
 }

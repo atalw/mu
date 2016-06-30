@@ -39,7 +39,7 @@ export class PlaylistsComponent {
 	constructor(private playlistService: PlaylistService) {}
 
 	ngOnInit() {
-		this.playlistService.getPlaylists(this.currrentTab).then(response => {
+		this.playlistService.getPlaylists(this.currentTab).then(response => {
 			console.log(response);
 			this.playlists = response;
 		});

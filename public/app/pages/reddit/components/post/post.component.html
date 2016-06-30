@@ -25,7 +25,7 @@
 	}
 </style>
 
-<div class="post" *ngIf="post.domain == 'youtube.com'">
+<div class="post" *ngIf="post.domain == 'youtube.com' || post.domain == 'youtu.be'">
 	<div class="row">
 		<div class="upvotes col-sm-1"><h5>{{post.score}}</h5></div>
 		<div class="thumbnail col-sm-1"><img [src]="post.thumbnail"></div>
