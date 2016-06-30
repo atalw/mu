@@ -8,6 +8,12 @@ import { Component, Input } from '@angular/core';
 export class PostComponent {
 	@Input() post;
 
-	constructor() { }
+
+	constructor() {}
+
+	 ngOnInit() {
+		 var date = new Date(this.post.created * 1000);
+		 this.post.created = date.getHours();
+	 }
 
 }

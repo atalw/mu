@@ -28,12 +28,16 @@
 <div class="post" *ngIf="post.domain == 'youtube.com'">
 	<div class="row">
 		<div class="upvotes col-sm-1"><h5>{{post.score}}</h5></div>
-		<div class="thumbnail col-sm-1"><img [src]="post.media.oembed.thumbnail_url"></div>
-		<div class="title col-sm-9"><h4>{{post.title}}</h4></div>
-	</div>
-	<div class="row details">
-		<div class="submission-time col-sm-2 col-sm-offset-2">{{post.created}}</div>
-		<div class="author col-sm-1">{{post.author}}</div>
-		<div class="comments col-sm-1">{{post.num_comments}}</div>
+		<div class="thumbnail col-sm-1"><img [src]="post.thumbnail"></div>
+		<div class="col-sm-9">
+			<div class="row">
+				<div class="title col-sm-12"><h4>{{post.title}}</h4></div>
+			</div>
+			<div class="row">
+				<div class="submission-time col-sm-2">{{post.created}} hours ago</div>
+				<div class="author col-sm-2">{{post.author}}</div>
+				<div class="comments col-sm-1">{{post.num_comments}}</div>
+			</div>
+		</div>
 	</div>
 </div>
