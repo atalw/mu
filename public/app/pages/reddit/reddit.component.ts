@@ -15,7 +15,7 @@ import { MD_INPUT_DIRECTIVES } from '@angular2-material/input';
 export class RedditComponent {
 	private data;
 	private selectedSubreddit;
-	private subreddits = [];
+	private subreddits;
 	public inSearch;
 
 	constructor(public subredditsService: SubredditsService) {}
@@ -26,7 +26,10 @@ export class RedditComponent {
 			this.data = response;
 			// console.log(this.data[0].subreddits[0].class);
 			// this.data[0].subreddits[0];
+			console.log(response[0]);
+			this.selectedSubreddit = response[0].subreddits[1].title;
 		});
+
 
 	}
 
