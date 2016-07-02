@@ -1,31 +1,30 @@
 import { Injectable } from '@angular/core';
-import { window } from '@angular/platform-browser/src/facade/browser';
-
-// window['onLoad'](console.log('herebab'));
-
 
 @Injectable()
 export class YoutubePlayerService {
 
 	public player;
+	loadIframeAPI: Promise<any>;
 
 	constructor() {
-		this.initPlayer();
+		this.loadIframeAPI = new Promise((resolve) => {
+			window['onYouTubeIframeAPIReady'] = () => {
+				if (window['YT']) {
+					this.player = new window.YT.Player('player', {
+						videoId: 'M7lc1UVf-VE'
+					});
+				}
+
+
+			}
+			this.loadScript();
+		})
 	}
 
-	initPlayer() {
-		window['onYouTubeIframeAPIReady'] = () => {
-			console.log('here');
-			this.player = new window.YT.Player('player', {
-				height: '390',
-				width: '640',
-				videoId: 'M7lc1UVf-VE',
-				events: {
-
-				}
-			});
-
-		}
-
+	loadScript() {
+		var tag = document.createElement('script');
+		tag.src = "https://www.youtube.com/iframe_api";
+		var firstScriptTag = document.getElementsByTagName('script')[0];
+		firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 	}
 }

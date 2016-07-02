@@ -56,8 +56,5 @@ export class AppComponent {
 	constructor(public youtubePlayerService: YoutubePlayerService) {		this.loggedIn = true;
 	}
 	ngOnInit() {
-		if(this.youtubePlayerService.player) {
-			console.log('ngoninit trigger');
-		}
 	}
 }

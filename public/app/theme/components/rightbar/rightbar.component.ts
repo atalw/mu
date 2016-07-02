@@ -13,5 +13,5 @@ import { YoutubePlayerService } from '../../../services/youtube-player.service';
 })
 
 export class RightbarComponent {
-	constructor(public youtubePlayerService : YoutubePlayerService) {}
+	// constructor(public youtubePlayerService : YoutubePlayerService) {}
 }
