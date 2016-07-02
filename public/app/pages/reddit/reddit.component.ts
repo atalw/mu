@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
-import { SubredditComponent} from './components/subreddit/subreddit.component';
+import { Component,trigger,
+	state,
+	style,
+	transition,
+	animate } from '@angular/core';
 import { ThreadComponent } from './components/thread/thread.component';
 import { SubredditsService } from './services/subreddits.service';
 import { MD_INPUT_DIRECTIVES } from '@angular2-material/input';
@@ -9,7 +12,19 @@ import { MD_INPUT_DIRECTIVES } from '@angular2-material/input';
 	moduleId: module.id,
 	selector: 'mu-reddit',
 	templateUrl: 'reddit.component.html',
-	directives: [SubredditComponent, ThreadComponent, MD_INPUT_DIRECTIVES],
+	directives: [ThreadComponent, MD_INPUT_DIRECTIVES],
+	animations: [
+		trigger('state', [
+			state('inactive', style({
+				backgroundColor: '#fff',
+			})),
+			state('active', style({
+				backgroundColor: '#cfd8dc',
+			})),
+			transition('inactive => active', animate('100ms ease-in')),
+			transition('active => inactive', animate('100ms ease-out'))
+		])
+	],
 	providers: [SubredditsService]
 })
 export class RedditComponent {
@@ -26,31 +41,39 @@ export class RedditComponent {
 			this.data = response;
 			// console.log(this.data[0].subreddits[0].class);
 			// this.data[0].subreddits[0];
-			console.log(response[0]);
-			this.selectedSubreddit = response[0].subreddits[1].title;
+			// console.log(response[0]);
+			// this.selectedSubreddit = response[0].subreddits[1].title;
 		});
 
 
 	}
 
-	subredditEvent(event) {
-		this.selectedSubreddit = event.title;
+	select(subreddit) {
+		this.selectedSubreddit = subreddit;
+
 	}
 
+	// fix search method -> subreddits array is updated but DOM is not recognising
 	search(term: string) {
-		if (term == '') {
-			this.inSearch = false;
-		}
-		else {
+		if (term != '') {
+
 			this.inSearch = true;
-		}
-		this.subreddits = [];
-		for (var genre of this.data) {
-			for (var subreddit of genre.subreddits) {
-				if (subreddit.title.toLowerCase().indexOf(term.toLowerCase()) > -1) {
-					this.subreddits.push(subreddit);
+			var subreddits = [];
+			for (var genre of this.data) {
+				for (var subreddit of genre.subreddits) {
+					// console.log(subreddit.title.toLowerCase());
+					if (subreddit.title.toLowerCase().includes(term.toLowerCase())) {
+						// console.log(subreddit.title.toLowerCase());
+						subreddits.push(subreddit);
+					}
 				}
 			}
+			this.subreddits = subreddits;
+			console.log(this.subreddits);
+		}
+		else {
+			this.inSearch = false;
+			this.subreddits = [];
 		}
 	}
 

@@ -10,13 +10,14 @@ import {MD_BUTTON_DIRECTIVES} from '@angular2-material/button';
 import {MD_ICON_DIRECTIVES, MdIconRegistry} from '@angular2-material/icon';
 import { InfoComponent } from './theme/components/rightbar/info/info.component';
 import { VideoPlayerComponent } from './theme/components/rightbar/videoPlayer/videoPlayer.component';
+import { YoutubePlayerService } from './services/youtube-player.service';
 
 @Component({
   moduleId: module.id,
   selector: 'app',
   templateUrl: 'app.component.html',
   directives: [ROUTER_DIRECTIVES, ControlbarComponent, MD_SIDENAV_DIRECTIVES, MD_BUTTON_DIRECTIVES, MD_ICON_DIRECTIVES, InfoComponent, VideoPlayerComponent, LoginComponent],
-  providers: [MdIconRegistry],
+  providers: [MdIconRegistry, YoutubePlayerService],
   animations: [
   	trigger('easeInLeft', [
   		state('in', style({transform: 'translateX(0)'})),
@@ -52,9 +53,11 @@ import { VideoPlayerComponent } from './theme/components/rightbar/videoPlayer/vi
 export class AppComponent {
 	private loggedIn;
 
-	constructor() {
-		this.loggedIn = true;
+	constructor(public youtubePlayerService: YoutubePlayerService) {		this.loggedIn = true;
 	}
 	ngOnInit() {
+		if(this.youtubePlayerService.player) {
+			console.log('ngoninit trigger');
+		}
 	}
 }

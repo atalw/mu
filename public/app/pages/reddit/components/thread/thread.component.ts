@@ -40,7 +40,7 @@ export class ThreadComponent {
 	ngOnChanges(changes) {
 		console.log(this.selectedTabIndex);
 		if (this.selectedSubreddit) {
-			this.subredditsService.getSubredditThread(this.selectedSubreddit, this.tabs[this.selectedTabIndex].sort)
+			this.subredditsService.getSubredditThread(this.selectedSubreddit.title, this.tabs[this.selectedTabIndex].sort)
 				.then(response => {
 					// this.thread = response;
 					this.posts = response.children;
