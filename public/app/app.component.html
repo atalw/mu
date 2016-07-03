@@ -1,9 +1,6 @@
 <style>
   * {
-    font-family: 'Open Sans', sans-serif;
-  }
-  .material-icons {
-    font-family: 'Material Icons';
+    /*font-family: 'Open Sans', sans-serif;*/
   }
   #page {
     overflow: hidden;
@@ -44,7 +41,7 @@
   }
   #control-bar {
     bottom: 0;
-    height: 40px;
+    height: 3.5em;
     width: 100%;
     z-index: 2000;
     position: absolute;
@@ -72,7 +69,7 @@
       <a class="logo" [routerLink]="['']"><img src="app/assets/images/mu-logo.png"></a>
       <ul class="nav nav-pills nav-stacked">
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/auth/youtube']"><md-icon md-48>account_box</md-icon></a>
+          <a class="nav-link" [routerLink]="['/auth/youtube']"><md-icon>account_box</md-icon></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" [routerLink]="['/browse']"><md-icon md-48>search</md-icon></a>
