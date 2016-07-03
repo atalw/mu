@@ -7,7 +7,6 @@ import { ThreadComponent } from './components/thread/thread.component';
 import { SubredditsService } from './services/subreddits.service';
 import { MD_INPUT_DIRECTIVES } from '@angular2-material/input';
 
-
 @Component({
 	moduleId: module.id,
 	selector: 'mu-reddit',

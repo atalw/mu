@@ -7,7 +7,7 @@ import { YoutubePlayerService } from '../../../services/youtube-player.service';
   selector: 'mu-control-bar',
   templateUrl: 'controlbar.component.html',
   directives: [MdIcon],
-  providers: [YoutubePlayerService, MdIconRegistry]
+  providers: [MdIconRegistry]
 })
 
 export class ControlbarComponent {
