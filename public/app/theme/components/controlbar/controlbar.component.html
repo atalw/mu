@@ -22,9 +22,9 @@
 		height: 100%;
 		display: inline-block;
 	}
-	.elapsed {
+	#elapsed {
 		height: 20px;
-		width: 30%;
+		/*width: 30%;*/
 		background: gold;
 	}
 	.duration {
@@ -44,8 +44,8 @@
 		<div class="col-sm-7 scrub-bar">
 			<div class="row">
 				<div class="col-sm-1 elapsedTime">{{elapsedTime}}</div>
-				<div class="col-sm-10 bar">
-					<div class="elapsed"></div>
+				<div id="seekBar" class="col-sm-10 bar" (click)="videoSeek($event)">
+					<div [style.width]="percentage" id="elapsed"></div>
 				</div>
 				<div class="col-sm-1 duration">{{videoDuration}}</div>
 			</div>

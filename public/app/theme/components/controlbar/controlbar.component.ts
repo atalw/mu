@@ -16,16 +16,21 @@ export class ControlbarComponent {
 	private playOrPauseIcon;
 	private videoDuration;
 	private elapsedTime;
+	private percentage;
 
 	constructor(public youtubePlayerService : YoutubePlayerService) {
 		this.playOrPauseIcon = "play_arrow";
-
+		// this.percentage = '60%';
 	}
 
 	ngOnInit() {
 		this.elapsedTime = "00:00";
-		this.videoDuration = "00:00"
+		this.videoDuration = "00:00";
+		this.percentage = '0';
 		console.log(this.elapsedTime);
+	}
+
+	ngAfterViewInit() {
 	}
 
 	playOrPause() {
@@ -37,6 +42,7 @@ export class ControlbarComponent {
 
 		else {
 			this.youtubePlayerService.playVideo();
+			this.getPercentage();
 			this.playOrPauseIcon = "pause";
 		}
 	}
@@ -50,6 +56,17 @@ export class ControlbarComponent {
 		var seconds = videoSeconds % 60;
 		this.videoDuration = minutes + ":" + seconds;
 		console.log(this.videoDuration);
+	}
+
+	getPercentage() {
+		this.percentage = (this.youtubePlayerService.player.getCurrentTime() * 100 / this.youtubePlayerService.player.getDuration()) + '%';
+		return this.percentage;
+	}
+
+	videoSeek(event) {
+		console.log(event);
+		var seekTo = this.youtubePlayerService.player.getDuration() * (event.offsetX / document.getElementById('seekBar').offsetWidth);
+		this.youtubePlayerService.player.seekTo(seekTo, false);
 	}
 
 }
