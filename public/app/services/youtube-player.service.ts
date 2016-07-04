@@ -64,4 +64,9 @@ export class YoutubePlayerService {
 			return this.player.loadVideoById(id[1]);
 		})
 	}
+	loadVideoId(id: string) {
+		return this.loadIframeAPI.then(() => {
+			return this.player.loadVideoById(id);
+		})
+	}
 }

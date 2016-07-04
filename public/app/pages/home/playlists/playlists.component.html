@@ -127,7 +127,7 @@
          </svg>
         </div>
 
-        <div class="row playlist-field" *ngFor="let item of playlist.data.items trackBy:customTrackBy" [class.active]="item === selectedItem" (click)="selectedItem = item"
+        <div class="row playlist-field" *ngFor="let item of playlist.data.items trackBy:customTrackBy" [class.active]="item === selectedItem" (click)="selectedItem = item; selectVideo(item.snippet.resourceId.videoId)"
         @state="item === selectedItem ? 'active' : 'inactive'" >
           <div class="col-sm-8">{{item.snippet.title}}</div>
           <div class="col-sm-2"><i class="fa fa-rotate-left" aria-hidden="true"></i></div>
