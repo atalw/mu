@@ -13,7 +13,6 @@ import { YoutubePlayerService } from '../../../services/youtube-player.service';
 import { MD_ICON_DIRECTIVES } from '@angular2-material/icon';
 import { MD_CARD_DIRECTIVES } from '@angular2-material/card';
 
-
 @Component({
   moduleId: module.id,
   selector: 'mu-playlists',
@@ -25,14 +24,14 @@ import { MD_CARD_DIRECTIVES } from '@angular2-material/card';
 			  // transform: 'scale(1)'
 		  })),
 		  state('active', style({
-			  backgroundColor: '#cfd8dc',
+			  backgroundColor: '#4CAF50',
 			  // transform: 'scale(1.1)'
 		  })),
 		  transition('inactive => active', animate('100ms ease-in')),
 		  transition('active => inactive', animate('100ms ease-out'))
 	  ])
   ],
-  directives: [MD_CARD_DIRECTIVES, MD_BUTTON_DIRECTIVES, MD_ICON_DIRECTIVES]
+  directives: [MD_CARD_DIRECTIVES, MD_BUTTON_DIRECTIVES, MD_ICON_DIRECTIVES, MD_LIST_DIRECTIVES]
 })
 
 export class PlaylistsComponent {

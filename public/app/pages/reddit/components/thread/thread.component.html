@@ -5,12 +5,12 @@
 
 <div class="inner-thread" >
 	<md-tab-group (selectedChange)="show()">
-	  <md-tab *ngFor="let tab of tabs">
-	    <template md-tab-label>{{tab.label}}</template>
-	    <template md-tab-content>
-	      <mu-reddit-post *ngFor="let post of posts" [post]="post.data" (click)="selectVideo(post.data.url)"></mu-reddit-post>
-	    </template>
-	  </md-tab>
+		<md-tab *ngFor="let tab of tabs">
+			<template md-tab-label>{{tab.label}}</template>
+			<template md-tab-content>
+				<mu-reddit-post *ngFor="let post of posts" [post]="post.data" (click)="selectVideo(post.data.url)"></mu-reddit-post>
+			</template>
+		</md-tab>
 	</md-tab-group>
 
 </div>
