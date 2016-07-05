@@ -16,7 +16,6 @@ export class YoutubePlayerService {
 		this.loadIframeAPI = new Promise((resolve) => {
 			window['onYouTubeIframeAPIReady'] = (ev) => {
 				this.player = new YT.Player('player', {
-					videoId: 'M7lc1UVf-VE',
 					events: {
 						'onReady': this.onPlayerReady,
 					}

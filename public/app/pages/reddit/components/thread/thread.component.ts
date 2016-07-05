@@ -14,7 +14,7 @@ export class ThreadComponent {
 	@Input() selectedSubreddit;
 	private thread;
 	private posts;
-	private selectedTabIndex = 0;
+	private selectedTabIndex = 2;
 
 	private tabs = [
 		{
@@ -27,7 +27,7 @@ export class ThreadComponent {
 		},
 		{
 			label: 'Top',
-			sort: 'new'
+			sort: 'top'
 		},
 	];
 

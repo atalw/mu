@@ -118,7 +118,7 @@
         <div class="row playlist-head">
           <div class="col-sm-7 col-sm-offset-1">Title</div>
           <div class="col-sm-2">Queue</div>
-          <div class="col-sm-2">Link</div>
+          <div class="col-sm-2">Loop</div>
         </div>
 
         <div *ngIf="playlist?.items" class="loader1">
@@ -127,11 +127,10 @@
          </svg>
         </div>
 
-        <div class="row playlist-field" *ngFor="let item of playlist.data.items trackBy:customTrackBy" [class.active]="item === selectedItem" (click)="selectedItem = item; selectVideo(item.snippet.resourceId.videoId)"
-        @state="item === selectedItem ? 'active' : 'inactive'" >
-          <div class="col-sm-8">{{item.snippet.title}}</div>
-          <div class="col-sm-2"><i class="fa fa-rotate-left" aria-hidden="true"></i></div>
-          <div class="col-sm-2"><i class="fa fa-youtube-play" aria-hidden="true"></i></div>
+        <div class="row playlist-field" *ngFor="let item of playlist.data.items trackBy:customTrackBy" [class.active]="item === selectedItem" @state="item === selectedItem ? 'active' : 'inactive'">
+          <div class="col-sm-8" (click)="selectedItem = item; selectVideo(item.snippet.resourceId.videoId)">{{item.snippet.title}}</div>
+          <div class="col-sm-2"><md-icon>queue_music</md-icon></div>
+          <div class="col-sm-2"><md-icon>repeat</md-icon></div>
         </div>
       </div>
     </div>

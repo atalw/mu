@@ -10,6 +10,8 @@ import { PlaylistService } from '../../../services/playlist.service';
 import {MD_LIST_DIRECTIVES} from '@angular2-material/list';
 import {MD_BUTTON_DIRECTIVES} from '@angular2-material/button';
 import { YoutubePlayerService } from '../../../services/youtube-player.service';
+import { MD_ICON_DIRECTIVES } from '@angular2-material/icon';
+
 
 @Component({
   moduleId: module.id,
@@ -18,18 +20,18 @@ import { YoutubePlayerService } from '../../../services/youtube-player.service';
   animations: [
 	  trigger('state', [
 		  state('inactive', style({
-			  // backgroundColor: '#eee',
-			  transform: 'scale(1)'
+			  backgroundColor: '#fff',
+			  // transform: 'scale(1)'
 		  })),
 		  state('active', style({
-			  // backgroundColor: '#cfd8dc',
-			  transform: 'scale(1.1)'
+			  backgroundColor: '#cfd8dc',
+			  // transform: 'scale(1.1)'
 		  })),
 		  transition('inactive => active', animate('100ms ease-in')),
 		  transition('active => inactive', animate('100ms ease-out'))
 	  ])
   ],
-  directives: [MD_LIST_DIRECTIVES, MD_BUTTON_DIRECTIVES]
+  directives: [MD_LIST_DIRECTIVES, MD_BUTTON_DIRECTIVES, MD_ICON_DIRECTIVES]
 })
 
 export class PlaylistsComponent {
