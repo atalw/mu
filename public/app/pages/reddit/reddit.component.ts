@@ -6,12 +6,14 @@ import { Component,trigger,
 import { ThreadComponent } from './components/thread/thread.component';
 import { SubredditsService } from './services/subreddits.service';
 import { MD_INPUT_DIRECTIVES } from '@angular2-material/input';
+import { MD_LIST_DIRECTIVES } from '@angular2-material/list';
+import { MD_CARD_DIRECTIVES } from '@angular2-material/card';
 
 @Component({
 	moduleId: module.id,
 	selector: 'mu-reddit',
 	templateUrl: 'reddit.component.html',
-	directives: [ThreadComponent, MD_INPUT_DIRECTIVES],
+	directives: [ThreadComponent, MD_INPUT_DIRECTIVES, MD_LIST_DIRECTIVES, MD_CARD_DIRECTIVES],
 	animations: [
 		trigger('state', [
 			state('inactive', style({

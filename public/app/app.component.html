@@ -9,39 +9,23 @@
     overflow: hidden;
   }
   a {
-    color: red;
+    color: rgb(0,0,0,0.84);
   }
   .logo img{
     height: 120px;
     width: 120px;
   }
-  #router-outlet {
+  #main {
     /*background-color: rgb(43, 62, 80);*/
-    background-color: rgb(237,237,237);
-    height: 100%;
+    background: #FAFAFA;
+    /*height: 100%;*/
     /*color: #e2e2e2;*/
     color: rgb(33,33,33);
-  }
-  .sidenav-layout {
-    overflow: hidden;
-  }
-  #main-nav {
-    min-height: 595px;
     height: 100%;
-    z-index: 2000;
-    /*background-color: rgb(0,0,0);*/
-    background-color: rgb(255,255,255);
-    color: rgb(33,33,33);
-    border-right: 1px solid rgb(220,220,220);
-  }
-  #nav-toggle {
-    position: absolute;
-    z-index: 9999;
-    width: 100%;
   }
   #control-bar {
     bottom: 0;
-    height: 3.5em;
+    /*height: 3.5em;*/
     width: 100%;
     z-index: 2000;
     position: absolute;
@@ -65,38 +49,11 @@
   }
 </style>
 <mu-login *ngIf="!loggedIn"></mu-login>
-<div *ngIf="loggedIn" id="page">
 
+<div *ngIf="loggedIn" id="page">
   <md-sidenav-layout class="sidenav-layout">
-  <md-toolbar color="primary" @easeInTop="in">
-  <span>
-     <button md-icon-button class="start-toggle" (click)="start.toggle()"><md-icon>menu</md-icon></button>
-  </span>
-  <span class="title">Playlister</span>
-  <span>
-    <button md-icon-button class="end-toggle" (click)="end.toggle()"><md-icon>menu</md-icon></button>
-  </span>
-</md-toolbar>
 
     <md-sidenav #start mode="side" opened="true">
-      <!-- <a class="logo" [routerLink]="['']"><img src="app/assets/images/mu-logo.png"></a> -->
-     <!--  <ul class="nav nav-pills nav-stacked">
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/auth/youtube']"><md-icon>account_box</md-icon></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/browse']"><md-icon md-48>search</md-icon></a>
-        </li>
-         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/reddit']"><md-icon md-48>sentiment_very_dissatisfied</md-icon></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/settings']"><md-icon md-48>build</md-icon></a>
-        </li>
-        <li class="nav-item">
-          <a href="/auth/youtube">Log in</a>
-        </li>
-      </ul> -->
       <md-nav-list>
         <a md-list-item *ngFor="let view of views" [routerLink]="[view.link]">
           <md-icon md-list-icon>{{view.icon}}</md-icon>
@@ -113,12 +70,20 @@
     <div class="container-fluid">
       <div class="row">
 
-
-
         <div id="main" class="col-sm-12 padding-0">
-          <div id="router-outlet">
+          <!-- <div id="router-outlet"> -->
+          <md-toolbar color="primary" @easeInTop="in">
+      <span>
+         <button md-icon-button class="start-toggle" (click)="start.toggle()"><md-icon>menu</md-icon></button>
+      </span>
+      <span class="title">Playlister</span>
+      <span>
+        <button md-icon-button class="end-toggle" (click)="end.toggle()"><md-icon>menu</md-icon></button>
+      </span>
+    </md-toolbar>
+
             <router-outlet></router-outlet>
-          </div>
+          <!-- </div> -->
         </div>
 
       </div>
@@ -126,7 +91,7 @@
   </md-sidenav-layout>
 
   <div id="control-bar" class="row margin-0" @easeInBottom="in">
-    <mu-control-bar class="col-sm-12 padding-0"></mu-control-bar>
+    <mu-control-bar></mu-control-bar>
   </div>
 </div>
 

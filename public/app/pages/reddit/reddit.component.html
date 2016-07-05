@@ -3,7 +3,7 @@
 		height: 100%;
 		border-right: 1px solid rgb(220,220,220);
 		overflow-y: auto;
-		padding-left: 1em;
+		/*padding-left: 1em;*/
 	}
 	.thread {
 		height: 100%;
@@ -23,14 +23,26 @@
 		  <span md-prefix>/r/</span>
 		</md-input>
 	</div>
-	<div class="data"*ngIf="!inSearch">
+	<!-- <div class="data"*ngIf="!inSearch">
 		<div class="genre"  *ngFor="let genre of data">
 			<div class="genre-title"><h3>{{genre.genre}}</h3></div>
-			<!-- <mu-subreddit *ngFor="let subreddit of genre.subreddits" [subreddit]="subreddit" (subredditEvent)="subredditEvent($event)"></mu-subreddit> -->
+			<mu-subreddit *ngFor="let subreddit of genre.subreddits" [subreddit]="subreddit" (subredditEvent)="subredditEvent($event)"></mu-subreddit>
 			<div class="subreddit" *ngFor="let subreddit of genre.subreddits" [class.active]="subreddit === selectedSubreddit" (click)="select(subreddit)"
         @state="subreddit === selectedSubreddit ? 'active' : 'inactive'" >{{subreddit.title}}</div>
 
 		</div>
+	</div> -->
+
+	<div class="data"*ngIf="!inSearch">
+		<md-card class="genre"  *ngFor="let genre of data">
+			<md-card-title>{{genre.genre}}</md-card-title>
+			<!-- <mu-subreddit *ngFor="let subreddit of genre.subreddits" [subreddit]="subreddit" (subredditEvent)="subredditEvent($event)"></mu-subreddit> -->
+			<md-list dense>
+			<md-list-item *ngFor="let subreddit of genre.subreddits" [class.active]="subreddit === selectedSubreddit" (click)="select(subreddit)"
+        @state="subreddit === selectedSubreddit ? 'active' : 'inactive'" >{{subreddit.title}}</md-list-item>
+        </md-list>
+
+		</md-card>
 	</div>
 
 	<div class="here" *ngIf="inSearch">

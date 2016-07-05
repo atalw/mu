@@ -3,7 +3,7 @@
 		text-align: center;
 	}
 	.post {
-		border: 1px solid rgb(220,220,220);
+		/*border: 1px solid rgb(220,220,220);*/
 		margin: 10px;
 		/*height: 12%;*/
 	}
@@ -25,7 +25,7 @@
 	}
 </style>
 
-<div class="post" *ngIf="post.domain == 'youtube.com' || post.domain == 'youtu.be'">
+<!-- <div class="post" *ngIf="post.domain == 'youtube.com' || post.domain == 'youtu.be'">
 	<div class="row">
 		<div class="upvotes col-sm-1"><h5>{{post.score}}</h5></div>
 		<div class="thumbnail col-sm-1"><img [src]="post.thumbnail"></div>
@@ -40,4 +40,10 @@
 			</div>
 		</div>
 	</div>
-</div>
+</div> -->
+<md-card class="post" *ngIf="post.domain == 'youtube.com' || post.domain == 'youtu.be'">
+	<md-card-title-group>
+		<md-card-title>{{post.title}}</md-card-title>
+	</md-card-title-group>
+
+</md-card>
