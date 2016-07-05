@@ -11,12 +11,14 @@ import {MD_ICON_DIRECTIVES, MdIconRegistry} from '@angular2-material/icon';
 import { InfoComponent } from './theme/components/rightbar/info/info.component';
 import { VideoPlayerComponent } from './theme/components/rightbar/videoPlayer/videoPlayer.component';
 import { YoutubePlayerService } from './services/youtube-player.service';
+import { MD_TOOLBAR_DIRECTIVES } from '@angular2-material/toolbar';
+import { MD_LIST_DIRECTIVES } from '@angular2-material/list';
 
 @Component({
   moduleId: module.id,
   selector: 'app',
   templateUrl: 'app.component.html',
-  directives: [ROUTER_DIRECTIVES, ControlbarComponent, MD_SIDENAV_DIRECTIVES, MD_BUTTON_DIRECTIVES, MD_ICON_DIRECTIVES, InfoComponent, VideoPlayerComponent, LoginComponent],
+  directives: [ROUTER_DIRECTIVES, ControlbarComponent, MD_SIDENAV_DIRECTIVES, MD_BUTTON_DIRECTIVES, MD_ICON_DIRECTIVES, MD_TOOLBAR_DIRECTIVES, MD_LIST_DIRECTIVES, InfoComponent, VideoPlayerComponent, LoginComponent],
   providers: [MdIconRegistry, YoutubePlayerService],
   animations: [
   	trigger('easeInLeft', [
@@ -52,6 +54,30 @@ import { YoutubePlayerService } from './services/youtube-player.service';
 
 export class AppComponent {
 	private loggedIn;
+
+	private views = [
+		{
+			name: 'Home',
+			icon: 'apps',
+			link: ''
+		},
+		{
+			name: 'Youtube',
+			icon: 'search',
+			link: '/browse'
+		},
+		{
+			name: 'Reddit',
+			icon: 'sentiment_very_satisfied',
+			link: '/reddit'
+		},
+		{
+			name: 'Settings',
+			icon: 'settings',
+			link: '/settings'
+		}
+
+	]
 
 	constructor(public youtubePlayerService: YoutubePlayerService) {		this.loggedIn = true;
 	}
