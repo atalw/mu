@@ -11,6 +11,7 @@ import {MD_LIST_DIRECTIVES} from '@angular2-material/list';
 import {MD_BUTTON_DIRECTIVES} from '@angular2-material/button';
 import { YoutubePlayerService } from '../../../services/youtube-player.service';
 import { MD_ICON_DIRECTIVES } from '@angular2-material/icon';
+import { MD_CARD_DIRECTIVES } from '@angular2-material/card';
 
 
 @Component({
@@ -31,7 +32,7 @@ import { MD_ICON_DIRECTIVES } from '@angular2-material/icon';
 		  transition('active => inactive', animate('100ms ease-out'))
 	  ])
   ],
-  directives: [MD_LIST_DIRECTIVES, MD_BUTTON_DIRECTIVES, MD_ICON_DIRECTIVES]
+  directives: [MD_CARD_DIRECTIVES, MD_BUTTON_DIRECTIVES, MD_ICON_DIRECTIVES]
 })
 
 export class PlaylistsComponent {

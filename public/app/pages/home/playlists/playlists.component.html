@@ -2,15 +2,21 @@
 <style type="text/css">
 	.playlists {
 		position: absolute;
-		padding: 10px;
+		padding: 1.5em;
 		overflow-y: scroll;
 		height: 100%;
     padding-bottom: 50px;
+
   }
   .playlist{
-    border: 10px solid rgba(0,0,0,0);
-    padding: 10px;
-    background-color: rgba(0,0,0,0.0);
+    /*padding: 10px;*/
+    /*background-color: rgba(0,0,0,0.0);*/
+    background-color: rgb(255,255,255);
+    margin-bottom: 0.8em;
+  }
+  .padding-04 {
+    padding-left: 0.4em;
+    padding-right: 0.4em;
   }
   .playlistTitle {
 
@@ -106,14 +112,15 @@
 </style>
 
 <div class="playlists row">
-	<div class="col-sm-6" *ngFor="let playlist of playlists; let parentIndex = index">
-    <div class="playlist">
+	<div class="col-sm-6 padding-04" *ngFor="let playlist of playlists; let parentIndex = index">
+    <md-card class="playlist ">
 
-      <div class="playlistTitle">
-        <h3>{{playlist.title}}</h3>
-      </div>
+      <md-card-title class="playlistTitle">
+        <!-- <h3>{{playlist.title}}</h3> -->
+        {{playlist.title}}
+      </md-card-title>
 
-      <div class="playlist-data">
+      <md-card-content class="playlist-data">
 
         <div class="row playlist-head">
           <div class="col-sm-9 col-sm-offset-1">Title</div>
@@ -130,7 +137,7 @@
           <div class="col-sm-10" (click)="selectedItem = item; selectVideo(item.snippet.resourceId.videoId)">{{item.snippet.title}}</div>
           <div class="col-sm-2"><md-icon>queue_music</md-icon></div>
         </div>
-      </div>
-    </div>
+      </md-card-content>
+    </md-card>
   </div>
 </div>
