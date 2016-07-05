@@ -2,15 +2,20 @@
 	.subreddits {
 		height: 100%;
 		border-right: 1px solid rgb(220,220,220);
-		overflow-y: auto;
+		overflow-y: scroll;
 		/*padding-left: 1em;*/
 	}
 	.thread {
 		height: 100%;
-		overflow-y: auto;
+		overflow-y: scroll;
 	}
 	.search {
+		height: 10px;
 		border: 1px solid rgb(220,220,220);
+	}
+	.data {
+		/*height: 100%;*/
+		/*overflow-y: scroll;*/
 	}
 </style>
 
@@ -18,11 +23,11 @@
 	<div class="my-subreddits">
 
 	</div>
-	<div class="search">
+	<!-- <div class="search">
 		<md-input #term placeholder="search" align="start" (keyup)="search(term.value)">
 		  <span md-prefix>/r/</span>
 		</md-input>
-	</div>
+	</div> -->
 	<!-- <div class="data"*ngIf="!inSearch">
 		<div class="genre"  *ngFor="let genre of data">
 			<div class="genre-title"><h3>{{genre.genre}}</h3></div>

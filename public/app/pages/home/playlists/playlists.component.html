@@ -1,7 +1,7 @@
 
 <style type="text/css">
 	.playlists {
-		position: absolute;
+		/*position: absolute;*/
 		padding: 1.5em;
 		overflow-y: scroll;
     padding-bottom: 9em;
@@ -18,7 +18,7 @@
     padding-right: 0.4em;
   }
   .playlistTitle {
-
+    color: rgba(0,0,0,0.87);
   }
   .playlist-data {
     overflow: auto;
@@ -111,7 +111,7 @@
 </style>
 
 <div class="playlists row">
-	<div class="col-sm-6 padding-04" *ngFor="let playlist of playlists; let parentIndex = index">
+	<div class="col-sm-6 col-md-6 col-lg-6 col-xl-4 padding-04" *ngFor="let playlist of playlists; let parentIndex = index">
     <md-card class="playlist ">
 
       <md-card-title class="playlistTitle">{{playlist.title}}</md-card-title>

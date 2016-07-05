@@ -9,7 +9,10 @@
     overflow: hidden;
   }
   a {
-    color: rgb(0,0,0,0.84);
+    color: rgba(0,0,0,0.87);
+  }
+  a:hover {
+    text-decoration: none;
   }
   .logo img{
     height: 120px;
@@ -21,6 +24,9 @@
     /*height: 100%;*/
     /*color: #e2e2e2;*/
     color: rgb(33,33,33);
+    /*height: 100%;*/
+    display: flex;
+    flex-flow: column;
     height: 100%;
   }
   #control-bar {
@@ -45,6 +51,7 @@
     float: right;
   }
   .title {
+    color: rgb(255,255,255,0.87);
     flex: 1 1 auto;
   }
 </style>
@@ -53,7 +60,7 @@
 <div *ngIf="loggedIn" id="page">
   <md-sidenav-layout class="sidenav-layout">
 
-    <md-sidenav #start mode="side" opened="true">
+    <md-sidenav #start mode="over" opened="false">
       <md-nav-list>
         <a md-list-item *ngFor="let view of views" [routerLink]="[view.link]">
           <md-icon md-list-icon>{{view.icon}}</md-icon>
@@ -70,22 +77,20 @@
     <div class="container-fluid">
       <div class="row">
 
-        <div id="main" class="col-sm-12 padding-0">
-          <!-- <div id="router-outlet"> -->
+        <div id="main" class="">
+
           <md-toolbar color="primary" @easeInTop="in">
-      <span>
-         <button md-icon-button class="start-toggle" (click)="start.toggle()"><md-icon>menu</md-icon></button>
-      </span>
-      <span class="title">Playlister</span>
-      <span>
-        <button md-icon-button class="end-toggle" (click)="end.toggle()"><md-icon>menu</md-icon></button>
-      </span>
-    </md-toolbar>
+            <span>
+             <button md-icon-button class="start-toggle" (click)="start.toggle()"><md-icon>menu</md-icon></button>
+            </span>
+            <span class="title">Playlister</span>
+            <span>
+              <button md-icon-button class="end-toggle" (click)="end.toggle()"><md-icon>menu</md-icon></button>
+            </span>
+          </md-toolbar>
 
-            <router-outlet></router-outlet>
-          <!-- </div> -->
+          <router-outlet></router-outlet>
         </div>
-
       </div>
     </div>
   </md-sidenav-layout>
@@ -94,5 +99,4 @@
     <mu-control-bar></mu-control-bar>
   </div>
 </div>
-
 

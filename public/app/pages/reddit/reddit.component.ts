@@ -11,7 +11,7 @@ import { MD_CARD_DIRECTIVES } from '@angular2-material/card';
 
 @Component({
 	moduleId: module.id,
-	selector: 'mu-reddit',
+	// selector: 'mu-reddit',
 	templateUrl: 'reddit.component.html',
 	directives: [ThreadComponent, MD_INPUT_DIRECTIVES, MD_LIST_DIRECTIVES, MD_CARD_DIRECTIVES],
 	animations: [
