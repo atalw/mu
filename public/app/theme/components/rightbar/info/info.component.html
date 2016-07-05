@@ -13,14 +13,27 @@
 	.toggle {
 		margin: 0;
 	}
+	.info-tab {
+		text-align: left;
+	}
 </style>
 
 
-<div class="row info">
+<!-- <div class="row info">
 	<a class="vid-lyrics-toggle-btn" (click)="toggle()">Toggle</a>
 	<div class="col-sm-12 padding-0" [ngSwitch]="tab">
 		<mu-related-videos *ngSwitchWhen="'related-videos'"></mu-related-videos>
 		<mu-lyrics *ngSwitchWhen="'lyrics'"></mu-lyrics>
 	</div>
-</div>
+</div> -->
 
+<div class="row info">
+	<md-tab-group class="info-tab">
+	  <md-tab *ngFor="let tab of tabs">
+	    <template md-tab-label>{{tab.label}}</template>
+	    <template md-tab-content>
+	      {{tab.label}}
+	    </template>
+	  </md-tab>
+	</md-tab-group>
+</div>

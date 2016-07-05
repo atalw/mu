@@ -39,6 +39,9 @@
     z-index: 9999;
     width: 100%;
   }
+  #nav-toggle md-icon{
+    padding: 0;
+  }
   #control-bar {
     bottom: 0;
     height: 3.5em;
@@ -89,15 +92,14 @@
     <md-sidenav #end id="right-bar" align="end" opened="true" mode="side">
       <mu-video-player></mu-video-player>
       <mu-info></mu-info>
-      <button md-button (click)="end.close()">Close</button>
     </md-sidenav>
 
     <div class="container-fluid">
       <div class="row">
 
         <div id="nav-toggle" @easeInTop="in">
-          <button md-button class="start-toggle" (click)="start.toggle()"><md-icon md-48>menu</md-icon></button>
-          <button md-button class="end-toggle" (click)="end.toggle()"><md-icon md-48>menu</md-icon></button>
+          <button md-mini-fab color="primary" class="start-toggle" (click)="start.toggle()"><md-icon md-48>menu</md-icon></button>
+          <button md-mini-fab color="primary" class="end-toggle" (click)="end.toggle()"><md-icon class="md-24">menu</md-icon></button>
         </div>
 
         <div id="main" class="col-sm-12 padding-0">
