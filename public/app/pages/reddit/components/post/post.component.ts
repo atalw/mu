@@ -1,11 +1,12 @@
 import { Component, Input } from '@angular/core';
 import { MD_CARD_DIRECTIVES } from '@angular2-material/card';
+import {MD_ICON_DIRECTIVES, MdIconRegistry} from '@angular2-material/icon';
 
 @Component({
 	moduleId: module.id,
 	selector: 'mu-reddit-post',
 	templateUrl: 'post.component.html',
-	directives: [MD_CARD_DIRECTIVES]
+	directives: [MD_CARD_DIRECTIVES, MD_ICON_DIRECTIVES]
 })
 export class PostComponent {
 	@Input() post;

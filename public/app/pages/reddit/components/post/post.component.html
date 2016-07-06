@@ -6,6 +6,8 @@
 		/*border: 1px solid rgb(220,220,220);*/
 		margin: 10px;
 		/*height: 12%;*/
+		width: 30%;
+		float: left;
 	}
 	/*.title {
 		float: left;
@@ -42,8 +44,9 @@
 	</div>
 </div> -->
 <md-card class="post" *ngIf="post.domain == 'youtube.com' || post.domain == 'youtu.be'">
-	<md-card-title-group>
-		<md-card-title>{{post.title}}</md-card-title>
-	</md-card-title-group>
-
+		<img md-card-image alt="Main image" [src]="post.thumbnail">
+		<md-card-content>
+			<md-card-title>{{post.title}}</md-card-title>
+			<md-card-subtitle><md-icon>arrow_upward</md-icon>{{post.score}}</md-card-subtitle>
+		</md-card-content>
 </md-card>

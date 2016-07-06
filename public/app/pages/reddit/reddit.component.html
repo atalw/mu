@@ -55,4 +55,6 @@
         @state="subreddit === selectedSubreddit ? 'active' : 'inactive'" >{{subreddit.title}}</div>
 	</div>
 </div>
-<div class="col-sm-9 padding-0 thread"><mu-thread [selectedSubreddit]="selectedSubreddit"></mu-thread></div>
+<div class="col-sm-9 padding-0 thread">
+	<mu-thread [selectedSubreddit]="selectedSubreddit"></mu-thread>
+</div>
