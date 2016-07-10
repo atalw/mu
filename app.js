@@ -23,20 +23,23 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // session config
-app.use(session({
-  secret: 'secret',
-  resave: true,
-  saveUninitialized: true,
-}));
+// app.use(session({
+  // secret: 'secret',
+  // resave: true,
+  // saveUninitialized: true,
+// }));
 
-app.use(passport.initialize());
-app.use(passport.session());
+// app.use(passport.initialize());
+// app.use(passport.session());
 
 // load database config
 require('./config/db');
 require('./config/subreddits');
 
 app.use('/', routes);
+app.use('/*', function(req, res) {
+	res.sendFile(__dirname + '/public/index.html');
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

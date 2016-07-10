@@ -8,12 +8,7 @@ require('./../config/passport.js');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-	if (req.session.userId) {
-		res.render('index.html', {displayName: req.session.displayName});
-	}
-	else {
-		res.render('login.html', { title: 'mu' });
-	}
+	res.sendFile('index.html');
 });
 
 // router.get('/home', isAuthenticated, function(req, res, next) {
@@ -32,31 +27,31 @@ router.get('/app/subreddits', function(req, res, next) {
 	res.sendFile('subreddits.json', {root: __dirname});
 });
 
-router.get('/logout', function(req, res, next) {
-	req.session.destroy();
-	req.logout();
-	res.redirect('/');
-});
+// router.get('/logout', function(req, res, next) {
+	// req.session.destroy();
+	// req.logout();
+	// res.redirect('/');
+// });
 
-function isAuthenticated(req, res, next) {
-	if(req.isAuthenticated()) {
-		req.session.userId = req.user.userId;
-		req.session.displayName = req.user.displayName;
-		req.session.picture = req.user.picture;
-		return next();
-	}
-	else {
-		res.redirect('/');
-	}
-}
+// function isAuthenticated(req, res, next) {
+	// if(req.isAuthenticated()) {
+		// req.session.userId = req.user.userId;
+		// req.session.displayName = req.user.displayName;
+		// req.session.picture = req.user.picture;
+		// return next();
+	// }
+	// else {
+		// res.redirect('/');
+	// }
+// }
 
-router.get('/auth/youtube', passport.authenticate('youtube', {scope: ['https://www.googleapis.com/auth/youtube'] }));
+// router.get('/auth/youtube', passport.authenticate('youtube', {scope: ['https://www.googleapis.com/auth/youtube'] }));
 
-router.get('/auth/youtube/callback', passport.authenticate('youtube', {failureRedirect: '/'}),
-	function(req, res) {
-		res.redirect('/');
-	}
-);
+// router.get('/auth/youtube/callback', passport.authenticate('youtube', {failureRedirect: '/'}),
+	// function(req, res) {
+		// res.redirect('/');
+	// }
+// );
 
 // router.get('/search', function(req, res, next) {
 

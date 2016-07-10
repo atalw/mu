@@ -11,8 +11,8 @@ import { YoutubeAuthService } from './services/youtube-auth.service';
 const routes: RouterConfig = [
 	{ path: '', component: HomeComponent, canActivate: [AuthGuard]},
 	{ path: 'login', component: LoginComponent },
-	{ path: 'browse', component: BrowseComponent },
-	{ path: 'reddit', component: RedditComponent }
+	{ path: 'browse', component: BrowseComponent, canActivate: [AuthGuard] },
+	{ path: 'reddit', component: RedditComponent, canActivate: [AuthGuard] }
 ];
 
 export const APP_ROUTER_PROVIDERS = [
