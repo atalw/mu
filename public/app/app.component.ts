@@ -1,5 +1,5 @@
 import { Component, Input, trigger, style, animate, state, transition, EventEmitter, Output } from '@angular/core';
-import { ROUTER_DIRECTIVES } from '@angular/router';
+import { ROUTER_DIRECTIVES, Router } from '@angular/router';
 
 // import { NavbarComponent } from './theme/components/navbar/navbar.component';
 import { ControlbarComponent } from './theme/components/controlbar/controlbar.component';
@@ -11,6 +11,7 @@ import {MD_ICON_DIRECTIVES, MdIconRegistry} from '@angular2-material/icon';
 import { InfoComponent } from './theme/components/rightbar/info/info.component';
 import { VideoPlayerComponent } from './theme/components/rightbar/videoPlayer/videoPlayer.component';
 import { YoutubePlayerService } from './services/youtube-player.service';
+
 import { MD_TOOLBAR_DIRECTIVES } from '@angular2-material/toolbar';
 import { MD_LIST_DIRECTIVES } from '@angular2-material/list';
 
@@ -79,8 +80,18 @@ export class AppComponent {
 
 	]
 
-	constructor(public youtubePlayerService: YoutubePlayerService) {		this.loggedIn = true;
+	constructor() {
+		// this.loggedIn = youtubeAuthService.loggedIn;
+		// console.log(this.youtubeAuthService.isLoggedIn())
+		// this.loggedIn = this.youtubeAuthService.getLoggedIn();
+
 	}
 	ngOnInit() {
+		// if (!this.loggedIn) {
+		// 	this.router.navigate(['login']);
+		// }
+		// else {
+		// 	this.router.navigate(['']);
+		// }
 	}
 }

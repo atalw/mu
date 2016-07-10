@@ -5,13 +5,18 @@ import { LoginComponent } from './pages/login/login.component';
 import { BrowseComponent } from './pages/browse/browse.component';
 import { RedditComponent } from './pages/reddit/reddit.component';
 
+import { AuthGuard } from './services/auth-guard';
+import { YoutubeAuthService } from './services/youtube-auth.service';
+
 const routes: RouterConfig = [
-	{ path: '', component: HomeComponent},
+	{ path: '', component: HomeComponent, canActivate: [AuthGuard]},
 	{ path: 'login', component: LoginComponent },
 	{ path: 'browse', component: BrowseComponent },
 	{ path: 'reddit', component: RedditComponent }
 ];
 
 export const APP_ROUTER_PROVIDERS = [
-	provideRouter(routes)
+	provideRouter(routes),
+	YoutubeAuthService,
+	AuthGuard
 ];
