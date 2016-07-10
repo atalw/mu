@@ -12,17 +12,10 @@ export class LoginComponent {
 	constructor(public router: Router, public youtubeAuthService: YoutubeAuthService) {}
 
 	login() {
-		this.youtubeAuthService.initAuth();
+		this.youtubeAuthService.initAuth().then(() => {
 			if (this.youtubeAuthService.isLoggedIn) {
-				console.log('logged in');
 				this.router.navigate(['']);
 			}
-		// this.youtubeAuthService.initAuth().then(() => {
-		// 	if (this.youtubeAuthService.isLoggedIn()) {
-		// 		console.log('logged in');
-		// 		this.router.navigate(['']);
-		// 	}
-		// })
-
+		});
 	}
 }

@@ -15,9 +15,12 @@ export class YoutubeAuthService {
 	}
 
 	initAuth() {
-		return gapi.auth.init(() => {
-			return gapi.auth.authorize(this.options, (response) => {
-				this.handleAuthResult(response);
+		return this.loadAuth = new Promise((resolve) => {
+			return gapi.auth.init(() => {
+				return gapi.auth.authorize(this.options, (response) => {
+					this.handleAuthResult(response);
+					resolve();
+				});
 			});
 		});
 	}
@@ -27,14 +30,12 @@ export class YoutubeAuthService {
 	}
 
 	handleAuthResult(authResult) {
-			if (authResult && !authResult.error) {
-				this.isLoggedIn = true;
-				console.log(this.isLoggedIn);
-			}
-			else {
-				this.isLoggedIn = false;
-				console.log('failed');
-			}
-
+		if (authResult && !authResult.error) {
+			this.isLoggedIn = true;
+		}
+		else {
+			this.isLoggedIn = false;
+			console.log('failed');
+		}
 	}
 }
