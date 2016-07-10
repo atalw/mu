@@ -55,13 +55,12 @@
     flex: 1 1 auto;
   }
 </style>
-<!-- <mu-login *ngIf="!loggedIn"></mu-login> -->
-<!-- <router-outlet *ngIf="!loggedIn">
-  <mu-login></mu-login>
-</router-outlet> -->
 
-<div id="page">
-<!-- <div id="page"> -->
+<router-outlet *ngIf="!isLoggedIn">
+  <mu-login (isLoggedIn)="loggedIn($event)"></mu-login>
+</router-outlet>
+
+<div *ngIf="isLoggedIn" id="page">
   <md-sidenav-layout class="sidenav-layout">
 
     <md-sidenav #start mode="side" opened="false">

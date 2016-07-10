@@ -11,9 +11,10 @@ import {MD_ICON_DIRECTIVES, MdIconRegistry} from '@angular2-material/icon';
 import { InfoComponent } from './theme/components/rightbar/info/info.component';
 import { VideoPlayerComponent } from './theme/components/rightbar/videoPlayer/videoPlayer.component';
 import { YoutubePlayerService } from './services/youtube-player.service';
-
 import { MD_TOOLBAR_DIRECTIVES } from '@angular2-material/toolbar';
 import { MD_LIST_DIRECTIVES } from '@angular2-material/list';
+
+import { YoutubeAuthService } from './services/youtube-auth.service';
 
 @Component({
   moduleId: module.id,
@@ -54,7 +55,7 @@ import { MD_LIST_DIRECTIVES } from '@angular2-material/list';
 })
 
 export class AppComponent {
-	private loggedIn;
+	@Input() isLoggedIn;
 
 	private views = [
 		{
@@ -77,21 +78,14 @@ export class AppComponent {
 			icon: 'settings',
 			link: '/settings'
 		}
-
 	]
 
-	constructor() {
-		// this.loggedIn = youtubeAuthService.loggedIn;
-		// console.log(this.youtubeAuthService.isLoggedIn())
-		// this.loggedIn = this.youtubeAuthService.getLoggedIn();
-
+	constructor(public youtubeAuthService: YoutubeAuthService) {
+		this.isLoggedIn = youtubeAuthService.isLoggedIn;
 	}
-	ngOnInit() {
-		// if (!this.loggedIn) {
-		// 	this.router.navigate(['login']);
-		// }
-		// else {
-		// 	this.router.navigate(['']);
-		// }
+	ngOnInit() {}
+
+	loggedIn(event) {
+		this.isLoggedIn = true;
 	}
 }
