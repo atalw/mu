@@ -5,7 +5,7 @@ import { YoutubeAuthService } from '../../services/youtube-auth.service';
 
 @Component({
   selector: 'mu-login',
-  templateUrl: 'app/pages/login/login.component.html',
+  templateUrl: 'app/pages/login/login.component.html'
 })
 export class LoginComponent {
 

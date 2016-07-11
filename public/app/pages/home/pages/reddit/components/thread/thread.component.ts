@@ -1,8 +1,12 @@
 import { Component, Input } from '@angular/core';
+
 import { PostComponent } from '../post/post.component';
-import { SubredditsService } from '../../services/subreddits.service';
+
 import { MD_TABS_DIRECTIVES } from '@angular2-material/tabs';
-import { YoutubePlayerService } from '../../../../services/youtube-player.service';
+
+import { YoutubePlayerService } from '../../../../../../services/youtube-player.service';
+import { SubredditsService } from '../../services/subreddits.service';
+
 
 @Component({
 	moduleId: module.id,

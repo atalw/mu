@@ -1,13 +1,13 @@
-import { Component,trigger,
-	state,
-	style,
-	transition,
-	animate } from '@angular/core';
+import { Component,trigger, state, style, transition, animate } from '@angular/core';
+
 import { ThreadComponent } from './components/thread/thread.component';
-import { SubredditsService } from './services/subreddits.service';
+
 import { MD_INPUT_DIRECTIVES } from '@angular2-material/input';
 import { MD_LIST_DIRECTIVES } from '@angular2-material/list';
 import { MD_CARD_DIRECTIVES } from '@angular2-material/card';
+
+import { SubredditsService } from './services/subreddits.service';
+
 
 @Component({
 	moduleId: module.id,

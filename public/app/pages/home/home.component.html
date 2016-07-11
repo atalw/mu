@@ -1,117 +1,102 @@
 <style type="text/css">
-
-	.main-header{
-   font-size: 48px;
-   line-height: 56px;
-   font-family: 'proxima_nova', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-   font-weight: 300;
-   color: white;
- }
- #loader {
-  left: 50%;
-  top: 50%;
-  /*margin-left: -30px;*/
-  margin-right: 30em;
-  position: fixed;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-}
-#loader #spinner {
-  box-sizing: border-box;
-  stroke: #673AB7;
-  stroke-width: 3px;
-  -webkit-transform-origin: 50%;
-  transform-origin: 50%;
-  -webkit-animation: line 1.6s cubic-bezier(0.4, 0, 0.2, 1) infinite, rotate 1.6s linear infinite;
-  animation: line 1.6s cubic-bezier(0.4, 0, 0.2, 1) infinite, rotate 1.6s linear infinite;
-}
-
-#playlists-data {
-  /*margin-top: 2em;*/
-}
-md-tab-group {
-  height: 100%;
-}
-@-webkit-keyframes rotate {
-  from {
-    -webkit-transform: rotate(0);
-    transform: rotate(0);
+  #page {
+    overflow: hidden;
   }
-  to {
-    -webkit-transform: rotate(450deg);
-    transform: rotate(450deg);
+  .container-fluid {
+    overflow: hidden;
   }
-}
-
-@keyframes rotate {
-  from {
-    -webkit-transform: rotate(0);
-    transform: rotate(0);
+  a {
+    color: rgba(0,0,0,0.87);
   }
-  to {
-    -webkit-transform: rotate(450deg);
-    transform: rotate(450deg);
+  a:hover {
+    text-decoration: none;
   }
-}
-
-@-webkit-keyframes line {
-  0% {
-    stroke-dasharray: 2, 85.964;
-    -webkit-transform: rotate(0);
-    transform: rotate(0);
+  .logo img{
+    height: 120px;
+    width: 120px;
   }
-  50% {
-    stroke-dasharray: 65.973, 21.9911;
-    stroke-dashoffset: 0;
+  #main {
+    /*background-color: rgb(43, 62, 80);*/
+    background: #FAFAFA;
+    /*height: 100%;*/
+    /*color: #e2e2e2;*/
+    color: rgb(33,33,33);
+    /*height: 100%;*/
+    display: flex;
+    flex-flow: column;
+    height: 100%;
   }
-  100% {
-    stroke-dasharray: 2, 85.964;
-    stroke-dashoffset: -65.973;
-    -webkit-transform: rotate(90deg);
-    transform: rotate(90deg);
+  #control-bar {
+    bottom: 0;
+    /*height: 3.5em;*/
+    width: 100%;
+    z-index: 2000;
+    position: absolute;
+    /*background-color: rgba(78,93,108,0.9);*/
+    /*color: #e2e2e2;*/
+    background-color: rgb(255,255,255);
+    color: rgb(33,33,33);
+    border-top: 1px solid rgb(220,220,220);
   }
-}
-
-@keyframes line {
-  0% {
-    stroke-dasharray: 2, 85.964;
-    -webkit-transform: rotate(0);
-    transform: rotate(0);
+  #right-bar {
+    min-width: 25em;
   }
-  50% {
-    stroke-dasharray: 65.973, 21.9911;
-    stroke-dashoffset: 0;
+  .start-toggle {
+    float: left;
   }
-  100% {
-    stroke-dasharray: 2, 85.964;
-    stroke-dashoffset: -65.973;
-    -webkit-transform: rotate(90deg);
-    transform: rotate(90deg);
+  .end-toggle {
+    float: right;
   }
-}
+  .title {
+    color: rgb(255,255,255,0.87);
+    flex: 1 1 auto;
+  }
 </style>
 
-<div *ngIf="!dataLoaded" id="loader">
-  <svg viewBox="0 0 32 32" width="32" height="32">
-    <circle id="spinner" cx="16" cy="16" r="14" fill="none"></circle>
-  </svg>
+<div id="page">
+  <md-sidenav-layout class="sidenav-layout" >
+
+    <md-sidenav #start mode="side" opened="true">
+      <md-nav-list>
+        <a md-list-item *ngFor="let view of views" [routerLink]="[view.link]">
+          <md-icon md-list-icon>{{view.icon}}</md-icon>
+          <span md-line>{{view.name}}</span>
+        </a>
+        <a md-list-item (click)="logout()">
+          <md-icon md-list-icon>time_to_leave</md-icon>
+          <span md-line>Logout</span>
+        </a>
+      </md-nav-list>
+    </md-sidenav>
+
+    <md-sidenav #end id="right-bar" align="end" opened="true" mode="side">
+      <mu-video-player></mu-video-player>
+      <mu-info></mu-info>
+    </md-sidenav>
+
+    <div class="container-fluid">
+      <div class="row">
+
+        <div id="main" class="">
+
+          <md-toolbar color="primary" @easeInTop="in">
+            <span>
+             <button md-icon-button class="start-toggle" (click)="start.toggle()"><md-icon>menu</md-icon></button>
+            </span>
+            <span class="title">Playlister</span>
+            <span>
+              <button md-icon-button class="end-toggle" (click)="end.toggle()"><md-icon>more_vert</md-icon></button>
+            </span>
+          </md-toolbar>
+
+          <router-outlet></router-outlet>
+
+        </div>
+      </div>
+    </div>
+  </md-sidenav-layout>
+
+  <div id="control-bar" class="row margin-0" @easeInBottom="in">
+    <mu-control-bar></mu-control-bar>
+  </div>
 </div>
-
-<div id="playlists-data">
-  <md-tab-group>
-    <md-tab>
-      <template md-tab-label>Tab 0</template>
-      <template md-tab-content>
-        <mu-playlists [currentTab]="0"></mu-playlists>
-      </template>
-    </md-tab>
-    <md-tab>
-      <template md-tab-label>Tab 1</template>
-      <template md-tab-content>
-        <mu-playlists [currentTab]="1"></mu-playlists>
-      </template>
-     </md-tab>
-  </md-tab-group>
-</div>
-
-

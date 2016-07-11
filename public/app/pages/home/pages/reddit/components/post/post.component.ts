@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
+
 import { MD_CARD_DIRECTIVES } from '@angular2-material/card';
-import {MD_ICON_DIRECTIVES, MdIconRegistry} from '@angular2-material/icon';
+import {MD_ICON_DIRECTIVES} from '@angular2-material/icon';
 
 @Component({
 	moduleId: module.id,
@@ -10,7 +11,6 @@ import {MD_ICON_DIRECTIVES, MdIconRegistry} from '@angular2-material/icon';
 })
 export class PostComponent {
 	@Input() post;
-
 
 	constructor() {}
 
