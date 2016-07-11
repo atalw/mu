@@ -20,6 +20,8 @@ export class PlaylistDataComponent {
 	constructor(
 		public playlistService: PlaylistService) { }
 
-	ngOnInit() {}
+	ngOnInit() {
+		// this.playlistService.getPlaylists();
+	}
 
 }

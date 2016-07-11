@@ -55,6 +55,6 @@ export class YoutubeAuthService {
 		localStorage.removeItem('access_token');
 		localStorage.setItem('isLoggedIn', 'false');
 		this.isLoggedIn = false;
-		// this.router.navigate(['login']);
+		this.router.navigate(['login']);
 	}
 }

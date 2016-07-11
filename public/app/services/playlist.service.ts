@@ -8,48 +8,31 @@ import { Playlist } from './playlist';
 export class PlaylistService {
 	private playlists = {};
 	private playlistWithData: Playlist[] = [];
+	private accessToken = localStorage.getItem('access_token');
 
-	private profileUrl = '/app/profile';
+	// private profileUrl = '/app/profile';
+
+	private playlistsUrl = 'https://www.googleapis.com/youtube/v3/playlists?part=snippet&maxResults=50&mine=true&access_token=' + this.accessToken
 
 	constructor(private http: Http) {}
 
-	getPlaylists(tabIndex) {
-		return this.http.get(this.profileUrl).toPromise()
+	getPlaylists(currentTab) {
+		return this.http.get(this.playlistsUrl).toPromise()
 			.then(response => {
-				return this.getPlaylistData(response.json().playlists).then(response => {
-					return response;
-				});
+				this.playlists = response.json().items;
+				return this.playlists;
+			});
+	}
+
+	getPlaylistItems(playlist) {
+		var playlistItemsUrl = 'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&access_token=' + this.accessToken + "&playlistId=";
+
+		playlistItemsUrl += playlist;
+
+		return this.http.get(playlistItemsUrl).toPromise()
+			.then(response => {
+				return response.json();
 			})
-			.catch(this.handleError);
-	}
-
-	queue = Promise.resolve();
-	getPlaylistData(playlists) {
-		playlists.reduce((sequence, playlist) => {
-			this.queue = this.queue.then(() => {
-				this.getPlaylistItems(playlist).then(response => {
-					this.playlistWithData.push(response);
-				});
-			})
-		});
-
-		return this.queue.then(() => {
-			return Promise.resolve(this.playlistWithData);
-		})
-	}
-
-	// replace with http api call after auth service complete
-	getPlaylistItems(playlist) : Promise<Playlist> {
-
-		playlist.data = PlaylistItems;
-		return Promise.resolve(playlist);
-		// return PlaylistItems;
-	}
-
-	// testing only
-	getPlaylistItemsSlowly(playlistId: string) {
-		return new Promise<Playlist>(resolve => setTimeout(()=> resolve(PlaylistItems), 2000));
-
 	}
 
 	private handleError(error: any) {
