@@ -13,7 +13,7 @@ import { SubredditsService } from './services/subreddits.service';
 	moduleId: module.id,
 	// selector: 'mu-reddit',
 	templateUrl: 'reddit.component.html',
-	directives: [ThreadComponent, MD_INPUT_DIRECTIVES, MD_LIST_DIRECTIVES, MD_CARD_DIRECTIVES],
+	directives: [ThreadComponent, MD_LIST_DIRECTIVES, MD_CARD_DIRECTIVES],
 	animations: [
 		trigger('state', [
 			state('inactive', style({
