@@ -1,4 +1,4 @@
-import { Component, trigger, style, animate, state, transition } from '@angular/core';
+import { Component, trigger, style, animate, state, transition, Input } from '@angular/core';
 import { ROUTER_DIRECTIVES } from '@angular/router';
 import { Router }  from '@angular/router';
 
@@ -15,6 +15,7 @@ import { MD_LIST_DIRECTIVES } from '@angular2-material/list';
 
 import { YoutubePlayerService } from '../../services/youtube-player.service';
 import { YoutubeAuthService } from '../../services/youtube-auth.service';
+import { RelatedVideosService } from '../../services/related-videos.service';
 
 @Component({
   moduleId: module.id,
@@ -28,7 +29,7 @@ import { YoutubeAuthService } from '../../services/youtube-auth.service';
 	  MD_LIST_DIRECTIVES,
 	  InfoComponent,
 	  VideoPlayerComponent],
-  providers: [YoutubePlayerService, MdIconRegistry],
+  providers: [YoutubePlayerService, RelatedVideosService, MdIconRegistry],
   animations: [
 	  trigger('easeInLeft', [
 		  state('in', style({ transform: 'translateX(0)' })),
@@ -89,7 +90,10 @@ export class HomeComponent{
 
 	constructor(
 		public router: Router,
-		public youtubeAuthService: YoutubeAuthService) { }
+		public youtubeAuthService: YoutubeAuthService,
+		public relatedVideosService: RelatedVideosService) {
+
+	}
 
 	ngOnInit() {}
 

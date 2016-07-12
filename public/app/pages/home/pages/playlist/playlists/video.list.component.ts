@@ -2,6 +2,8 @@ import { Component, trigger, state, style, transition, animate, Input } from '@a
 
 import { PlaylistService } from '../../../../../services/playlist.service';
 import { YoutubePlayerService } from '../../../../../services/youtube-player.service';
+import { RelatedVideosService } from '../../../../../services/related-videos.service';
+
 
 @Component({
 	moduleId: module.id,
@@ -36,7 +38,7 @@ export class VideoListComponent {
 	private items : Array<Object>;
 	@Input() playlistId;
 
-	constructor(public playlistService: PlaylistService, public youtubePlayerService: YoutubePlayerService) { }
+	constructor(public playlistService: PlaylistService, public youtubePlayerService: YoutubePlayerService, public relatedVideosService: RelatedVideosService) { }
 
 	ngOnInit() {
 		// console.log(this.playlistId);
@@ -47,5 +49,6 @@ export class VideoListComponent {
 	}
 	selectVideo(id) {
 		this.youtubePlayerService.loadVideoId(id);
+		this.relatedVideosService.loadRelatedVideos(id);
 	}
 }

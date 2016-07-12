@@ -4,6 +4,8 @@ import { RelatedVideosComponent } from './related-videos/related-videos.componen
 import { LyricsComponent } from './lyrics/lyrics.component';
 import { MD_TABS_DIRECTIVES } from '@angular2-material/tabs';
 
+import { RelatedVideosService } from '../../../../services/related-videos.service';
+
 @Component({
 	moduleId: module.id,
 	selector: 'mu-info',
@@ -14,12 +16,20 @@ import { MD_TABS_DIRECTIVES } from '@angular2-material/tabs';
 export class InfoComponent {
 	tab = 'related-videos';
 
+	constructor(public relatedVideosService: RelatedVideosService) {
+		relatedVideosService.data$.subscribe(response => {
+			console.log(response);
+		});
+	}
+
 	private tabs = [
 		{
-			label: 'Related Videos'
+			label: 'Related Videos',
+			component: 'related-videos'
 		},
 		{
-			label: 'Lyrics'
+			label: 'Lyrics',
+			component: 'lyrics'
 		}
 	]
 
