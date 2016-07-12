@@ -8,13 +8,7 @@ import { RelatedVideosService } from '../../../../../services/related-videos.ser
 @Component({
 	moduleId: module.id,
 	selector: 'mu-video-list',
-	template: `
-		<md-nav-list dense>
-          <md-list-item class="" *ngFor="let item of items trackBy:customTrackBy" @state="item === selectedItem ? 'active' : 'inactive'">
-            <p md-line [class.active]="item === selectedItem" (click)="selectedItem = item; selectVideo(item.snippet.resourceId.videoId)">{{item.snippet.title}}</p>
-          </md-list-item>
-        </md-nav-list>
-	`,
+	templateUrl: 'video-list.component.html',
 	animations: [
 		trigger('state', [
 			state('inactive', style({
