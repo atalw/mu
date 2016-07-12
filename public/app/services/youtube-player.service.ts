@@ -56,14 +56,6 @@ export class YoutubePlayerService {
 			return this.player.getCurrentTime();
 		})
 	}
-	loadVideoUrl(url: string) {
-		var regex = /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=|attribution_link\?a=.+?watch.+?v(?:%|=)))((\w|-){11})(?:\S+)?$/;
-		var id = regex.exec(url);
-		return this.loadIframeAPI.then(() => {
-			return this.player.loadVideoById(id[1]);
-		})
-	}
-
 	loadVideoId(id: string) {
 		return this.loadIframeAPI.then(() => {
 			return this.player.loadVideoById(id);

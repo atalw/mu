@@ -6,6 +6,7 @@ import { MD_TABS_DIRECTIVES } from '@angular2-material/tabs';
 
 import { YoutubePlayerService } from '../../../../../../services/youtube-player.service';
 import { SubredditsService } from '../../services/subreddits.service';
+import { RelatedVideosService } from '../../../../../../services/related-videos.service';
 
 
 @Component({
@@ -35,7 +36,7 @@ export class ThreadComponent {
 		},
 	];
 
-	constructor(public subredditsService: SubredditsService, public youtubePlayerService: YoutubePlayerService) { }
+	constructor(public subredditsService: SubredditsService, public youtubePlayerService: YoutubePlayerService, public relatedVideosService: RelatedVideosService) { }
 
 	ngOnInit() {
 		// temporary fix since selectedIndex property not working
@@ -59,7 +60,9 @@ export class ThreadComponent {
 	}
 
 	selectVideo(url) {
-		console.log(url);
-		this.youtubePlayerService.loadVideoUrl(url);
+		var regex = /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=|attribution_link\?a=.+?watch.+?v(?:%|=)))((\w|-){11})(?:\S+)?$/;
+		var id = regex.exec(url);
+		this.youtubePlayerService.loadVideoId(id[1]);
+		this.relatedVideosService.loadRelatedVideos(id[1]);
 	}
 }
