@@ -39,10 +39,11 @@ export class VideoListComponent {
 	constructor(public playlistService: PlaylistService, public youtubePlayerService: YoutubePlayerService) { }
 
 	ngOnInit() {
-		console.log(this.playlistId);
+		// console.log(this.playlistId);
 		this.playlistService.getPlaylistItems(this.playlistId).then(response => {
-			this.items = response.items;
+			this.items = response;
 		});
+		// this.items = this.playlistService.getPlaylistItems(this.playlistId);
 	}
 	selectVideo(id) {
 		this.youtubePlayerService.loadVideoId(id);

@@ -36,20 +36,18 @@ export class PlaylistsComponent {
 	private playlists;
 	@Input() currentTab;
 
-	constructor(private playlistService: PlaylistService, private youtubePlayerService: YoutubePlayerService) {}
+	constructor(private playlistService: PlaylistService, private youtubePlayerService: YoutubePlayerService) {
+	}
 
 	ngOnInit() {
 		this.playlistService.getPlaylists(this.currentTab).then(response => {
 			console.log(response);
-			this.playlists = response;
+			this.playlists = response[this.currentTab].playlists;
 		});
-		// console.log(this.currentTab);
+		console.log(this.currentTab);
 	}
 	customTrackBy(index: number, obj: any): any {
 		return index;
 	}
 
-	// selectVideo(id) {
-	// 	this.youtubePlayerService.loadVideoId(id);
-	// }
 }

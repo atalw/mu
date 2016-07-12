@@ -16,12 +16,34 @@ import { PlaylistService } from '../../../../services/playlist.service';
 
 export class PlaylistDataComponent {
 	dataLoaded: boolean = true;
+	private selectedIndex;
 
-	constructor(
-		public playlistService: PlaylistService) { }
+	private tabs = [
+		{
+			label: 'Tab 0'
+		},
+		{
+			label: 'Tab 1'
+		},
+		{
+			label: 'Tab 2'
+		},
+		{
+			label: 'Tab 3'
+		}
+	];
+
+	constructor(public playlistService: PlaylistService) {
+			this.selectedIndex = 0;
+		}
 
 	ngOnInit() {
 		// this.playlistService.getPlaylists();
+	}
+
+	handleSelection(event) {
+		console.log(event);
+		console.log(this.selectedIndex);
 	}
 
 }

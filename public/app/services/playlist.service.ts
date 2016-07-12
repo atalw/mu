@@ -7,32 +7,88 @@ import { Playlist } from './playlist';
 @Injectable()
 export class PlaylistService {
 	private playlists = {};
+	private items = [];
 	private playlistWithData: Playlist[] = [];
 	private accessToken = localStorage.getItem('access_token');
 
-	// private profileUrl = '/app/profile';
-
 	private playlistsUrl = 'https://www.googleapis.com/youtube/v3/playlists?part=snippet&maxResults=50&mine=true&access_token=' + this.accessToken
 
-	constructor(private http: Http) {}
+	constructor(private http: Http) {
+
+	}
 
 	getPlaylists(currentTab) {
-		return this.http.get(this.playlistsUrl).toPromise()
-			.then(response => {
-				this.playlists = response.json().items;
-				return this.playlists;
-			});
+		if(localStorage.getItem('tabs')) {
+			return Promise.resolve(JSON.parse(localStorage.getItem('tabs')));
+		}
+		else {
+			return this.http.get(this.playlistsUrl).toPromise()
+				.then(response => {
+					this.playlists = response.json().items;
+					// localStorage.setItem('tabs', JSON.stringify(response.json().items));
+					var tabs = this.randomizePlaylistTabs(this.playlists);
+					localStorage.setItem('tabs', JSON.stringify(tabs));
+					return this.playlists;
+				});
+		}
+
+	}
+
+	randomizePlaylistTabs(playlists) {
+		let tabs = [
+			{
+				label: 'tab0'
+			},
+			{
+				label: 'tab1'
+			}
+		];
+		var playlists1 = [];
+		var playlists2 = [];
+		for (var playlist = 0; playlist < playlists.length; playlist++) {
+			if ( playlist%2 == 0) {
+				playlists1.push(playlists[playlist]);
+			}
+			else {
+				playlists2.push(playlists[playlist]);
+			}
+		}
+		tabs[0]['playlists'] = playlists1;
+		tabs[1]['playlists'] = playlists2;
+
+		return tabs;
 	}
 
 	getPlaylistItems(playlist) {
 		var playlistItemsUrl = 'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&access_token=' + this.accessToken + "&playlistId=";
 
 		playlistItemsUrl += playlist;
+		this.items = []// empty items array
+		// console.log(this.items);
+		return this.getItems(playlistItemsUrl).then(response => {
+			// console.log(response);
+			// console.log(response);
+			return response;
+		});
+	}
 
-		return this.http.get(playlistItemsUrl).toPromise()
+	getItems(url, nextPageToken?) {
+		var options = {};
+		if (nextPageToken)
+			options.pageToken = nextPageToken;
+		else
+			options = {};
+		// console.log(url);
+		// console.log(options);
+		var items = [];
+		return this.http.get(url, options).toPromise()
 			.then(response => {
-				return response.json();
-			})
+				items.push.apply(items, response.json().items);
+				if (response.json().nextPageToken) {
+					// return this.getItems(url, response.json().nextPageToken);
+				}
+				return items;
+			});
 	}
 
 	private handleError(error: any) {

@@ -31,18 +31,12 @@
 </style>
 
 <div id="playlists-data">
-  <md-tab-group>
-    <md-tab>
-      <template md-tab-label>Tab 0</template>
+  <md-tab-group [(selectedIndex)]="selectedIndex" (selectChange)="handleSelection($event)">
+  <md-tab *ngFor="let tab of tabs">
+      <template md-tab-label>{{tab.label}}</template>
       <template md-tab-content>
-        <mu-playlists [currentTab]="0"></mu-playlists>
+        <mu-playlists [currentTab]="selectedIndex"></mu-playlists>
       </template>
     </md-tab>
-    <md-tab>
-      <template md-tab-label>Tab 1</template>
-      <template md-tab-content>
-        <mu-playlists [currentTab]="1"></mu-playlists>
-      </template>
-     </md-tab>
   </md-tab-group>
 </div>
