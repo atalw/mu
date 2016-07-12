@@ -29,10 +29,16 @@
 
 <div class="row info">
 	<md-tab-group class="info-tab">
-	  <md-tab *ngFor="let tab of tabs">
-	    <template md-tab-label>{{tab.label}}</template>
+	  <md-tab>
+	    <template md-tab-label>Related Videos</template>
 	    <template md-tab-content>
-	      {{tab.label}}
+	      <mu-related-videos></mu-related-videos>
+	    </template>
+	  </md-tab>
+	  <md-tab>
+	    <template md-tab-label>Lyrics</template>
+	    <template md-tab-content>
+	      <mu-lyrics></mu-lyrics>
 	    </template>
 	  </md-tab>
 	</md-tab-group>

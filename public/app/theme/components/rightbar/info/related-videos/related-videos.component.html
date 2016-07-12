@@ -2,9 +2,15 @@
 	.related-videos {
 		background-color: rgb(255,255,255);
 		height: 60%;
+		width: 100%;
 	}
 </style>
 
 <div class="related-videos">
-	related videos here
+	<md-list *ngFor="let item of items" dense>
+  		<md-list-item >
+   			<img md-list-avatar [src]="item.snippet.thumbnails.default.url" alt="...">
+    		<h3 md-line>{{item.snippet.title}}</h3>
+  		</md-list-item>
+	</md-list>
 </div>

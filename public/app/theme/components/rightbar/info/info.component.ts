@@ -14,26 +14,8 @@ import { RelatedVideosService } from '../../../../services/related-videos.servic
 })
 
 export class InfoComponent {
-	tab = 'related-videos';
 
-	constructor(public relatedVideosService: RelatedVideosService) {
-		relatedVideosService.data$.subscribe(response => {
-			console.log(response);
-		});
-	}
+	constructor() {
 
-	private tabs = [
-		{
-			label: 'Related Videos',
-			component: 'related-videos'
-		},
-		{
-			label: 'Lyrics',
-			component: 'lyrics'
-		}
-	]
-
-	toggle() {
-		this.tab = this.tab == 'related-videos' ? 'lyrics' : 'related-videos';
 	}
 }
