@@ -17,7 +17,7 @@ export class YoutubeAuthService {
 		this.options = {
 			'client_id': '85957565874-ol40114mec08bm3lf3q9q3s9prv3pn0p.apps.googleusercontent.com',
 			'scope': 'https://www.googleapis.com/auth/youtube',
-			'immediate': false
+			'immediate': true
 		};
 	}
 
@@ -34,6 +34,10 @@ export class YoutubeAuthService {
 
 	checkAuth() {
 		gapi.auth.authorize(this.options, this.handleAuthResult);
+	}
+
+	verifyAuth(authResult) {
+
 	}
 
 	handleAuthResult(authResult) {

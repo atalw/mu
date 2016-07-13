@@ -29,7 +29,7 @@ import { YoutubePlayerService } from '../../../../../services/youtube-player.ser
 		  transition('active => inactive', animate('100ms ease-out'))
 	  ])
   ],
-  directives: [MD_CARD_DIRECTIVES, MD_BUTTON_DIRECTIVES, MD_ICON_DIRECTIVES, MD_LIST_DIRECTIVES, MD_TOOLBAR_DIRECTIVES, VideoListComponent]
+  directives: [MD_CARD_DIRECTIVES, MD_BUTTON_DIRECTIVES, MD_ICON_DIRECTIVES, MD_TOOLBAR_DIRECTIVES, VideoListComponent]
 })
 
 export class PlaylistsComponent {

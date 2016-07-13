@@ -1,5 +1,8 @@
 import { Component, trigger, state, style, transition, animate, Input } from '@angular/core';
 
+import {MD_LIST_DIRECTIVES} from '@angular2-material/list';
+import { MD_ICON_DIRECTIVES } from '@angular2-material/icon';
+
 import { PlaylistService } from '../../../../../services/playlist.service';
 import { YoutubePlayerService } from '../../../../../services/youtube-player.service';
 import { RelatedVideosService } from '../../../../../services/related-videos.service';
@@ -23,7 +26,7 @@ import { RelatedVideosService } from '../../../../../services/related-videos.ser
 			transition('active => inactive', animate('100ms ease-out'))
 		])
 	],
-	directives: []
+	directives: [MD_ICON_DIRECTIVES, MD_LIST_DIRECTIVES]
 })
 
 export class VideoListComponent {
@@ -44,5 +47,10 @@ export class VideoListComponent {
 	selectVideo(id) {
 		this.youtubePlayerService.loadVideoId(id);
 		this.relatedVideosService.loadRelatedVideos(id);
+		this.youtubePlayerService.setupControlBar();
+	}
+
+	queueVideo(id) {
+		console.log(id);
 	}
 }

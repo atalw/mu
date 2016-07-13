@@ -26,10 +26,7 @@ export class PlaylistDataComponent {
 			label: 'Tab 1'
 		},
 		{
-			label: 'Tab 2'
-		},
-		{
-			label: 'Tab 3'
+			label: 'Favourites'
 		}
 	];
 

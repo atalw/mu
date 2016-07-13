@@ -1,10 +1,14 @@
 import { Injectable } from '@angular/core';
+import { Subject }    from 'rxjs/Subject';
 
 @Injectable()
 export class YoutubePlayerService {
 
 	public player;
+	public elapsedTime = new Subject<string>();
+	elapsedTime$ = this.elapsedTime.asObservable();
 	// private isPlayerReady: boolean = false;
+	private getElapsedTimeInterval;
 	loadIframeAPI: Promise<any>;
 
 	constructor() {
@@ -40,25 +44,35 @@ export class YoutubePlayerService {
 
 	playVideo() {
 		this.player.playVideo();
+		this.setupControlBar();
 	}
 
 	pauseVideo() {
 		this.player.pauseVideo();
+		clearInterval(this.getElapsedTimeInterval);
 	}
 
 	getVideoDuration() {
-		return this.loadIframeAPI.then(()=> {
-			return this.player.getDuration();
-		})
+		// return this.loadIframeAPI.then(()=> {
+		// 	this.elapsedTime.next(this.player.getDuration());
+		// });
+		// this.elapsedTime.next(this.player.getDuration());
+		return this.player.getDuration();
 	}
 	getElapsedTime() {
-		return this.loadIframeAPI.then(() => {
-			return this.player.getCurrentTime();
-		})
+		return this.player.getCurrentTime();
+
 	}
 	loadVideoId(id: string) {
 		return this.loadIframeAPI.then(() => {
 			return this.player.loadVideoById(id);
 		});
+	}
+	getPercentage() {
+		return (this.player.getCurrentTime()/ this.player.getDuration()  * 100) + '%';
+	}
+	setupControlBar() {
+		this.getElapsedTimeInterval = setInterval(()=>this.elapsedTime.next(this.getPercentage()), 300);
+		// this.getVideoDuration()
 	}
 }

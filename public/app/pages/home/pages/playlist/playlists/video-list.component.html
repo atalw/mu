@@ -1,11 +1,12 @@
 <style type="text/css">
 	.list {
-		padding: 24px;
+		/*padding: 24px;*/
 	}
 </style>
 
 <md-nav-list dense class="list">
-	<md-list-item class="" *ngFor="let item of items trackBy:customTrackBy" @state="item === selectedItem ? 'active' : 'inactive'">
-		<p md-line [class.active]="item === selectedItem" (click)="selectedItem = item; selectVideo(item.snippet.resourceId.videoId)">{{item.snippet.title}}</p>
+	<md-list-item class="" *ngFor="let item of items trackBy:customTrackBy" @state="item === selectedItem ? 'active' : 'inactive'" [class.active]="item === selectedItem">
+		<p md-line (click)="selectedItem = item; selectVideo(item.snippet.resourceId.videoId)">{{item.snippet.title}}</p>
+		<button md-icon-button (click)="queueVideo(item.snippet.resourceId.videoId)"><md-icon>queue_music</md-icon></button>
 	</md-list-item>
 </md-nav-list>
