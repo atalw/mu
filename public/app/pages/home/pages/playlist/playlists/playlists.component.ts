@@ -42,10 +42,8 @@ export class PlaylistsComponent {
 
 	ngOnInit() {
 		this.playlistService.getPlaylists(this.currentTab).then(response => {
-			console.log(response);
 			this.playlists = response[this.currentTab].playlists;
 		});
-		console.log(this.currentTab);
 	}
 	customTrackBy(index: number, obj: any): any {
 		return index;

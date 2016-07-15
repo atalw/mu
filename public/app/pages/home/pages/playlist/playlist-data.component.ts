@@ -39,8 +39,7 @@ export class PlaylistDataComponent {
 	}
 
 	handleSelection(event) {
-		console.log(event);
-		console.log(this.selectedIndex);
+		// console.log(this.selectedIndex);
 	}
 
 }

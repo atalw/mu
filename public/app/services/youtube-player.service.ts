@@ -34,7 +34,6 @@ export class YoutubePlayerService {
 						'onError': this.onError
 					}
 				});
-				console.log('player loaded')
 				resolve(this.player);
 			}
 			this.loadScript();
