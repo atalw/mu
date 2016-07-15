@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
-import {MD_ICON_DIRECTIVES, MdIconRegistry} from '@angular2-material/icon';
+import { MD_ICON_DIRECTIVES, MdIconRegistry } from '@angular2-material/icon';
 import { YoutubePlayerService } from '../../../services/youtube-player.service';
+import { ConvertSecondsPipe } from './convert-seconds.pipe';
 
 @Component({
   moduleId: module.id,
   selector: 'mu-control-bar',
   templateUrl: 'controlbar.component.html',
   directives: [MD_ICON_DIRECTIVES],
+  pipes: [ConvertSecondsPipe],
   providers: []
 })
 
@@ -14,23 +16,30 @@ export class ControlbarComponent {
 
 	private playerState;
 	private playOrPauseIcon;
-	private videoDuration;
+	private totalTime;
 	private elapsedTime;
 	private percentage;
 
 	constructor(public youtubePlayerService : YoutubePlayerService) {
 		this.playOrPauseIcon = "play_arrow";
-		youtubePlayerService.elapsedTime$.subscribe(response => {
+
+		youtubePlayerService.percentage$.subscribe(response => {
 			this.percentage = response;
-			console.log(response);
 		})
-		// this.percentage = '60%';
+
+		youtubePlayerService.elapsedTime$.subscribe(response => {
+			this.elapsedTime = response;
+		})
+
+		youtubePlayerService.totaltime.subscribe(response => {
+			this.totalTime = response;
+		})
 	}
 
 	ngOnInit() {
-		this.elapsedTime = "00:00";
-		this.videoDuration = "00:00";
-		this.percentage = '0';
+		this.elapsedTime = 0;
+		this.totalTime = 0;
+		this.percentage = '0%';
 	}
 
 	ngAfterViewInit() {
@@ -48,19 +57,6 @@ export class ControlbarComponent {
 			this.playOrPauseIcon = "pause";
 		}
 	}
-
-	getVideoDuration() {
-		var videoSeconds;
-		this.youtubePlayerService.getVideoDuration().then(response => {
-			videoSeconds = response;
-		})
-		var minutes = Math.floor(videoSeconds / 60);
-		var seconds = videoSeconds % 60;
-		this.videoDuration = minutes + ":" + seconds;
-		console.log(this.videoDuration);
-	}
-
-
 
 	videoSeek(event) {
 		console.log(event);

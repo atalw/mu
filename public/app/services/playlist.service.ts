@@ -1,14 +1,10 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 
-import { PlaylistItems } from './mock-playlists';
-import { Playlist } from './playlist';
-
 @Injectable()
 export class PlaylistService {
 	private playlists = {};
 	private items = [];
-	private playlistWithData: Playlist[] = [];
 	private accessToken = localStorage.getItem('access_token');
 
 	private playlistsUrl = 'https://www.googleapis.com/youtube/v3/playlists?part=snippet&maxResults=50&mine=true&access_token=' + this.accessToken

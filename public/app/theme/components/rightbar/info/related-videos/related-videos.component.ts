@@ -25,5 +25,7 @@ export class RelatedVideosComponent {
 	selectVideo(id) {
 		this.youtubePlayerService.loadVideoId(id);
 		this.relatedVideosService.loadRelatedVideos(id);
+		this.youtubePlayerService.setupControlBar();
+
 	}
 }

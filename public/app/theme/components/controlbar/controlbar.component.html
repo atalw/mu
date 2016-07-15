@@ -38,15 +38,14 @@
 			<a class="control" (click)="prev()"><md-icon class="md-36 orange600">fast_rewind</md-icon></a>
 			<a class="control" (click)="playOrPause()"><md-icon class="md-48">{{playOrPauseIcon}}</md-icon></a>
 			<a class="control" (click)="next()"><md-icon class="md-36">fast_forward</md-icon></a>
-			<a class="control"><md-icon class="md-36">volume_up</md-icon></a>
 		</div>
 		<div class="col-sm-7 scrub-bar">
 			<div class="row">
-				<div class="col-sm-1 elapsedTime">{{elapsedTime}}</div>
+				<div class="col-sm-1 elapsedTime">{{elapsedTime | convertSeconds}}</div>
 				<div id="seekBar" class="col-sm-10 bar" (click)="videoSeek($event)">
 					<div [style.width]="percentage" id="elapsed"></div>
 				</div>
-				<div class="col-sm-1 duration">{{videoDuration}}</div>
+				<div class="col-sm-1 duration">{{totalTime | convertSeconds}}</div>
 			</div>
 		</div>
 		<div class="col-sm-3 video-functions">

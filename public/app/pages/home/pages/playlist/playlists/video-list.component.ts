@@ -45,6 +45,7 @@ export class VideoListComponent {
 		// this.items = this.playlistService.getPlaylistItems(this.playlistId);
 	}
 	selectVideo(id) {
+		// this.youtubePlayerService.setupPlayer(id);
 		this.youtubePlayerService.loadVideoId(id);
 		this.relatedVideosService.loadRelatedVideos(id);
 		this.youtubePlayerService.setupControlBar();

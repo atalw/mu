@@ -37,7 +37,7 @@ export class YoutubeAuthService {
 	}
 
 	verifyAuth(authResult) {
-
+		var url = 'https://www.googleapis.com/oauth2/v3/tokeninfo?access_token=';
 	}
 
 	handleAuthResult(authResult) {
