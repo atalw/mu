@@ -6,13 +6,18 @@ export class ConvertSecondsPipe implements PipeTransform {
 
   transform(value: number): string {
 
-      if (value >= 3600) {
+      if (!value) {
+        return '00:00';
+      }
+      else if (value >= 3600) {
          return moment().startOf('day')
                 .seconds(value)
                 .format('H:mm:ss');
       }
-      else
-          return moment().startOf('year').seconds(value).format('mm:ss');
-
+      else {
+          return moment().startOf('day')
+                         .seconds(value)
+                         .format('mm:ss');
+      }
   }
 }
