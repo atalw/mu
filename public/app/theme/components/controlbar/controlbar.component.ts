@@ -19,9 +19,11 @@ export class ControlbarComponent {
 	private totalTime;
 	private elapsedTime;
 	private percentage;
+	private shuffle;
 
 	constructor(public youtubePlayerService : YoutubePlayerService) {
 		this.playOrPauseIcon = "play_arrow";
+		this.shuffle = false
 
 		youtubePlayerService.percentage$.subscribe(response => {
 			this.percentage = response;
@@ -58,10 +60,23 @@ export class ControlbarComponent {
 		}
 	}
 
+	prev() {
+		this.youtubePlayerService.player.previousVideo();
+	}
+
+	next() {
+		this.youtubePlayerService.player.nextVideo();
+	}
+
 	videoSeek(event) {
 		console.log(event);
 		var seekTo = this.youtubePlayerService.player.getDuration() * (event.offsetX / document.getElementById('seekBar').offsetWidth);
 		this.youtubePlayerService.player.seekTo(seekTo, false);
+	}
+
+	shufflePlaylist() {
+		this.shuffle = !this.shuffle;
+		this.youtubePlayerService.player.setShuffle(this.shuffle);
 	}
 
 }

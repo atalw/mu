@@ -10,7 +10,9 @@
 		/*color: rgb(255,82,82);*/
 	}
 	.video-functions {
-		float: left;
+		/*float: left;*/
+		padding-top: 1.2em;
+		text-align: center;
 	}
 	.scrub-bar {
 		padding-top: 1.2em;
@@ -35,7 +37,7 @@
 
 
 		<div class="col-sm-2" id="buttons">
-			<a class="control" (click)="prev()"><md-icon class="md-36 orange600">fast_rewind</md-icon></a>
+			<a class="control" (click)="prev()"><md-icon class="md-36">fast_rewind</md-icon></a>
 			<a class="control" (click)="playOrPause()"><md-icon class="md-48">{{playOrPauseIcon}}</md-icon></a>
 			<a class="control" (click)="next()"><md-icon class="md-36">fast_forward</md-icon></a>
 		</div>
@@ -50,7 +52,7 @@
 		</div>
 		<div class="col-sm-3 video-functions">
 			<div class="row">
-				<div class="col-sm-6 loop"><md-icon>repeat</md-icon></div>
+				<div class="col-sm-6 loop" (click)="shufflePlaylist()" [style.color]="shuffle ? 'green' : 'black'"><md-icon>shuffle</md-icon></div>
 				<div class="col-sm-6 video-link"><md-icon>link</md-icon></div>
 			</div>
 		</div>

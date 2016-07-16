@@ -19,6 +19,7 @@ export class RelatedVideosComponent {
 	constructor(public relatedVideosService: RelatedVideosService, public youtubePlayerService: YoutubePlayerService) {
 		relatedVideosService.data$.subscribe(response => {
 			this.items = response.items;
+			console.log(response);
 		});
 	}
 

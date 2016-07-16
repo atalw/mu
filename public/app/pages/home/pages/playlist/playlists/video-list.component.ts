@@ -41,7 +41,6 @@ export class VideoListComponent {
 		this.playlistService.getPlaylistItems(this.playlistId).then(response => {
 			this.items = response;
 		});
-		// this.items = this.playlistService.getPlaylistItems(this.playlistId);
 	}
 	selectVideo(playlistId, videoId, index) {
 		this.youtubePlayerService.loadPlaylist(playlistId, index);
