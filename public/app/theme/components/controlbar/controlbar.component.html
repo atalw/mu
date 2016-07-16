@@ -44,7 +44,7 @@
 		<div class="col-sm-7 scrub-bar">
 			<div class="row">
 				<div class="col-sm-1 elapsedTime">{{elapsedTime | convertSeconds}}</div>
-				<div id="seekBar" class="col-sm-10 bar" (click)="videoSeek($event)">
+				<div id="seekBar" class="col-sm-10 bar">
 					<div [style.width]="percentage" id="elapsed"></div>
 				</div>
 				<div class="col-sm-1 duration">{{totalTime | convertSeconds}}</div>

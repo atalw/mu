@@ -69,8 +69,7 @@ export class ControlbarComponent {
 	}
 
 	videoSeek(event) {
-		console.log(event);
-		var seekTo = this.youtubePlayerService.player.getDuration() * (event.offsetX / document.getElementById('seekBar').offsetWidth);
+		var seekTo = this.youtubePlayerService.player.getDuration() * (event.offsetX / event.target.offsetWidth);
 		this.youtubePlayerService.player.seekTo(seekTo, false);
 	}
 
