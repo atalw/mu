@@ -38,16 +38,14 @@ export class VideoListComponent {
 	constructor(public playlistService: PlaylistService, public youtubePlayerService: YoutubePlayerService, public relatedVideosService: RelatedVideosService) { }
 
 	ngOnInit() {
-		// console.log(this.playlistId);
 		this.playlistService.getPlaylistItems(this.playlistId).then(response => {
 			this.items = response;
 		});
 		// this.items = this.playlistService.getPlaylistItems(this.playlistId);
 	}
-	selectVideo(id) {
-		// this.youtubePlayerService.setupPlayer(id);
-		this.youtubePlayerService.loadVideoId(id);
-		this.relatedVideosService.loadRelatedVideos(id);
+	selectVideo(playlistId, videoId, index) {
+		this.youtubePlayerService.loadPlaylist(playlistId, index);
+		this.relatedVideosService.loadRelatedVideos(videoId);
 		this.youtubePlayerService.setupControlBar();
 	}
 

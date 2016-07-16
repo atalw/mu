@@ -87,6 +87,11 @@ export class YoutubePlayerService {
 			return this.player.loadVideoById(id);
 		})
 	}
+	loadPlaylist(id: string, index: number) {
+		return this.loadIframeAPI.then(() => {
+			return this.player.loadPlaylist({list: id, index:index});
+		})
+	}
 	getPercentage() {
 		return (this.player.getCurrentTime()/ this.player.getDuration()  * 100) + '%';
 	}
