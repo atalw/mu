@@ -20,15 +20,16 @@
     'angular2-in-memory-web-api': { main: 'index.js', defaultExtension: 'js' },
 	  'moment':                     { main: 'moment.js', type: 'cjs', defaultExtension: 'js'}
   };
-  var ngPackageNames = [
+   var ngPackageNames = [
     'common',
     'compiler',
     'core',
+    'forms',
     'http',
     'platform-browser',
     'platform-browser-dynamic',
     'router',
-    'upgrade'
+    'upgrade',
   ];
 
   // Angular Material 2 Packages to load.
@@ -51,11 +52,11 @@
 
   // Most environments should use UMD; some (Karma) need the individual index files
   var setPackageConfig = System.packageWithIndex ? packIndex : packUmd;
-  // REMOVE - TEMPORARY FIX FOR ROUTER ALPHA VERSION
-  var setPackageConfig = packIndex;
+
   // Add package entries for angular packages
   ngPackageNames.forEach(setPackageConfig);
   _materialPackages.forEach(materialPackIndex);
+
   var config = {
     map: map,
     packages: packages
