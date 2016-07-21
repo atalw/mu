@@ -9,5 +9,5 @@
 	<div id="browse-header">
 		<h1>Browse</h1>
 	</div>
-	<div class="types" *ngFor="let type of content"><mu-type title="{{type.title}}" cards="{{type.cards}}"></mu-type></div>
+	<div class="types" *ngFor="let type of content"><mu-type [type]="type"></mu-type></div>
 </div>

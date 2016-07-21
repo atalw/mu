@@ -14,6 +14,7 @@ const routes: RouterConfig = [
 	{ path: '', component: HomeComponent, canActivate: [AuthGuard], children: [
 			{ path: '', component: PlaylistDataComponent },
 			{ path: 'browse', component: BrowseComponent },
+			{ path: 'browse/:id', component: PlaylistDataComponent },
 			{ path: 'reddit', component: RedditComponent }
 		]
 	},

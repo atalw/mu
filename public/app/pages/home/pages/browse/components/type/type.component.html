@@ -5,9 +5,10 @@
 		padding-bottom: 2em;
 		margin-top: 5em;/*
 		background: rgba(255,255,255,0.1);*/
+		color: rgba(0,0,0,0.8);
 	}
 	.inner-row {
-		height: 15em;
+		/*height: 15em;*/
 		overflow-x: scroll;
 		overflow-y: hidden;
 		white-space: nowrap;
@@ -16,15 +17,19 @@
 
 <div id="top-playlists">
 <div class="row ">
-	<h3>{{title}}</h3>
+	<h3>{{type.title}}</h3>
 	<div class="inner-row">
 		<!-- <playlist-card *ngFor="let card of cards"></playlist-card> -->
-		<playlist-card></playlist-card>
-		<playlist-card></playlist-card>
-		<playlist-card></playlist-card>
-		<playlist-card></playlist-card>
-		<playlist-card></playlist-card>
-		<playlist-card></playlist-card>
+		<md-grid-list cols="3">
+
+      <md-grid-tile *ngFor="let card of type.cards">
+          <a [routerLink]="[card.link]"><img [alt]="card.name" src="app/assets/images/{{card.link}}.jpeg"></a>
+          <md-grid-tile-footer>
+            <h3 md-line>{{card.name}}</h3>
+          </md-grid-tile-footer>
+        </md-grid-tile>
+
+</md-grid-list>
 	</div>
 </div>
 </div>

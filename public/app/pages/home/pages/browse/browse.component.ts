@@ -14,19 +14,119 @@ export class BrowseComponent {
 	private content = [
 		{
 			title: 'Artists',
-			cards: ['1','2','3','4','5','6']
+			cards: [
+				{
+					name: 'Justin Bieber',
+					link: 'justin-bieber'
+				},
+				{
+					name: 'Justin Bieber',
+					link: 'justin-bieber'
+				},
+				{
+					name: 'Justin Bieber',
+					link: 'justin-bieber'
+				},
+				{
+					name: 'Justin Bieber',
+					link: 'justin-bieber'
+				},
+				{
+					name: 'Justin Bieber',
+					link: 'justin-bieber'
+				},
+				{
+					name: 'Justin Bieber',
+					link: 'justin-bieber'
+				},
+			]
 		},
 		{
 			title: 'Top Playlists',
-			cards: ['1', '2', '3', '4', '5', '6']
+			cards: [
+				{
+					name: 'Justin Bieber',
+					link: 'justin-bieber'
+				},
+				{
+					name: 'Justin Bieber',
+					link: 'justin-bieber'
+				},
+				{
+					name: 'Justin Bieber',
+					link: 'justin-bieber'
+				},
+				{
+					name: 'Justin Bieber',
+					link: 'justin-bieber'
+				},
+				{
+					name: 'Justin Bieber',
+					link: 'justin-bieber'
+				},
+				{
+					name: 'Justin Bieber',
+					link: 'justin-bieber'
+				},
+			]
 		},
 		{
 			title: 'Moods',
-			cards: ['1', '2', '3', '4', '5', '6']
+			cards: [
+				{
+					name: 'Justin Bieber',
+					link: 'justin-bieber'
+				},
+				{
+					name: 'Justin Bieber',
+					link: 'justin-bieber'
+				},
+				{
+					name: 'Justin Bieber',
+					link: 'justin-bieber'
+				},
+				{
+					name: 'Justin Bieber',
+					link: 'justin-bieber'
+				},
+				{
+					name: 'Justin Bieber',
+					link: 'justin-bieber'
+				},
+				{
+					name: 'Justin Bieber',
+					link: 'justin-bieber'
+				},
+			]
 		},
 		{
 			title: 'Genres',
-			cards: ['1', '2', '3', '4', '5', '6']
+			cards: [
+				{
+					name: 'Justin Bieber',
+					link: 'justin-bieber'
+				},
+				{
+					name: 'Justin Bieber',
+					link: 'justin-bieber'
+				},
+				{
+					name: 'Justin Bieber',
+					link: 'justin-bieber'
+				},
+				{
+					name: 'Justin Bieber',
+					link: 'justin-bieber'
+				},
+				{
+					name: 'Justin Bieber',
+					link: 'justin-bieber'
+				},
+				{
+					name: 'Justin Bieber',
+					link: 'justin-bieber'
+				},
+			]
 		},
 	]
 }
