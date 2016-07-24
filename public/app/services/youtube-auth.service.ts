@@ -17,7 +17,7 @@ export class YoutubeAuthService {
 		this.options = {
 			'client_id': '85957565874-ol40114mec08bm3lf3q9q3s9prv3pn0p.apps.googleusercontent.com',
 			'scope': 'https://www.googleapis.com/auth/youtube',
-			'immediate': true
+			'immediate': false
 		};
 	}
 
@@ -42,7 +42,6 @@ export class YoutubeAuthService {
 
 	handleAuthResult(authResult) {
 		if (authResult && !authResult.error) {
-			console.log(authResult);
 			localStorage.setItem('access_token', authResult.access_token);
 			localStorage.setItem('isLoggedIn', 'true');
 			this.isLoggedIn = true;

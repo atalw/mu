@@ -7,9 +7,9 @@
 	}
 	.center-div	{
 		height: 40%;
-		width: 50%;
+		width: 100%;
 		vertical-align: middle;
-		background-color: rgba(0,0,0,0.2);
+		/*background-color: rgba(0,0,0,0.2);*/
 		/*float: left;*/
 		margin: auto;
 		margin-top: 15%;
@@ -24,7 +24,7 @@
 		float: left;
 	}
 	.login a {
-		color: #e2e2e2;
+		/*color: #e2e2e2;*/
 		text-decoration: none;
 	}
 	.info {
@@ -33,13 +33,15 @@
 		width: 50%;
 		float: left;
 	}
+	.sign-in {
+		cursor: pointer;
+	}
 </style>
 
 <div class="container-fluid full-bg">
 	<div class="center-div">
 		<div class="login">
-			<h1>Playlister</h1>
-			<h1><button (click)="login()">Sign in to Google</button></h1>
+			<h1><button (click)="login()" class="sign-in">Sign in to Google</button></h1>
 		</div>
 	</div>
 </div>
