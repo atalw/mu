@@ -8,10 +8,12 @@ export class YoutubePlayerService {
 	public percentage = new Subject<string>();
 	public elapsedTime = new Subject<string>();
 	public totaltime = new Subject<string>();
+	public playerState = new Subject<string>();
 
 	percentage$ = this.percentage.asObservable();
 	elapsedTime$ = this.elapsedTime.asObservable();
 	totalTime$ = this.totaltime.asObservable();
+	playerState$ = this.playerState.asObservable();
 
 	private getPercentageInterval;
 	private getElapsedtimeInterval
@@ -55,9 +57,11 @@ export class YoutubePlayerService {
 
 		if (event.data == 2) { // paused
 			// this.pauseControlBar();
+			this.playerState.next('play_arrow');
 		}
 		if (event.data == 1) { // playing
 			this.totaltime.next(this.player.getDuration());
+			this.playerState.next('pause')
 		}
 	}
 

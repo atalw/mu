@@ -3,30 +3,29 @@
 	#main-control {
 	}
 	#buttons {
+		cursor: pointer;
 	}
 	.control {
-		padding-left: 10px;
+		/*padding-left: 10px;*/
 		top: 0;
 		/*color: rgb(255,82,82);*/
 	}
 	.video-functions {
 		/*float: left;*/
-		padding-top: 1.2em;
+		/*padding-top: 1.2em;*/
 		text-align: center;
 	}
 	.scrub-bar {
-		padding-top: 1.2em;
+		/*padding-top: 1.2em;*/
 	}
 	.elapsedTime {
 		text-align: center;
 	}
 	.bar {
-		height: 100%;
 		display: inline-block;
 	}
 	#elapsed {
-		height: 20px;
-		/*width: 30%;*/
+		height: 3px;
 		background: gold;
 	}
 	.duration {
@@ -37,9 +36,9 @@
 
 
 		<div class="col-sm-2" id="buttons">
-			<a class="control" (click)="prev()"><md-icon class="md-36">fast_rewind</md-icon></a>
-			<a class="control" (click)="playOrPause()"><md-icon class="md-48">{{playOrPauseIcon}}</md-icon></a>
-			<a class="control" (click)="next()"><md-icon class="md-36">fast_forward</md-icon></a>
+			<a class="control" (click)="prev()"><md-icon class="">fast_rewind</md-icon></a>
+			<a class="control" (click)="playOrPause()"><md-icon class="">{{playerStateIcon}}</md-icon></a>
+			<a class="control" (click)="next()"><md-icon class="">fast_forward</md-icon></a>
 		</div>
 		<div class="col-sm-7 scrub-bar">
 			<div class="row">

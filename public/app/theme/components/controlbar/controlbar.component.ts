@@ -15,6 +15,7 @@ import { ConvertSecondsPipe } from './convert-seconds.pipe';
 export class ControlbarComponent {
 
 	private playerState;
+	private playerStateIcon = 'play_arrow';
 	private playOrPauseIcon;
 	private totalTime;
 	private elapsedTime;
@@ -36,6 +37,10 @@ export class ControlbarComponent {
 		youtubePlayerService.totaltime.subscribe(response => {
 			this.totalTime = response;
 		})
+
+		youtubePlayerService.playerState$.subscribe(response => {
+			this.playerStateIcon = response;
+		})
 	}
 
 	ngOnInit() {
@@ -51,12 +56,12 @@ export class ControlbarComponent {
 		this.playerState = this.youtubePlayerService.player.getPlayerState();
 		if ( this.playerState == 1 || this.playerState == 3) {
 			this.youtubePlayerService.pauseVideo();
-			this.playOrPauseIcon = "play_arrow";
+			// this.playOrPauseIcon = this.playerState;
 		}
 
 		else {
 			this.youtubePlayerService.playVideo();
-			this.playOrPauseIcon = "pause";
+			// this.playOrPauseIcon = this.playerState;
 		}
 	}
 
