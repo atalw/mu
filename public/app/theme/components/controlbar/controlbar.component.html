@@ -3,16 +3,13 @@
 	#main-control {
 	}
 	#buttons {
-		cursor: pointer;
+
 	}
 	.control {
-		/*padding-left: 10px;*/
 		top: 0;
-		/*color: rgb(255,82,82);*/
+		cursor: pointer;
 	}
-	.video-functions {
-		/*float: left;*/
-		/*padding-top: 1.2em;*/
+	.options {
 		text-align: center;
 	}
 	.scrub-bar {
@@ -49,9 +46,9 @@
 				<div class="col-sm-1 duration">{{totalTime | convertSeconds}}</div>
 			</div>
 		</div>
-		<div class="col-sm-3 video-functions">
+		<div class="col-sm-3 options">
 			<div class="row">
-				<div class="col-sm-6 loop" (click)="shufflePlaylist()" [style.color]="shuffle ? 'green' : 'black'"><md-icon>shuffle</md-icon></div>
-				<div class="col-sm-6 video-link"><md-icon>link</md-icon></div>
+				<div class="col-sm-6" (click)="shufflePlaylist()" [style.color]="shuffle ? 'green' : 'black'"><md-icon class="control">shuffle</md-icon></div>
+				<div class="col-sm-6"><md-icon class="control">link</md-icon></div>
 			</div>
 		</div>
