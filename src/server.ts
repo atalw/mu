@@ -22,7 +22,7 @@ app.engine('.html', expressEngine);
 app.set('views', __dirname);
 app.set('view engine', 'html');
 
-app.use(cookieParser('Angular 2 Universal'));
+app.use(cookieParser('Playlister'));
 app.use(bodyParser.json());
 
 // Serve static files
