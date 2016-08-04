@@ -1,0 +1,74 @@
+<style type="text/css">
+	.playlists {
+		/*position: absolute;*/
+		padding: 1.5em;
+		overflow-y: scroll;
+    padding-bottom: 4em;
+    height: 100%;
+  }
+  .playlist{
+    /*padding: 10px;*/
+    /*background-color: rgba(0,0,0,0.0);*/
+    background-color: rgb(255,255,255);
+    margin-bottom: 0.8em;
+    padding: 0;
+  }
+  .padding-04 {
+    padding-left: 0.8em;
+    padding-right: 0.8em;
+  }
+  .title {
+    flex: 1 1 auto;
+  }
+  /*md-toolbar md-toolbar-row {
+    height: 30px;
+  }*/
+
+  .actions {
+
+  }
+  .playlist-data {
+    overflow: auto;
+    /*max-height: 40%; find fix for this*/
+    height: 45vh;
+  }
+  .playlist-head{
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    padding: 5px;
+    margin: auto;
+  }
+  .playlist-field{
+    padding: 10px;
+    /*border-bottom: 1px solid rgba(0,0,0,0.1);*/
+  }
+</style>
+
+<div class="playlists row">
+	<div class="col-sm-12 col-md-12 col-lg-6 col-xl-4 padding-04" *ngFor="let playlist of playlists; let parentIndex = index">
+    <md-card class="playlist">
+    <md-toolbar color="accent" class="playlistToolbar">
+      <span class="title">{{playlist.snippet.title}}</span>
+        <span>
+          <button md-icon-button class="actions"><md-icon>playlist_play</md-icon></button>
+          <button md-icon-button class="actions"><md-icon>file_download</md-icon></button>
+          <button md-icon-button class="actions"><md-icon>favorite_border</md-icon></button>
+        </span>
+    </md-toolbar>
+
+      <!-- <md-card-title class="playlistTitle">{{playlist.snippet.title}}</md-card-title> -->
+
+      <md-card-content class="playlist-data">
+
+
+        <div *ngIf="playlist?.items" class="loader1">
+          <svg viewBox="0 0 32 32" width="32" height="32">
+           <circle id="spinner" cx="16" cy="16" r="14" fill="none"></circle>
+         </svg>
+        </div>
+
+        <mu-video-list [playlistId]="playlist.id"></mu-video-list>
+
+      </md-card-content>
+    </md-card>
+  </div>
+</div>
