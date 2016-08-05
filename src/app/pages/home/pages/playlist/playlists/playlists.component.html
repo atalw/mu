@@ -9,28 +9,39 @@
   .playlist{
     /*padding: 10px;*/
     /*background-color: rgba(0,0,0,0.0);*/
-    background-color: rgb(255,255,255);
+    /*background-color: rgb(255,255,255); was this*/
+     background: rgb(33,33,33);
+    color: rgb(255,255,255);
     margin-bottom: 0.8em;
     padding: 0;
   }
   .padding-04 {
     padding-left: 0.8em;
     padding-right: 0.8em;
+    padding-bottom: 0.8em;
   }
   .title {
     flex: 1 1 auto;
+    height: 50px;
   }
   /*md-toolbar md-toolbar-row {
     height: 30px;
   }*/
 
   .actions {
-
+    height: 50px;
+  }
+  .favourite_action {
+    /*color: rgb(255,126,52);*/
+  }
+  .playlistToolbar {
+    min-height: 50px;
+    height: 50px;
   }
   .playlist-data {
     overflow: auto;
     /*max-height: 40%; find fix for this*/
-    height: 45vh;
+    height: 35vh;
   }
   .playlist-head{
     border-bottom: 1px solid rgba(0,0,0,0.1);
@@ -46,12 +57,11 @@
 <div class="playlists row">
 	<div class="col-sm-12 col-md-12 col-lg-6 col-xl-4 padding-04" *ngFor="let playlist of playlists; let parentIndex = index">
     <md-card class="playlist">
-    <md-toolbar color="accent" class="playlistToolbar">
+    <md-toolbar color="primary" class="playlistToolbar">
       <span class="title">{{playlist.snippet.title}}</span>
-        <span>
-          <button md-icon-button class="actions"><md-icon>playlist_play</md-icon></button>
-          <button md-icon-button class="actions"><md-icon>file_download</md-icon></button>
-          <button md-icon-button class="actions"><md-icon>favorite_border</md-icon></button>
+        <span class="actions">
+          <button md-icon-button><md-icon>playlist_play</md-icon></button>
+          <button md-icon-button class="favourite_action"><md-icon>favorite_border</md-icon></button>
         </span>
     </md-toolbar>
 

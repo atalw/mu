@@ -15,11 +15,9 @@ import { RelatedVideosService } from '../../../../../services/related-videos.ser
 	animations: [
 		trigger('state', [
 			state('inactive', style({
-				backgroundColor: '#fff',
 				// transform: 'scale(1)'
 			})),
 			state('active', style({
-				backgroundColor: '#4CAF50',
 				// transform: 'scale(1.1)'
 			})),
 			transition('inactive => active', animate('100ms ease-in')),

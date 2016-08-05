@@ -21,6 +21,9 @@
   <base href="/">
 
   <style type="text/css">
+    body {
+      color: rgb(255,255,255);
+    }
     .padding-0 {
       padding-left: 0;
       padding-right: 0;
@@ -33,18 +36,33 @@
       font-family: 'Material Icons';
     }
     md-toolbar.md-primary {
-      background: #0288D1 !important;
+      /*background: #0288D1 !important; was this*/
+      /*background: rgb(36,36,36) !important;*/
+      background: rgb(66,75,75) !important;
       /*background: #212121 !important;*/
     }
     .md-primary {
       background: #03A9F4;
     }
     md-toolbar.md-accent {
-      background: #4CAF50 !important;
+      /*background: #4CAF50 !important;*/
+      background: rgb(59,129,131) !important;
     }
     md-list-item.active .md-list-item{
-      backgroud: red !important;
+      background: rgb(78,81,81) !important;
     }
+    .md-tab-header {
+      border-bottom: 1px solid rgb(36,36,36) !important;
+  }
+  md-nav-list[dense] md-list-item .md-list-item {
+    color: rgba(255,255,255, 0.87) !important;
+  }
+  md-nav-list a[md-list-item] .md-list-item {
+    color: rgba(255,255,255,0.9) !important;
+  }
+  md-nav-list .md-list-item:hover {
+    background: rgba(0,0,0,0.1) !important;
+  }
     /* Rules for sizing the icon. */
     .material-icons.md-18 { font-size: 18px; }
     .material-icons.md-24 { font-size: 24px; }
