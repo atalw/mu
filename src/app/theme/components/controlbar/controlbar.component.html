@@ -8,12 +8,16 @@
 	.control {
 		top: 0;
 		cursor: pointer;
+		color: rgb(59,129,131);
+	}
+	.control.active {
+		color: rgb(139,195,74);
 	}
 	.options {
 		text-align: center;
 	}
 	.scrub-bar {
-		/*padding-top: 1.2em;*/
+		margin-top: 1%;
 	}
 	.elapsedTime {
 		text-align: center;
@@ -31,13 +35,24 @@
 
 </style>
 
-
-		<div class="col-sm-2" id="buttons">
-			<a class="control" (click)="prev()"><md-icon class="">fast_rewind</md-icon></a>
-			<a class="control" (click)="playOrPause()"><md-icon class="">{{playerStateIcon}}</md-icon></a>
-			<a class="control" (click)="next()"><md-icon class="">fast_forward</md-icon></a>
+		<div class="col-xs-6 col-sm-6 col-md-4 col-lg-2" id="buttons">
+			<button md-icon-button class="control" (click)="prev()">
+				<span>
+					<md-icon class="md-24">fast_rewind</md-icon>
+				</span>
+			</button>
+			<button md-icon-button class="control" (click)="playOrPause()">
+				<span>
+					<md-icon class="md-36">{{playerStateIcon}}</md-icon>
+				</span>
+			</button>
+			<button md-icon-button class="control" (click)="next()">
+				<span>
+					<md-icon class="md-24">fast_forward</md-icon>
+				</span>
+			</button>
 		</div>
-		<div class="col-sm-7 scrub-bar">
+		<div class="hidden-xs hidden-sm hidden-md col-lg-7 scrub-bar">
 			<div class="row">
 				<div class="col-sm-1 elapsedTime">{{elapsedTime | convertSeconds}}</div>
 				<div id="seekBar" class="col-sm-10 bar">
@@ -46,9 +61,22 @@
 				<div class="col-sm-1 duration">{{totalTime | convertSeconds}}</div>
 			</div>
 		</div>
-		<div class="col-sm-3 options">
+		<div class="col-xs-6 col-sm-6 col-md-8 col-lg-3 options">
 			<div class="row">
-				<div class="col-sm-6" (click)="shufflePlaylist()" [style.color]="shuffle ? 'green' : 'black'"><md-icon class="control">shuffle</md-icon></div>
-				<div class="col-sm-6"><md-icon class="control">link</md-icon></div>
+				<div class="col-xs-4">
+					<button md-icon-button (click)="shufflePlaylist()">
+						<md-icon class="control" [class.active]="shuffle === true">shuffle</md-icon>
+					</button>
+				</div>
+				<div class="col-xs-4">
+					<button md-icon-button>
+						<md-icon class="control">plus_one</md-icon>
+					</button>
+				</div>
+				<div class="col-xs-4">
+					<button md-icon-button>
+						<md-icon class="control">public</md-icon>
+					</button>
+				</div>
 			</div>
 		</div>
