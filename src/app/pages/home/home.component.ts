@@ -63,7 +63,13 @@ import { RelatedVideosService } from '../../services/related-videos.service';
 })
 
 export class HomeComponent{
-	dataLoaded: boolean = true;
+	private windowWidth;
+
+	private leftNavMode : string;
+	private leftNavOpen : boolean;
+
+	private rightNavMode : string;
+	private rightNavOpen : boolean;
 
 	private views = [
 		{
@@ -93,6 +99,24 @@ export class HomeComponent{
 		public youtubeAuthService: YoutubeAuthService,
 		public relatedVideosService: RelatedVideosService) {
 
+			if (window.innerWidth < 768) { // small devices
+				this.leftNavMode = 'over';
+				this.leftNavOpen = false;
+				this.rightNavMode = 'over';
+				this.rightNavOpen = false
+			}
+			else if (window.innerWidth < 1024) { // tablets landscape
+				this.leftNavMode = 'over';
+				this.leftNavOpen = false;
+				this.rightNavMode = 'side';
+				this.rightNavOpen = true
+			}
+			else {
+				this.leftNavMode = 'side';
+				this.leftNavOpen = true;
+				this.rightNavMode = 'side';
+				this.rightNavOpen = true;
+			}
 	}
 
 	ngOnInit() {}

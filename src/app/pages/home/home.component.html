@@ -64,7 +64,7 @@
 <div id="page">
   <md-sidenav-layout class="sidenav-layout" >
 
-    <md-sidenav #start mode="side" opened="true" class="left-sidenav">
+    <md-sidenav #start [mode]="leftNavMode" [opened]="leftNavOpen" class="left-sidenav">
       <md-nav-list>
         <a md-list-item *ngFor="let view of views" [routerLink]="[view.link]">
           <md-icon md-list-icon>{{view.icon}}</md-icon>
@@ -77,7 +77,7 @@
       </md-nav-list>
     </md-sidenav>
 
-    <md-sidenav #end id="right-bar" align="end" opened="true" mode="side" class="right-sidenav">
+    <md-sidenav #end id="right-bar" align="end" [opened]="rightNavOpen" [mode]="rightNavMode" class="right-sidenav">
       <mu-video-player></mu-video-player>
       <mu-info></mu-info>
     </md-sidenav>
