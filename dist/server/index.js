@@ -46,11 +46,11 @@ module.exports =
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(__dirname) {"use strict";
-	__webpack_require__(58);
-	var path = __webpack_require__(63);
-	var express = __webpack_require__(61);
-	var bodyParser = __webpack_require__(59);
-	var cookieParser = __webpack_require__(60);
+	__webpack_require__(59);
+	var path = __webpack_require__(64);
+	var express = __webpack_require__(62);
+	var bodyParser = __webpack_require__(60);
+	var cookieParser = __webpack_require__(61);
 	var core_1 = __webpack_require__(1);
 	var angular2_universal_1 = __webpack_require__(19);
 	core_1.enableProdMode();
@@ -153,6 +153,9 @@ module.exports =
 	                        'onReady': _this.onPlayerReady,
 	                        'onStateChange': _this.onStateChange,
 	                        'onError': _this.onError
+	                    },
+	                    playerVars: {
+	                        playsinline: 1
 	                    }
 	                });
 	                resolve(_this.player);
@@ -508,7 +511,7 @@ module.exports =
 	var info_component_1 = __webpack_require__(50);
 	var videoPlayer_component_1 = __webpack_require__(53);
 	var controlbar_component_1 = __webpack_require__(48);
-	var sidenav_1 = __webpack_require__(57);
+	var sidenav_1 = __webpack_require__(58);
 	var button_1 = __webpack_require__(10);
 	var icon_1 = __webpack_require__(5);
 	var toolbar_1 = __webpack_require__(18);
@@ -634,7 +637,7 @@ module.exports =
 	};
 	var core_1 = __webpack_require__(1);
 	var http_1 = __webpack_require__(9);
-	__webpack_require__(64);
+	__webpack_require__(65);
 	var SubredditsService = (function () {
 	    function SubredditsService(http) {
 	        this.http = http;
@@ -871,7 +874,7 @@ module.exports =
 /* 37 */
 /***/ function(module, exports) {
 
-	module.exports = "<style type=\"text/css\">\n\t* {\n\t}\n\t.video {\n\t}\n</style>\n<div class=\"video embed-responsive embed-responsive-16by9\">\n\t<div class=\"embed-responsive-item\">\n\t\t<div id=\"player\"></div>\n\t</div>\n</div>\n\n<div class=\"video-actions\">\n\t<button md-button>Add to playlist</button>\n</div>"
+	module.exports = "<style type=\"text/css\">\n\t* {\n\t}\n\t.video {\n\t}\n</style>\n<div class=\"video embed-responsive embed-responsive-16by9\">\n\t<div class=\"embed-responsive-item\">\n\t\t<div id=\"player\"></div>\n\t</div>\n</div>\n\n<div class=\"video-actions\">\n\t<button md-button [md-menu-trigger-for]=\"m\">Add to playlist</button>\n\t<md-menu #m=\"mdMenu\">\n      <button md-menu-item *ngFor=\"let item of items\" (click)=\"select(item.text)\" [disabled]=\"item.disabled\">\n        {{ item.text }}\n      </button>\n    </md-menu>\n</div>"
 
 /***/ },
 /* 38 */
@@ -1613,7 +1616,7 @@ module.exports =
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(1);
-	var moment = __webpack_require__(62);
+	var moment = __webpack_require__(63);
 	var ConvertSecondsPipe = (function () {
 	    function ConvertSecondsPipe() {
 	    }
@@ -1770,17 +1773,25 @@ module.exports =
 	};
 	var core_1 = __webpack_require__(1);
 	var button_1 = __webpack_require__(10);
+	var menu_1 = __webpack_require__(57);
 	var VideoPlayerComponent = (function () {
 	    function VideoPlayerComponent() {
+	        this.items = [
+	            { text: 'Refresh' },
+	            { text: 'Settings' },
+	            { text: 'Help' },
+	            { text: 'Sign Out', disabled: true }
+	        ];
 	    }
 	    VideoPlayerComponent.prototype.ngAfterViewInit = function () {
 	    };
+	    VideoPlayerComponent.prototype.select = function (text) { this.selected = text; };
 	    VideoPlayerComponent = __decorate([
 	        core_1.Component({
 	            moduleId: module.id,
 	            selector: 'mu-video-player',
 	            template: __webpack_require__(37),
-	            directives: [button_1.MD_BUTTON_DIRECTIVES]
+	            directives: [button_1.MD_BUTTON_DIRECTIVES, menu_1.MD_MENU_DIRECTIVES, menu_1.MdMenu]
 	        }), 
 	        __metadata('design:paramtypes', [])
 	    ], VideoPlayerComponent);
@@ -1797,7 +1808,7 @@ module.exports =
 	var angular2_universal_1 = __webpack_require__(19);
 	var router_1 = __webpack_require__(2);
 	var common_1 = __webpack_require__(55);
-	var app_component_1 = __webpack_require__(38);
+	var app_module_1 = __webpack_require__(66);
 	var app_routes_1 = __webpack_require__(39);
 	var youtube_auth_service_1 = __webpack_require__(4);
 	var auth_guard_1 = __webpack_require__(17);
@@ -1806,7 +1817,7 @@ module.exports =
 	    var url = req.originalUrl || '/';
 	    var config = {
 	        directives: [
-	            app_component_1.AppComponent
+	            app_module_1.AppModule
 	        ],
 	        platformProviders: [
 	            { provide: angular2_universal_1.ORIGIN_URL, useValue: 'http://localhost:3000' },
@@ -1844,49 +1855,94 @@ module.exports =
 /* 57 */
 /***/ function(module, exports) {
 
-	module.exports = require("@angular2-material/sidenav");
+	module.exports = require("@angular2-material/menu/menu");
 
 /***/ },
 /* 58 */
 /***/ function(module, exports) {
 
-	module.exports = require("angular2-universal/polyfills");
+	module.exports = require("@angular2-material/sidenav");
 
 /***/ },
 /* 59 */
 /***/ function(module, exports) {
 
-	module.exports = require("body-parser");
+	module.exports = require("angular2-universal/polyfills");
 
 /***/ },
 /* 60 */
 /***/ function(module, exports) {
 
-	module.exports = require("cookie-parser");
+	module.exports = require("body-parser");
 
 /***/ },
 /* 61 */
 /***/ function(module, exports) {
 
-	module.exports = require("express");
+	module.exports = require("cookie-parser");
 
 /***/ },
 /* 62 */
 /***/ function(module, exports) {
 
-	module.exports = require("moment");
+	module.exports = require("express");
 
 /***/ },
 /* 63 */
 /***/ function(module, exports) {
 
-	module.exports = require("path");
+	module.exports = require("moment");
 
 /***/ },
 /* 64 */
 /***/ function(module, exports) {
 
+	module.exports = require("path");
+
+/***/ },
+/* 65 */
+/***/ function(module, exports) {
+
 	module.exports = require("rxjs/add/operator/toPromise");
+
+/***/ },
+/* 66 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var core_1 = __webpack_require__(1);
+	var platform_browser_1 = __webpack_require__(67);
+	var app_component_1 = __webpack_require__(38);
+	var AppModule = (function () {
+	    function AppModule() {
+	    }
+	    AppModule = __decorate([
+	        core_1.NgModule({
+	            declarations: [app_component_1.AppComponent],
+	            imports: [platform_browser_1.BrowserModule],
+	            bootstrap: [app_component_1.AppComponent],
+	        }), 
+	        __metadata('design:paramtypes', [])
+	    ], AppModule);
+	    return AppModule;
+	}());
+	exports.AppModule = AppModule;
+
+
+/***/ },
+/* 67 */
+/***/ function(module, exports) {
+
+	module.exports = require("@angular/platform-browser");
 
 /***/ }
 /******/ ]);

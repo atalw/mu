@@ -4,6 +4,7 @@ import { provideRouter } from '@angular/router';
 import { HTTP_PROVIDERS } from '@angular/http';
 
 // Application
+import { AppModule } from './app/app.module';
 import {AppComponent} from './app/app.component';
 import {routes} from './app/app.routes';
 
@@ -12,7 +13,7 @@ import { AuthGuard } from './app/services/auth-guard';
 
 // you must return bootstrap for client.ts
 export function ngApp() {
-  return bootstrap(AppComponent, [
+  return bootstrap(AppModule, [
     ...HTTP_PROVIDERS,
     provideRouter(routes),
     YoutubeAuthService,

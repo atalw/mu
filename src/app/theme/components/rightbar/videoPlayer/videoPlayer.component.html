@@ -11,5 +11,10 @@
 </div>
 
 <div class="video-actions">
-	<button md-button>Add to playlist</button>
+	<button md-button [md-menu-trigger-for]="m">Add to playlist</button>
+	<md-menu #m="mdMenu">
+      <button md-menu-item *ngFor="let item of items" (click)="select(item.text)" [disabled]="item.disabled">
+        {{ item.text }}
+      </button>
+    </md-menu>
 </div>

@@ -34,6 +34,9 @@ export class YoutubePlayerService {
 						'onReady': this.onPlayerReady,
 						'onStateChange': this.onStateChange,
 						'onError': this.onError
+					},
+					playerVars: {
+						playsinline: 1
 					}
 				});
 				resolve(this.player);
